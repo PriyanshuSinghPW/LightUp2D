@@ -1,0 +1,58 @@
+{
+  "levelId": "atomic_numbers_v1",
+  "title": "Atomic Numbers",
+  "mode": "endless",
+  "sequence": {
+    "type": "arithmetic",
+    "step": 1,
+    "preview": [1, 2, 3, 4],
+    "maxValue": 118,
+    "displayFormat": "atomic"
+  },
+  "hud": {
+    "showRule": true,
+    "ruleText": "Atomic Numbers: +1"
+  },
+  "objective": {
+    "correctToClearMilestone": 15,
+    "milestoneBadge": "ATM-Novice"
+  },
+  "scoring": {
+    "xpPerCorrect": 10
+  },
+  "failConditions": {
+    "wrongPickEndsRun": true,
+    "selfCollisionEndsRun": true,
+    "wallCollisionEndsRun": true
+  },
+  "arena": {
+    "bounds": { "width": 1.0, "height": 1.0 },
+    "mazeWalls": {
+      "enabled": false,
+      "gameOverOnCornerTouch": true
+    }
+  },
+  "snake": {
+    "baseSpeed": 2.5,
+    "speedPerCorrect": 0.05,
+    "maxSpeed": 8.0,
+    "growthPerCorrect": 1
+  },
+  "optionsSchedule": [
+    { "fromCorrectIndex": 1, "toCorrectIndex": 15, "optionsCount": 3 },
+    { "fromCorrectIndex": 16, "toCorrectIndex": 30, "optionsCount": 4 },
+    { "fromCorrectIndex": 31, "toCorrectIndex": 60, "optionsCount": 6 }
+  ],
+  "spawner": {
+    "spawnPadding": 0.06,
+    "minDistanceBetweenOptions": 150,
+    "respawnDelaySeconds": 0.5
+  },
+  "distractors": {
+    "strategy": "near_target_offsets_then_random",
+    "generators": [
+      { "type": "offsetFromTarget", "offsets": [-1, 1, -2, 2] },
+      { "type": "randomInRange", "rangeMin": 1, "rangeMax": 118 }
+    ]
+  }
+}

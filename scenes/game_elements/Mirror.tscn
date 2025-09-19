@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpo0j6t13rmtk"]
+
+[ext_resource type="Script" uid="uid://oqfhyef7k6di" path="res://scripts/game_elements/Mirror.gd" id="1_mirror_gd"]
+[ext_resource type="Texture2D" uid="uid://wm164i4slk73" path="res://assets/sprites/mirror/mirrrorclearF.png" id="2_feyh1"]
+
+[sub_resource type="CircleShape2D" id="Resource_mirror_shape"]
+radius = 60.0
+
+[node name="Mirror" type="Area2D"]
+script = ExtResource("1_mirror_gd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_feyh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("Resource_mirror_shape")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

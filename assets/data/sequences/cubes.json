@@ -1,0 +1,55 @@
+{
+  "levelId": "cubes_v1",
+  "title": "Perfect Cubes",
+  "mode": "endless",
+  "sequence": {
+    "type": "cubes",
+    "preview": [1, 8, 27, 64],
+    "maxValue": 1000
+  },
+  "hud": {
+    "showRule": true,
+    "ruleText": "Perfect Cubes"
+  },
+  "objective": {
+    "correctToClearMilestone": 10,
+    "milestoneBadge": "CUB-Novice"
+  },
+  "scoring": {
+    "xpPerCorrect": 15
+  },
+  "failConditions": {
+    "wrongPickEndsRun": true,
+    "selfCollisionEndsRun": true,
+    "wallCollisionEndsRun": true
+  },
+  "arena": {
+    "bounds": { "width": 1.0, "height": 1.0 },
+    "mazeWalls": {
+      "enabled": false,
+      "gameOverOnCornerTouch": true
+    }
+  },
+  "snake": {
+    "baseSpeed": 2.5,
+    "speedPerCorrect": 0.05,
+    "maxSpeed": 8.0,
+    "growthPerCorrect": 1
+  },
+  "optionsSchedule": [
+    { "fromCorrectIndex": 1, "toCorrectIndex": 10, "optionsCount": 3 },
+    { "fromCorrectIndex": 11, "toCorrectIndex": 20, "optionsCount": 4 }
+  ],
+  "spawner": {
+    "spawnPadding": 0.06,
+    "minDistanceBetweenOptions": 150,
+    "respawnDelaySeconds": 0.5
+  },
+  "distractors": {
+    "strategy": "near_target_offsets_then_random",
+    "generators": [
+      { "type": "offsetFromTarget", "offsets": [-1, 1, -2, 2, -3, 3] },
+      { "type": "randomInRange", "rangeMin": 1, "rangeMax": 1000 }
+    ]
+  }
+}

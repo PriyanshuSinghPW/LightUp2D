@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://6ukj878gi6ak"]
+
+[ext_resource type="Script" uid="uid://d3x22evpcnk0v" path="res://scenes/effects/shatter_2d_effect.gd" id="1_jo861"]
+[ext_resource type="Texture2D" uid="uid://cg67m8uwrxf2n" path="res://assets/Sequence/sequence circle yellow.png" id="1_n30n0"]
+
+[node name="Shatter2d" type="Node2D"]
+z_index = 5
+script = ExtResource("1_jo861")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+texture = ExtResource("1_n30n0")
+lifetime = 0.8
+one_shot = true
+explosiveness = 0.43
+direction = Vector2(1, -1)
+spread = 180.0
+gravity = Vector2(0, 300)
+initial_velocity_min = 120.0
+initial_velocity_max = 250.0
+scale_amount_min = 0.05
+scale_amount_max = 0.1

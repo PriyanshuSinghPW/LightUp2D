@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://ieb1t76k5o15"]
+
+[ext_resource type="Shader" uid="uid://uvx3yc86fnbm" path="res://assets/Shaders/simple_blur.gdshader" id="1_qgppf"]
+
+[resource]
+shader = ExtResource("1_qgppf")
+shader_parameter/lod = 4.0

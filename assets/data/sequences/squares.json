@@ -1,0 +1,55 @@
+{
+  "levelId": "squares_v1",
+  "title": "Perfect Squares",
+  "mode": "endless",
+  "sequence": {
+    "type": "squares",
+    "preview": [1, 4, 9, 16],
+    "maxValue": 400
+  },
+  "hud": {
+    "showRule": true,
+    "ruleText": "Perfect Squares"
+  },
+  "objective": {
+    "correctToClearMilestone": 15,
+    "milestoneBadge": "SQR-Novice"
+  },
+  "scoring": {
+    "xpPerCorrect": 10
+  },
+  "failConditions": {
+    "wrongPickEndsRun": true,
+    "selfCollisionEndsRun": true,
+    "wallCollisionEndsRun": true
+  },
+  "arena": {
+    "bounds": { "width": 1.0, "height": 1.0 },
+    "mazeWalls": {
+      "enabled": false,
+      "gameOverOnCornerTouch": true
+    }
+  },
+  "snake": {
+    "baseSpeed": 2.5,
+    "speedPerCorrect": 0.05,
+    "maxSpeed": 8.0,
+    "growthPerCorrect": 1
+  },
+  "optionsSchedule": [
+    { "fromCorrectIndex": 1, "toCorrectIndex": 15, "optionsCount": 3 },
+    { "fromCorrectIndex": 16, "toCorrectIndex": 30, "optionsCount": 4 }
+  ],
+  "spawner": {
+    "spawnPadding": 0.06,
+    "minDistanceBetweenOptions": 150,
+    "respawnDelaySeconds": 0.5
+  },
+  "distractors": {
+    "strategy": "near_target_offsets_then_random",
+    "generators": [
+      { "type": "offsetFromTarget", "offsets": [-1, 1, -2, 2] },
+      { "type": "randomInRange", "rangeMin": 1, "rangeMax": 400 }
+    ]
+  }
+}

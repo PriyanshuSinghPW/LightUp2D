@@ -1,0 +1,55 @@
+{
+  "levelId": "powers_of_two_v1",
+  "title": "Powers of 2",
+  "mode": "endless",
+  "sequence": {
+    "type": "powers_of_two",
+    "preview": [1, 2, 4, 8],
+    "maxValue": 1024
+  },
+  "hud": {
+    "showRule": true,
+    "ruleText": "Powers of 2"
+  },
+  "objective": {
+    "correctToClearMilestone": 10,
+    "milestoneBadge": "POW2-Novice"
+  },
+  "scoring": {
+    "xpPerCorrect": 15
+  },
+  "failConditions": {
+    "wrongPickEndsRun": true,
+    "selfCollisionEndsRun": true,
+    "wallCollisionEndsRun": true
+  },
+  "arena": {
+    "bounds": { "width": 1.0, "height": 1.0 },
+    "mazeWalls": {
+      "enabled": false,
+      "gameOverOnCornerTouch": true
+    }
+  },
+  "snake": {
+    "baseSpeed": 2.5,
+    "speedPerCorrect": 0.05,
+    "maxSpeed": 8.0,
+    "growthPerCorrect": 1
+  },
+  "optionsSchedule": [
+    { "fromCorrectIndex": 1, "toCorrectIndex": 10, "optionsCount": 3 },
+    { "fromCorrectIndex": 11, "toCorrectIndex": 20, "optionsCount": 4 }
+  ],
+  "spawner": {
+    "spawnPadding": 0.06,
+    "minDistanceBetweenOptions": 150,
+    "respawnDelaySeconds": 0.5
+  },
+  "distractors": {
+    "strategy": "near_target_offsets_then_random",
+    "generators": [
+      { "type": "offsetFromTarget", "offsets": [-1, 1] },
+      { "type": "randomInRange", "rangeMin": 1, "rangeMax": 1024 }
+    ]
+  }
+}

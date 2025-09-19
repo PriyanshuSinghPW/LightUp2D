@@ -1,0 +1,55 @@
+{
+  "levelId": "primes_v1",
+  "title": "Prime Numbers",
+  "mode": "endless",
+  "sequence": {
+    "type": "primes",
+    "preview": [2, 3, 5, 7],
+    "maxValue": 100
+  },
+  "hud": {
+    "showRule": true,
+    "ruleText": "Prime Numbers"
+  },
+  "objective": {
+    "correctToClearMilestone": 12,
+    "milestoneBadge": "PRM-Novice"
+  },
+  "scoring": {
+    "xpPerCorrect": 20
+  },
+  "failConditions": {
+    "wrongPickEndsRun": true,
+    "selfCollisionEndsRun": true,
+    "wallCollisionEndsRun": true
+  },
+  "arena": {
+    "bounds": { "width": 1.0, "height": 1.0 },
+    "mazeWalls": {
+      "enabled": false,
+      "gameOverOnCornerTouch": true
+    }
+  },
+  "snake": {
+    "baseSpeed": 2.5,
+    "speedPerCorrect": 0.05,
+    "maxSpeed": 8.0,
+    "growthPerCorrect": 1
+  },
+  "optionsSchedule": [
+    { "fromCorrectIndex": 1, "toCorrectIndex": 12, "optionsCount": 3 },
+    { "fromCorrectIndex": 13, "toCorrectIndex": 25, "optionsCount": 4 }
+  ],
+  "spawner": {
+    "spawnPadding": 0.06,
+    "minDistanceBetweenOptions": 150,
+    "respawnDelaySeconds": 0.5
+  },
+  "distractors": {
+    "strategy": "near_target_offsets_then_random",
+    "generators": [
+      { "type": "offsetFromTarget", "offsets": [-1, 1, 2, -2] },
+      { "type": "randomInRange", "rangeMin": 1, "rangeMax": 100 }
+    ]
+  }
+}
