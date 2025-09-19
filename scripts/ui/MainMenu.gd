@@ -15,4 +15,3 @@ func _ready():
 func _on_play_button_pressed():
 	# When the button is pressed, tell the GameManager to start the game.
 	GameManager.start_game()
-
