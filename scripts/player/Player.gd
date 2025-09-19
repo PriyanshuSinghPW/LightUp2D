@@ -5,15 +5,20 @@ extends CharacterBody2D
 # We'll get the speed from our global constants file.
 var speed = Constants.PLAYER_DEFAULTS.speed
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	animated_sprite.play("player")
+
 func _physics_process(delta: float) -> void:
-    # Get the input direction and handle the movement/animation.
-    var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-    velocity = input_direction * speed
-    
-    move_and_slide()
-    
-    # Optional: Add animation handling here later.
-    # update_animation(input_direction)
+	# Get the input direction and handle the movement/animation.
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	velocity = input_direction * speed
+	
+	move_and_slide()
+	
+	# Optional: Add animation handling here later.
+	# update_animation(input_direction)
 
 # Example for animation handling (we can implement this later)
 # func update_animation(direction: Vector2) -> void:

@@ -8,6 +8,10 @@ var is_being_dragged: bool = false
 # Store the initial rotation and mouse angle when dragging starts
 var initial_rotation: float = 0.0
 var initial_mouse_angle: float = 0.0
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready() -> void:
+	animated_sprite.play("MirrorAnim")
 
 func _process(_delta: float) -> void:
 	# If the mirror is being dragged, calculate the new rotation
@@ -39,5 +43,3 @@ func _unhandled_input(event: InputEvent) -> void:
 	# anywhere on the screen, not just over the mirror.
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
 		is_being_dragged = false
-
-
