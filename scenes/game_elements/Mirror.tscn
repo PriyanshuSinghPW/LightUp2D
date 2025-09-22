@@ -1,13 +1,12 @@
 [gd_scene load_steps=37 format=3 uid="uid://1elef37g4twu"]
 
 [ext_resource type="Script" uid="uid://oqfhyef7k6di" path="res://scripts/game_elements/Mirror.gd" id="1_h74j2"]
-[ext_resource type="Texture2D" uid="uid://wm164i4slk73" path="res://assets/sprites/mirror/mirrrorclearF.png" id="2_lvnfx"]
 [ext_resource type="Texture2D" uid="uid://hfv1ame8ciy3" path="res://assets/sprites/sprite_sheet_5x62.png" id="3_8t3ti"]
 [ext_resource type="Texture2D" uid="uid://cf45w55l6ye0o" path="res://assets/sprites/mirror/arrow.png" id="4_5ylig"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ylig"]
-radius = 47.787
-height = 177.211
+radius = 76.1053
+height = 165.298
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_brv20"]
 atlas = ExtResource("3_8t3ti")
@@ -227,17 +226,16 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_81025"]
+radius = 6.0
+height = 168.0
+
 [node name="Mirror" type="Area2D" groups=["Mirrors"]]
 script = ExtResource("1_h74j2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_lvnfx")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="rotate" type="CollisionShape2D" parent="."]
 top_level = true
-position = Vector2(-9, -40)
+position = Vector2(-8, 12)
 scale = Vector2(1.69502, 1.34303)
 shape = SubResource("CapsuleShape2D_5ylig")
 
@@ -252,7 +250,14 @@ rotation = 3.14159
 texture = ExtResource("4_5ylig")
 
 [node name="ForwardDirection" type="Marker2D" parent="FunctionalRotation"]
-position = Vector2(1, 39)
+position = Vector2(1, 45)
 rotation = 1.5708
+
+[node name="ReflectionArea" type="Area2D" parent="." groups=["Mirrors"]]
+collision_layer = 2
+
+[node name="Reflectioncollision" type="CollisionShape2D" parent="ReflectionArea"]
+position = Vector2(0, -82)
+shape = SubResource("CapsuleShape2D_81025")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

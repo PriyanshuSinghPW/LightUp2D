@@ -18,8 +18,7 @@ position = Vector2(100, 300)
 [node name="LaserBeam2D" parent="LightSource" instance=ExtResource("2_light_beam")]
 
 [node name="LightTarget" type="Area2D" parent="."]
-position = Vector2(128, 662)
-collision_layer = 2
+position = Vector2(128, 663)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -32,7 +31,7 @@ offset_bottom = 20.0
 color = Color(1, 1, 0, 1)
 
 [node name="Mirror" parent="." instance=ExtResource("3_3wv3p")]
-position = Vector2(461, 351)
+position = Vector2(464, 351)
 scale = Vector2(0.8, 0.8)
 
 [node name="Mirror2" parent="." instance=ExtResource("3_3wv3p")]
