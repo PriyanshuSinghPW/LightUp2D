@@ -11,11 +11,25 @@ const FRAME_0_ROTATION_OFFSET: float = PI / 2.0 # 90 degrees for "down"
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 # This is the new node that will handle the invisible, functional rotation
 @onready var functional_rotation_node: Node2D = $FunctionalRotation
+@onready var debug_pointer: Sprite2D = $FunctionalRotation/DebugPointer
 
 # --- Drag State ---
 var is_being_dragged: bool = false
 var initial_rotation: float = 0.0
 var initial_mouse_angle: float = 0.0
+
+func get_redirect_direction() -> Vector2:
+	"""
+	Returns the direction vector the mirror should redirect light towards.
+	This is determined by the DebugPointer's global rotation.
+	"""
+	if debug_pointer:
+		# The DebugPointer's orientation directly controls the output direction.
+		return Vector2.from_angle(debug_pointer.global_rotation)
+	else:
+		# Fallback in case the node is missing
+		return Vector2.RIGHT
+
 
 func _ready() -> void:
 	if not animated_sprite or not functional_rotation_node:
