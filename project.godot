@@ -39,6 +39,10 @@ project/assembly_name="snake knwolege AP"
 
 enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 
+[global_group]
+
+Mirrors=""
+
 [input]
 
 move_down={
