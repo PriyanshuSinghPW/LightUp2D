@@ -234,6 +234,7 @@ height = 168.0
 script = ExtResource("1_h74j2")
 
 [node name="rotate" type="CollisionShape2D" parent="."]
+visible = false
 top_level = true
 position = Vector2(-8, 12)
 scale = Vector2(1.69502, 1.34303)
@@ -258,6 +259,7 @@ collision_layer = 2
 
 [node name="Reflectioncollision" type="CollisionShape2D" parent="ReflectionArea"]
 position = Vector2(0, -82)
+rotation = 0.0019762
 shape = SubResource("CapsuleShape2D_81025")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
