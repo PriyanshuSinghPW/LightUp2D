@@ -14,7 +14,7 @@ extends RayCast2D
 ## If `true`, the laser is firing.
 ## It plays appearing and disappearing animations when it's not animating.
 ## See `appear()` and `disappear()` for more information.
-@export var is_casting := true: set = set_is_casting
+@export var is_casting := false: set = set_is_casting
 
 var tween: Tween = null
 var line_width : float = 20.0 # Default value for safety

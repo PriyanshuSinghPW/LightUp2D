@@ -68,13 +68,19 @@ func update_light_path() -> void:
         if beam.is_colliding():
             var collider = beam.get_collider()
             var hit_point = beam.get_collision_point()
-            var normal = beam.get_collision_normal()
             
             # Stop the current beam at the hit point.
-            # We use distance_to for accuracy regardless of rotation.
             beam.target_position.x = beam.global_position.distance_to(hit_point)
 
-            # Check if we hit the target
+            # --- Robust Mirror Detection Logic ---
+            var mirror_node = null
+            if collider.has_method("get_redirect_direction"):
+                mirror_node = collider
+            elif collider.get_parent() and collider.get_parent().has_method("get_redirect_direction"):
+                mirror_node = collider.get_parent()
+            # --- End of Logic ---
+
+            # Check if we hit the target FIRST
             if collider == light_target:
                 if not is_complete:
                     is_complete = true
@@ -82,17 +88,24 @@ func update_light_path() -> void:
                     print("Level Complete!")
                 break # Stop the loop, we won!
 
-                        # Check if we hit a mirror
-            if collider.is_in_group("Mirrors") and collider.has_method("get_redirect_direction"):
-                # This is not a reflection, but a redirection.
-                # The mirror dictates the new direction, regardless of the incoming angle.
-                current_origin = hit_point
-                current_direction = collider.get_redirect_direction()
+            # Now, check if we found a valid mirror node
+            if mirror_node:
+                # Get the new direction from the mirror
+                var new_direction = mirror_node.get_redirect_direction()
 
+                # The new origin is the exact collision point...
+                var new_origin = hit_point
+                # ...plus a tiny push in the new direction to prevent instant re-collision.
+                new_origin += new_direction * 0.1
+
+                # Update parameters for the next beam segment
+                current_origin = new_origin
+                current_direction = new_direction
+                
                 # Continue to the next iteration to cast the redirected beam
                 continue
             else:
-                # Hit a non-mirror object, so the path ends
+                # Hit a non-mirror, non-target object, so the path ends
                 break
         else:
             # The beam hit nothing, so the path ends
