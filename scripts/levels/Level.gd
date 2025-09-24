@@ -101,6 +101,16 @@ func update_light_path() -> void:
                     break
                 # --- End of Logic ---
 
+                # --- Update Angle UI ---
+                # Update the UI for the incoming (incident) beam.
+                beam.update_angle_ui(rad_to_deg(current_direction.angle()), false)
+                
+                # Check if there is a next beam in the pool to be the reflected ray
+                if i + 1 < _beam_pool.size():
+                    var reflected_beam = _beam_pool[i + 1]
+                    reflected_beam.update_angle_ui(rad_to_deg(redirect_direction.angle()), true)
+                # --- End of UI Update ---
+
                 # The new origin is the exact collision point...
                 var new_origin = hit_point
                 # ...plus a tiny push in the new direction to prevent instant re-collision.
