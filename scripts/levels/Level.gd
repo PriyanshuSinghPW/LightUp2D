@@ -90,17 +90,25 @@ func update_light_path() -> void:
 
             # Now, check if we found a valid mirror node
             if mirror_node:
-                # Get the new direction from the mirror
-                var new_direction = mirror_node.get_redirect_direction()
+                var redirect_direction = mirror_node.get_redirect_direction()
+                
+                # --- Back-face Culling Logic ---
+                # Use the dot product to see if the incoming beam is hitting the "back" of the mirror.
+                # A dot product > 0 means the angles are similar (hitting the back).
+                var dot_product = current_direction.dot(redirect_direction)
+                if dot_product > 0.1: # Using a small threshold to avoid floating point errors
+                    # Hit the back of the mirror, so the path ends here.
+                    break
+                # --- End of Logic ---
 
                 # The new origin is the exact collision point...
                 var new_origin = hit_point
                 # ...plus a tiny push in the new direction to prevent instant re-collision.
-                new_origin += new_direction * 0.1
+                new_origin += redirect_direction * 0.1
 
                 # Update parameters for the next beam segment
                 current_origin = new_origin
-                current_direction = new_direction
+                current_direction = redirect_direction
                 
                 # Continue to the next iteration to cast the redirected beam
                 continue

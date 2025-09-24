@@ -76,6 +76,7 @@ color = Color(0.771106, 0.602921, 0.226563, 1)
 
 [node name="Line2D" type="Line2D" parent="."]
 unique_name_in_owner = true
+visible = false
 modulate = Color(0.771106, 0.602921, 0.226563, 1)
 points = PackedVector2Array(0, 0, 1400, 0)
 joint_mode = 2
