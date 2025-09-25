@@ -90,35 +90,45 @@ func update_light_path() -> void:
 
             # Now, check if we found a valid mirror node
             if mirror_node:
-                var redirect_direction = mirror_node.get_redirect_direction()
-                
-                # --- Back-face Culling Logic ---
-                # Use the dot product to see if the incoming beam is hitting the "back" of the mirror.
-                # A dot product > 0 means the angles are similar (hitting the back).
-                var dot_product = current_direction.dot(redirect_direction)
-                if dot_product > 0.1: # Using a small threshold to avoid floating point errors
+                # --- Standard Reflection using the Flipped Visual Normal ---
+                # 1. Get the visually-opposite normal vector from the mirror.
+                var visual_normal = mirror_node.get_redirect_direction()
+
+                # 2. Use Godot's built-in 'reflect' method. By using the flipped
+                #    visual_normal, the reflection will be calculated for the correct quadrant.
+                print(visual_normal)
+                var reflected_direction = -current_direction.reflect(visual_normal)
+
+                # --- Corrected Back-face Culling ---
+                # A ray hits the front-face if its direction is opposite to the visual_normal.
+                # Their dot product will be negative.
+                var dot_product = current_direction.dot(visual_normal)
+                if dot_product >= -0.1: # Use a small negative threshold
                     # Hit the back of the mirror, so the path ends here.
                     break
-                # --- End of Logic ---
+                # --- End of Culling ---
 
                 # --- Update Angle UI ---
-                # Update the UI for the incoming (incident) beam.
-                beam.update_angle_ui(rad_to_deg(current_direction.angle()), false)
+                # The angle to display is the angle between the incident ray and the reflected ray.
+                var angle_of_deflection = current_direction.angle_to(reflected_direction)
                 
-                # Check if there is a next beam in the pool to be the reflected ray
+                # a. Update the incident beam's UI.
+                beam.update_angle_ui(rad_to_deg(angle_of_deflection), false)
+                
+                # b. Update the reflected beam's UI.
                 if i + 1 < _beam_pool.size():
                     var reflected_beam = _beam_pool[i + 1]
-                    reflected_beam.update_angle_ui(rad_to_deg(redirect_direction.angle()), true)
+                    reflected_beam.update_angle_ui(rad_to_deg(reflected_direction.angle()), true)
                 # --- End of UI Update ---
 
                 # The new origin is the exact collision point...
                 var new_origin = hit_point
                 # ...plus a tiny push in the new direction to prevent instant re-collision.
-                new_origin += redirect_direction * 0.1
+                new_origin += reflected_direction * 0.1
 
                 # Update parameters for the next beam segment
                 current_origin = new_origin
-                current_direction = redirect_direction
+                current_direction = reflected_direction
                 
                 # Continue to the next iteration to cast the redirected beam
                 continue
