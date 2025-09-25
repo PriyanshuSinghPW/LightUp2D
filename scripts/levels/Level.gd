@@ -96,7 +96,6 @@ func update_light_path() -> void:
 
                 # 2. Use Godot's built-in 'reflect' method. By using the flipped
                 #    visual_normal, the reflection will be calculated for the correct quadrant.
-                print(visual_normal)
                 var reflected_direction = -current_direction.reflect(visual_normal)
 
                 # --- Corrected Back-face Culling ---
