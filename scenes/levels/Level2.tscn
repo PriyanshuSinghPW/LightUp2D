@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfe5t81reqd0g"]
+
+[ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_a3cud"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="2_1xtnv"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="3_2p574"]
+
+[node name="Level1" type="Node2D"]
+script = ExtResource("1_a3cud")
+
+[node name="Player" parent="." instance=ExtResource("2_1xtnv")]
+position = Vector2(958, 553)
+
+[node name="Mirror" parent="." instance=ExtResource("3_2p574")]
+position = Vector2(570, 308)

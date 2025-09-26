@@ -21,9 +21,11 @@ buses/default_bus_layout="uid://dvyy4tsl0aupr"
 
 [autoload]
 
-Constants="*res://scripts/autoload/Constants.gd"
 GameManager="*res://scripts/autoload/GameManager.gd"
+LevelManager="*res://scripts/autoload/LevelManager.gd"
+Constants="*res://scripts/autoload/Constants.gd"
 InputManager="*res://scripts/autoload/InputManager.gd"
+AudioManager="*res://scripts/autoload/audioManager.gd"
 
 [display]
 
