@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://cb1jy3pa1b4tk"]
+[gd_scene load_steps=15 format=3 uid="uid://cb1jy3pa1b4tk"]
 
 [ext_resource type="Script" uid="uid://bh68skub6e6g7" path="res://scripts/game_elements/LightBeam.gd" id="1_lightbeam_gd"]
 [ext_resource type="Texture2D" uid="uid://dtuskl36s3y3u" path="res://assets/sprites/glowing_circle.png" id="2_o32h6"]
+[ext_resource type="Texture2D" uid="uid://cf45w55l6ye0o" path="res://assets/sprites/mirror/arrow.png" id="3_151hs"]
 
 [sub_resource type="Gradient" id="1"]
 offsets = PackedFloat32Array(0.582915, 1)
@@ -76,8 +77,9 @@ color = Color(0.771106, 0.602921, 0.226563, 1)
 
 [node name="Line2D" type="Line2D" parent="."]
 unique_name_in_owner = true
+visible = false
 modulate = Color(0.771106, 0.602921, 0.226563, 1)
-points = PackedVector2Array(0, 0, 1400, 0)
+points = PackedVector2Array(0, 0, 0, 0)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2
@@ -115,3 +117,23 @@ texture = ExtResource("2_o32h6")
 lifetime = 0.3
 visibility_rect = Rect2(-2500, -2500, 5000, 5000)
 process_material = SubResource("9")
+
+[node name="AngleUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 307.0
+offset_top = -17.0
+offset_right = 347.0
+offset_bottom = 23.0
+
+[node name="DirectionArrow" type="Sprite2D" parent="AngleUI"]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_151hs")
+
+[node name="AngleLabel" type="Label" parent="AngleUI"]
+layout_mode = 0
+offset_left = -23.0
+offset_top = -25.0
+offset_right = 17.0
+offset_bottom = -2.0

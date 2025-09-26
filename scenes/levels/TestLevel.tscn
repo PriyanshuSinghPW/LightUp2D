@@ -37,7 +37,7 @@ position = Vector2(867, 351)
 scale = Vector2(0.8, 0.8)
 
 [node name="Mirror2" parent="." instance=ExtResource("3_3wv3p")]
-position = Vector2(131, 620)
+position = Vector2(131, 618)
 scale = Vector2(0.8, 0.8)
 
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
