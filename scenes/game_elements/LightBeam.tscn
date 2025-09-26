@@ -45,7 +45,7 @@ curve = SubResource("6")
 [sub_resource type="ParticleProcessMaterial" id="8"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(381.086, 20, 1)
+emission_box_extents = Vector3(700, 20, 1)
 direction = Vector3(-1, 0, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)
@@ -79,7 +79,7 @@ color = Color(0.771106, 0.602921, 0.226563, 1)
 unique_name_in_owner = true
 visible = false
 modulate = Color(0.771106, 0.602921, 0.226563, 1)
-points = PackedVector2Array(0, 0, 0, 0)
+points = PackedVector2Array(0, 0, 1400, 0)
 joint_mode = 2
 begin_cap_mode = 2
 end_cap_mode = 2

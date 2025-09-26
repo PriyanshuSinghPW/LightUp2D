@@ -2,7 +2,7 @@ extends Node
 
 # Assuming your play button is named "PlayButton" in the MainMenu.tscn scene.
 # If it has a different name, you'll need to update the path.
-@onready var play_button: Button = $"/root/MainMenu/PlayButton"
+@onready var play_button: TextureButton = $StartingScreen/ButtonsContainer/PlayButton
 
 func _ready():
     # Check if the play button exists
@@ -14,4 +14,4 @@ func _ready():
 
 func _on_play_button_pressed():
     # When the button is pressed, tell the GameManager to start the game.
-    GameManager.start_game()
+    GameManager.start_new_game()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://begfxb032tx6l"]
 
-[ext_resource type="Script" uid="uid://b2wwwmy2a7tu3" path="res://scripts/game/Main.gd" id="1_u1xfj"]
+[ext_resource type="Script" uid="uid://n8xi4d1bxx5w" path="res://scripts/ui/MainMenu.gd" id="1_p5fgu"]
 [ext_resource type="Texture2D" uid="uid://d278lrhbi6s1h" path="res://assets/Background/game background.png" id="2_1rhdn"]
 [ext_resource type="Material" uid="uid://bcn42i3b344gv" path="res://assets/Shaders/speedlines_material.tres" id="2_sjxhf"]
 [ext_resource type="Texture2D" uid="uid://b6ckydc8ny4gm" path="res://assets/graphics/mathamatical snake white.png" id="4_3km4f"]
@@ -120,7 +120,7 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_u1xfj")
+script = ExtResource("1_p5fgu")
 
 [node name="StartingScreen" type="Control" parent="."]
 material = ExtResource("2_sjxhf")
