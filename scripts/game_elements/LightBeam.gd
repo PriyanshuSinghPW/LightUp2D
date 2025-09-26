@@ -23,6 +23,9 @@ var line_width : float = 20.0 # Default value for safety
 @onready var casting_particles: GPUParticles2D = %CastingParticles2D
 @onready var collision_particles: GPUParticles2D = %CollisionParticles2D
 @onready var beam_particles: GPUParticles2D = %BeamParticles2D
+@onready var angle_ui: Control = $AngleUI
+@onready var direction_arrow: Sprite2D = $AngleUI/DirectionArrow
+@onready var angle_label: Label = $AngleUI/AngleLabel
 
 
 func _ready() -> void:
@@ -74,6 +77,28 @@ func _physics_process(delta: float) -> void:
         collision_particles.emitting = is_colliding()
 
 
+func update_angle_ui(angle_degrees: float, is_reflected: bool) -> void:
+    if not angle_ui:
+        return
+
+    # Set the label text, formatted to one decimal place
+    angle_label.text = "θ: %.1f°" % angle_degrees
+    
+    # The arrow sprite's rotation is relative to the beam's rotation.
+    # It should always be 0 to point in the same direction as the beam.
+    direction_arrow.rotation = 0
+    
+    # We can use the 'is_reflected' flag for other things, like changing the color
+    # or sprite frame of the arrow, but not its rotation.
+    if is_reflected:
+        direction_arrow.modulate = Color.CYAN # Example: change color for reflected arrows
+    else:
+        direction_arrow.modulate = Color.WHITE # Default color
+    
+    # Make the UI visible
+    angle_ui.visible = true
+
+
 func set_is_casting(new_value: bool) -> void:
     if is_casting == new_value:
         return
@@ -82,6 +107,10 @@ func set_is_casting(new_value: bool) -> void:
     # Guard clause
     if not is_node_ready() or line_2d == null:
         return
+        
+    # Hide the UI when the beam is turned off
+    if not new_value and angle_ui:
+        angle_ui.visible = false
         
     set_physics_process(is_casting)
 
