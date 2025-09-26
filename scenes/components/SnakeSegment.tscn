@@ -28,7 +28,7 @@ animations = [{
 
 [node name="SnakeSegment" type="Area2D" groups=["snake_body"]]
 scale = Vector2(3, 3)
-collision_layer = 17
+collision_layer = 19
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
