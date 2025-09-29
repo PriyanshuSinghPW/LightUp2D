@@ -12,6 +12,7 @@ offset_bottom = 40.0
 script = ExtResource("1_vb6pq")
 
 [node name="Label" type="Label" parent="Control"]
+layout_mode = 0
 offset_left = 892.0
 offset_top = 481.0
 offset_right = 1278.0
@@ -22,6 +23,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="resume" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 980.0
 offset_top = 649.0
 offset_right = 1147.0
@@ -33,6 +35,7 @@ text = "RESUME
 "
 
 [node name="main menu" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 943.0
 offset_top = 728.0
 offset_right = 1189.0
