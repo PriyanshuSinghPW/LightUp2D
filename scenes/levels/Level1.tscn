@@ -1318,7 +1318,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_obitl"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_8swoy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvvky"]
@@ -1552,6 +1552,8 @@ texture = ExtResource("6_76cw8")
 [node name="Player" parent="." instance=ExtResource("2_x4si1")]
 position = Vector2(958, 425)
 scale = Vector2(3.0218, 3.0218)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Companion" type="CharacterBody2D" parent="."]
 visible = false
