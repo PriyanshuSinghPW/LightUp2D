@@ -100,39 +100,45 @@ func update_angle_ui(angle_degrees: float, is_reflected: bool) -> void:
 
 
 func set_is_casting(new_value: bool) -> void:
-    if is_casting == new_value:
-        return
     is_casting = new_value
     
-    # Guard clause
-    if not is_node_ready() or line_2d == null:
+    # If the node isn't ready, just store the value.
+    # The _ready function will call this again to apply the state.
+    if not is_node_ready():
         return
-        
-    # Hide the UI when the beam is turned off
-    if not new_value and angle_ui:
-        angle_ui.visible = false
-        
-    set_physics_process(is_casting)
 
-    if beam_particles:
-        beam_particles.emitting = is_casting
+    set_physics_process(is_casting)
+    
+    # Immediately hide/show the beam - no delays
+    if line_2d:
+        line_2d.visible = is_casting
+    
     if casting_particles:
         casting_particles.emitting = is_casting
+    if beam_particles:
+        beam_particles.emitting = is_casting
+    if collision_particles:
+        collision_particles.emitting = is_casting and is_colliding()
+    if angle_ui:
+        angle_ui.visible = is_casting
 
     if is_casting:
-        var laser_start := Vector2.RIGHT * start_distance
-        line_2d.points[0] = laser_start
-        line_2d.points[1] = laser_start
-        if casting_particles:
-            casting_particles.position = laser_start
+        if line_2d:
+            var laser_start := Vector2.RIGHT * start_distance
+            line_2d.points[0] = laser_start
+            line_2d.points[1] = laser_start
+            if casting_particles:
+                casting_particles.position = laser_start
         appear()
     else:
         target_position = Vector2.ZERO
         if collision_particles:
             collision_particles.emitting = false
-        disappear()
-
-
+        # Don't call disappear() - we want immediate hiding, not animation
+        if line_2d:
+            if tween and tween.is_running():
+                tween.kill()
+            line_2d.width = 0.0
 func appear() -> void:
     # Guard clause
     if line_2d == null:

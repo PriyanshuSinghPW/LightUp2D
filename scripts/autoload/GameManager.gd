@@ -62,11 +62,17 @@ func reload_current_level() -> void:
     load_level(current_level_index)
 
 
-func load_next_level() -> void:
+func level_was_completed() -> void:
+    # This function is called by the level itself when the objective is met.
+    # It simply changes the state, which will trigger the LevelComplete UI to show.
     set_state(GameState.LEVEL_COMPLETE)
     print("GameManager: Level %d complete." % current_level_index)
-    
+
+
+func load_next_level_from_ui() -> void:
+    # This function is called by the 'Next Level' button on the LevelComplete UI.
     var next_level_index = current_level_index + 1
+    
     if LevelManager.get_level_path(next_level_index).is_empty():
         # This was the last level
         set_state(GameState.GAME_COMPLETE)
