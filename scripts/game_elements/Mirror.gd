@@ -6,6 +6,8 @@ signal rotated
 # --- Configuration ---
 const ROTATION_FRAMES: float = 30.0
 const FRAME_0_ROTATION_OFFSET: float = PI / 2.0 # 90 degrees for "down"
+@export var interact_distance: float = 140.0 # Max distance player can be to rotate
+@export var require_player_in_range: bool = true
 
 # --- Node References ---
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -18,6 +20,42 @@ const FRAME_0_ROTATION_OFFSET: float = PI / 2.0 # 90 degrees for "down"
 var is_being_dragged: bool = false
 var initial_rotation: float = 0.0
 var initial_mouse_angle: float = 0.0
+
+# Cached player reference
+var _player: Node2D = null
+
+func _find_player():
+    if _player and is_instance_valid(_player):
+        return
+    # Prefer group lookup if player added to 'player' group
+    var by_group = get_tree().get_first_node_in_group("player")
+    if by_group:
+        _player = by_group
+        return
+    # Fallback: search by name
+    var candidates = get_tree().get_nodes_in_group("Node") # cheap placeholder, will iterate manually
+    for n in get_tree().get_root().get_children():
+        if n.has_node("Player"):
+            _player = n.get_node("Player")
+            return
+    # Final fallback: direct name search under scene tree
+    var root = get_tree().get_root()
+    var stack: Array = [root]
+    while stack.size() > 0:
+        var node = stack.pop_back()
+        if node.name == "Player":
+            _player = node
+            return
+        for c in node.get_children():
+            stack.append(c)
+
+func _player_in_range() -> bool:
+    if not require_player_in_range:
+        return true
+    _find_player()
+    if not _player:
+        return false
+    return _player.global_position.distance_to(global_position) <= interact_distance
 
 func get_redirect_direction() -> Vector2:
     """
@@ -50,6 +88,10 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
     if is_being_dragged:
+        # Abort dragging if player moved away
+        if not _player_in_range():
+            is_being_dragged = false
+            return
         # --- 1. Calculate and Apply Functional Rotation ---
         var current_mouse_angle = (get_global_mouse_position() - global_position).angle()
         var angle_delta = current_mouse_angle - initial_mouse_angle
@@ -78,10 +120,17 @@ func update_visual_frame() -> void:
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
     if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
         if event.pressed:
-            is_being_dragged = true
-            # Get the initial rotation from the functional node
-            initial_rotation = functional_rotation_node.rotation
-            initial_mouse_angle = (get_global_mouse_position() - global_position).angle()
+            if _player_in_range():
+                is_being_dragged = true
+                # Get the initial rotation from the functional node
+                initial_rotation = functional_rotation_node.rotation
+                initial_mouse_angle = (get_global_mouse_position() - global_position).angle()
+            else:
+                # Optional: give brief visual feedback (flash) when out of range
+                if animated_sprite:
+                    animated_sprite.modulate = Color(1,0.6,0.6)
+                    await get_tree().create_timer(0.08).timeout
+                    animated_sprite.modulate = Color.WHITE
         else:
             is_being_dragged = false
 
