@@ -1,14 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://begfxb032tx6l"]
+[gd_scene load_steps=14 format=3 uid="uid://begfxb032tx6l"]
 
 [ext_resource type="Script" uid="uid://n8xi4d1bxx5w" path="res://scripts/ui/MainMenu.gd" id="1_p5fgu"]
 [ext_resource type="Texture2D" uid="uid://d278lrhbi6s1h" path="res://assets/Background/game background.png" id="2_1rhdn"]
 [ext_resource type="Material" uid="uid://bcn42i3b344gv" path="res://assets/Shaders/speedlines_material.tres" id="2_sjxhf"]
 [ext_resource type="Texture2D" uid="uid://b6ckydc8ny4gm" path="res://assets/graphics/mathamatical snake white.png" id="4_3km4f"]
-[ext_resource type="Texture2D" uid="uid://dh7ga2c3vblwm" path="res://assets/Buttons/snake play Button2.png" id="4_ko0rf"]
 [ext_resource type="Texture2D" uid="uid://da43pm66ltwpk" path="res://assets/Logo/Knowlege snake logo2.png" id="5_3km4f"]
 [ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="5_ostsq"]
 [ext_resource type="Texture2D" uid="uid://jar5i84mddsb" path="res://assets/Logo/speedyboi snake.png" id="5_qkm1d"]
-[ext_resource type="Texture2D" uid="uid://cpmnvihnu1grw" path="res://assets/Buttons/SnakeButton3.png" id="6_3km4f"]
 [ext_resource type="Script" uid="uid://yx34mob3r4il" path="res://scripts/effects/TextureRect_shake_effect.gd" id="6_qkm1d"]
 [ext_resource type="Texture2D" uid="uid://lhvdsjo0d1g8" path="res://assets/Logo/Generated Image August 19, 2025 - 10_10PM-Photoroom.png" id="7_3km4f"]
 [ext_resource type="Script" uid="uid://orvdk4tc675j" path="res://scripts/effects/Control_shake_effect.gd" id="8_p5fgu"]
@@ -236,7 +234,6 @@ offset_top = -303.0
 offset_right = 237.0
 offset_bottom = -60.0
 pivot_offset = Vector2(271, 115)
-texture_normal = ExtResource("4_ko0rf")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/StartingScreen/ButtonsContainer/PlayButton"]
@@ -264,7 +261,6 @@ offset_right = 260.0
 offset_bottom = 268.0
 scale = Vector2(0.898345, 0.898345)
 pivot_offset = Vector2(271, 115)
-texture_normal = ExtResource("6_3km4f")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Control/StartingScreen/ButtonsContainer/SettingsButton"]

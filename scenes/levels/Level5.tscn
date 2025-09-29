@@ -6,13 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="4_xdb0i"]
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_p6f4l"]
 [ext_resource type="Texture2D" uid="uid://dnqpadny0nj76" path="res://assets/room assets/ChatGPT Image Sep 25, 2025, 03_05_59 PM.png" id="6_iwgo0"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="7_bn46f"]
-[ext_resource type="Script" path="res://scenes/levels/companion.gd" id="8_pvdlh"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="7_bn46f"]
+[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="8_pvdlh"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="9_y1n0m"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="10_s7msa"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="11_md1vn"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="12_4oqk5"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="13_ew6rh"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="13_ew6rh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1263,14 +1263,12 @@ texture_region_size = Vector2i(64, 64)
 2:1/0 = 0
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:1/0 = 0
 5:1/0 = 0
 7:1/0 = 0
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:2/0 = 0
 5:2/0 = 0
 6:2/0 = 0
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 18.3048, 32, 17.7583, 32, 32, -32, 32)
@@ -1283,8 +1281,6 @@ texture_region_size = Vector2i(64, 64)
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 18.3048, 32, 17.7583, 32, 32, -32, 32)
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:3/0 = 0
-7:3/0 = 0
 0:4/0 = 0
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:4/0 = 0
@@ -1585,6 +1581,7 @@ position = Vector2(-441, 297)
 
 [node name="LaserBeam2D" parent="LightSource" instance=ExtResource("12_4oqk5")]
 rotation = 0.00472991
+target_position = Vector2(0, 0)
 
 [node name="LightTarget" type="Area2D" parent="."]
 position = Vector2(562, 814)

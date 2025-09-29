@@ -14,4 +14,3 @@ const GAME_DEFAULTS = {
 	"level_width": 1280,
 	"level_height": 720
 }
-
