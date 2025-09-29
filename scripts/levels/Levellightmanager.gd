@@ -16,6 +16,9 @@ var is_complete: bool = false
 
 
 func _ready() -> void:
+    # Tell the GameManager that the level is loaded and we are ready to play.
+    GameManager.set_state(GameManager.GameState.PLAYING)
+    
     # Check that required nodes are set
     if not light_target:
         push_error("Level.gd requires a 'light_target' to be set in the inspector.")

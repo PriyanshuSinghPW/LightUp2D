@@ -1,3 +1,47 @@
-[gd_scene format=3 uid="uid://2kmrmciwccpf"]
+[gd_scene load_steps=2 format=3 uid="uid://2kmrmciwccpf"]
 
-[node name="PauseMenu" type="Node2D"]
+[ext_resource type="Script" uid="uid://v5s2470ahje6" path="res://scripts/ui/PauseMenu.gd" id="1_vb6pq"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_vb6pq")
+
+[node name="Label" type="Label" parent="Control"]
+offset_left = 892.0
+offset_top = 481.0
+offset_right = 1278.0
+offset_bottom = 618.0
+theme_override_font_sizes/font_size = 100
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="resume" type="Button" parent="Control"]
+offset_left = 980.0
+offset_top = 649.0
+offset_right = 1147.0
+offset_bottom = 712.0
+theme_override_colors/font_hover_pressed_color = Color(0.505344, 0.505344, 0.505344, 1)
+theme_override_colors/icon_pressed_color = Color(0.929715, 0.929715, 0.929715, 1)
+theme_override_font_sizes/font_size = 40
+text = "RESUME
+"
+
+[node name="main menu" type="Button" parent="Control"]
+offset_left = 943.0
+offset_top = 728.0
+offset_right = 1189.0
+offset_bottom = 791.0
+theme_override_colors/font_hover_pressed_color = Color(0.505344, 0.505344, 0.505344, 1)
+theme_override_colors/icon_pressed_color = Color(0.929715, 0.929715, 0.929715, 1)
+theme_override_font_sizes/font_size = 40
+text = "MAIN MENU
+"
+
+[connection signal="pressed" from="Control/resume" to="Control" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/main menu" to="Control" method="_on_main_menu_button_pressed"]
