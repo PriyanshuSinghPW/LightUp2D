@@ -19,6 +19,10 @@ func _ready() -> void:
     # Tell the GameManager that the level is loaded and we are ready to play.
     GameManager.set_state(GameManager.GameState.PLAYING)
     
+    # Connect the level complete signal to the GameManager.
+    # When this level emits 'level_complete', the GameManager will change the state.
+    level_complete.connect(GameManager.level_was_completed)
+    
     # Check that required nodes are set
     if not light_target:
         push_error("Level.gd requires a 'light_target' to be set in the inspector.")
@@ -36,12 +40,18 @@ func _ready() -> void:
     
     # Initial light path calculation
     update_light_path()
+    # Continuously update so dynamic objects (player) blocking the beam are handled.
+    set_physics_process(true)
+
+func _physics_process(delta: float) -> void:
+    # Recompute the beam path each frame so moving blockers (player) instantly cut it.
+    update_light_path()
 
 
 func update_light_path() -> void:
-    # Deactivate all beams in the pool to start fresh
-    for beam in _beam_pool:
-        beam.is_casting = false
+    # Mark all beams as unused; we will enable only those needed this frame.
+    # We do NOT immediately set is_casting=false to avoid restarting animations each frame.
+    var used := []
 
     # Initial parameters for the first beam
     var current_origin = light_source.global_position
@@ -52,20 +62,19 @@ func update_light_path() -> void:
             break # Stop if we run out of beams in the pool
 
         var beam = _beam_pool[i]
-        
-        # Position and configure the current beam segment
+        used.append(beam)
+
+        # Activate if needed
+        if not beam.is_casting:
+            beam.is_casting = true
+
+        # Position & orient
         beam.global_position = current_origin
         beam.rotation = current_direction.angle()
-        
-        # IMPORTANT: Reset target_position before casting.
-        # This ensures the raycast checks along its full potential length.
-        beam.target_position.x = beam.max_length
-        
-        # Force an immediate physics update for the raycast
-        beam.force_raycast_update()
 
-        # Now that the collision is updated, we can activate the beam
-        beam.is_casting = true
+        # Cast full length first
+        beam.target_position.x = beam.max_length
+        beam.force_raycast_update()
 
         # Check for collision
         if beam.is_colliding():
@@ -135,11 +144,24 @@ func update_light_path() -> void:
                 # Continue to the next iteration to cast the redirected beam
                 continue
             else:
-                # Hit a non-mirror, non-target object, so the path ends
+                # Hit a non-mirror, non-target object. Clean up the rest of the beam path.
+                for j in range(i + 1, _beam_pool.size()):
+                    if _beam_pool[j] in used:
+                        continue
+                    _beam_pool[j].is_casting = false
                 break
         else:
-            # The beam hit nothing, so the path ends
+            # The beam hit nothing. Clean up the rest of the beam path.
+            for j in range(i + 1, _beam_pool.size()):
+                if _beam_pool[j] in used:
+                    continue
+                _beam_pool[j].is_casting = false
             break
+
+    # Any beams not used this frame should be turned off.
+    for beam in _beam_pool:
+        if beam not in used and beam.is_casting:
+            beam.is_casting = false
 
 
 func _on_mirror_rotated() -> void:
