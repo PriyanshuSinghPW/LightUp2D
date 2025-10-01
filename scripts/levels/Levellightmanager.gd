@@ -19,8 +19,6 @@ func _ready() -> void:
     # Tell the GameManager that the level is loaded and we are ready to play.
     GameManager.set_state(GameManager.GameState.PLAYING)
     
-    # Connect the level complete signal to the GameManager.
-    # When this level emits 'level_complete', the GameManager will change the state.
     level_complete.connect(GameManager.level_was_completed)
     
     # Check that required nodes are set
@@ -95,10 +93,16 @@ func update_light_path() -> void:
             # Check if we hit the target FIRST
             if collider == light_target:
                 if not is_complete:
+                    # The beam has hit the target. Instead of completing the level here,
+                    # we will call a function on the target itself to "unlock" it.
+                    # This assumes the light_target node has a script with this function.
+                    if light_target.has_method("unlock_target"):
+                        light_target.unlock_target()
+                    
+                    # We can still use is_complete to prevent this from being called every frame.
                     is_complete = true
-                    emit_signal("level_complete")
-                    print("Level Complete!")
-                break # Stop the loop, we won!
+                    print("Light beam has hit the target!")
+                break # Stop the loop, the main objective is met for the light path.
 
             # Now, check if we found a valid mirror node
             if mirror_node:
@@ -167,3 +171,7 @@ func update_light_path() -> void:
 func _on_mirror_rotated() -> void:
     # When a mirror is rotated, we recalculate the entire light path.
     update_light_path()
+
+
+func _on_light_target_body_entered(body: Node2D) -> void:
+    pass # Replace with function body.

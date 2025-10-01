@@ -1,18 +1,19 @@
-[gd_scene load_steps=43 format=4 uid="uid://cklbkxe5kyd66"]
+[gd_scene load_steps=44 format=4 uid="uid://cesm0mcs8dgbt"]
 
-[ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_i2tsv"]
-[ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_4n27n"]
-[ext_resource type="Texture2D" uid="uid://cjvc2465rylsd" path="res://assets/tileset/ChatGPT Image Sep 25, 2025, 01_58_08 PM (Custom).png" id="3_cw4sw"]
-[ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="4_vjdto"]
-[ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_bqc3i"]
-[ext_resource type="Texture2D" uid="uid://dnqpadny0nj76" path="res://assets/room assets/ChatGPT Image Sep 25, 2025, 03_05_59 PM.png" id="6_ljeji"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="7_8qlrg"]
-[ext_resource type="Script" path="res://scenes/levels/companion.gd" id="8_ugcos"]
-[ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="9_rs68w"]
-[ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="10_20mws"]
-[ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="11_ewe7k"]
-[ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="12_nik0u"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="13_jy1lg"]
+[ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_4n27n"]
+[ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_cw4sw"]
+[ext_resource type="Texture2D" uid="uid://cjvc2465rylsd" path="res://assets/tileset/ChatGPT Image Sep 25, 2025, 01_58_08 PM (Custom).png" id="3_vjdto"]
+[ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="4_bqc3i"]
+[ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_ljeji"]
+[ext_resource type="Texture2D" uid="uid://dnqpadny0nj76" path="res://assets/room assets/ChatGPT Image Sep 25, 2025, 03_05_59 PM.png" id="6_8qlrg"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="7_ugcos"]
+[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="8_rs68w"]
+[ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="9_20mws"]
+[ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="10_ewe7k"]
+[ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="11_nik0u"]
+[ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="12_jy1lg"]
+[ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="13_h8kw8"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="14_0i7gq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -907,7 +908,7 @@ texture_region_size = Vector2i(64, 64)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jyoq"]
-texture = ExtResource("2_4n27n")
+texture = ExtResource("2_cw4sw")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -1168,7 +1169,7 @@ sources/0 = SubResource("TileSetAtlasSource_cwlop")
 sources/1 = SubResource("TileSetAtlasSource_0jyoq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npuhg"]
-texture = ExtResource("3_cw4sw")
+texture = ExtResource("3_vjdto")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1244,7 +1245,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_npuhg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8swoy"]
-texture = ExtResource("4_vjdto")
+texture = ExtResource("4_bqc3i")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -1322,7 +1323,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8swoy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvvky"]
-texture = ExtResource("5_bqc3i")
+texture = ExtResource("5_ljeji")
 texture_region_size = Vector2i(93, 93)
 0:0/0 = 0
 1:0/0 = 0
@@ -1355,67 +1356,67 @@ tile_size = Vector2i(93, 93)
 sources/0 = SubResource("TileSetAtlasSource_kvvky")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqba7"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(225, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7d7pp"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(450, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usw5k"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(0, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsker"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(675, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5nfq"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(675, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lha2r"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(0, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6owa4"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(225, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5pya"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(450, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kypp1"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(675, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukjja"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(0, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_brv20"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(225, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbvxr"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(450, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bspq0"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(675, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5s5a"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(0, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njy47"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(225, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7nyf"]
-atlas = ExtResource("9_rs68w")
+atlas = ExtResource("9_20mws")
 region = Rect2(450, 0, 225, 303)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bto45"]
@@ -1517,7 +1518,7 @@ height = 301.93
 size = Vector2(40, 40)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
-script = ExtResource("1_i2tsv")
+script = ExtResource("1_4n27n")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")
 
@@ -1547,17 +1548,19 @@ tile_set = SubResource("TileSet_2chdx")
 [node name="ChatGptImageSep25,2025,030559Pm" type="Sprite2D" parent="."]
 position = Vector2(2084.31, -21)
 scale = Vector2(0.368544, 0.418728)
-texture = ExtResource("6_ljeji")
+texture = ExtResource("6_8qlrg")
 
-[node name="Player" parent="." instance=ExtResource("7_8qlrg")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("7_ugcos")]
 position = Vector2(958, 425)
 scale = Vector2(3.0218, 3.0218)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Companion" type="CharacterBody2D" parent="."]
 visible = false
 position = Vector2(1610, 427)
 scale = Vector2(0.865086, 0.865086)
-script = ExtResource("8_ugcos")
+script = ExtResource("8_rs68w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Companion"]
 position = Vector2(-2.31226, 1.15594)
@@ -1576,19 +1579,21 @@ navigation_layers = 51
 simplify_path = true
 avoidance_enabled = true
 
-[node name="GameHud" parent="." instance=ExtResource("10_20mws")]
+[node name="GameHud" parent="." instance=ExtResource("10_ewe7k")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("11_ewe7k")]
+[node name="PauseMenu" parent="." instance=ExtResource("11_nik0u")]
 
 [node name="LightSource" type="Node2D" parent="."]
 position = Vector2(-441, 297)
 
-[node name="LaserBeam2D" parent="LightSource" instance=ExtResource("12_nik0u")]
+[node name="LaserBeam2D" parent="LightSource" instance=ExtResource("12_jy1lg")]
 rotation = 0.00472991
 
 [node name="LightTarget" type="Area2D" parent="."]
 position = Vector2(562, 814)
 collision_layer = 2
+collision_mask = 2
+script = ExtResource("13_h8kw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1601,13 +1606,14 @@ offset_bottom = 20.0
 color = Color(1, 1, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Mirror" parent="." instance=ExtResource("13_jy1lg")]
+[node name="Mirror" parent="." instance=ExtResource("14_0i7gq")]
 position = Vector2(867, 351)
 scale = Vector2(0.8, 0.8)
 
-[node name="Mirror2" parent="." instance=ExtResource("13_jy1lg")]
+[node name="Mirror2" parent="." instance=ExtResource("14_0i7gq")]
 position = Vector2(131, 618)
 scale = Vector2(0.8, 0.8)
 
+[connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
 [connection signal="rotated" from="Mirror2" to="." method="_on_mirror_rotated"]

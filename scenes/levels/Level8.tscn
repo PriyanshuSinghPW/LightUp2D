@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://bhj17i3y3gaqw"]
+[gd_scene load_steps=43 format=4 uid="uid://b6ytdjc2vivwc"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_0xit0"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_tfacm"]

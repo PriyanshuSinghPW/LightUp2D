@@ -1,0 +1,77 @@
+[gd_scene load_steps=2 format=3 uid="uid://beimia0jiew7q"]
+
+[sub_resource type="GDScript" id="GDScript_uhyhr"]
+script/source = "extends CanvasLayer
+
+# Signal to notify when the screen is fully covered (for scene changing)
+signal transition_halfway
+# Signal to notify when the transition is fully complete
+signal transition_finished
+
+@onready var color_rect: ColorRect = $ColorRect
+
+var is_playing: bool = false
+var material: ShaderMaterial # We will hold the material reference here
+
+# Preload the shader resource to avoid loading it every time
+const BURN_SHADER = preload(\"res://assets/Shaders/burn_transition.gdshader\")
+
+func _ready() -> void:
+    # --- Robustness Fix: Create and assign the material via code ---
+    # 1. Create a new ShaderMaterial resource.
+    material = ShaderMaterial.new()
+    # 2. Assign our loaded shader to it.
+    material.shader = BURN_SHADER
+    # 3. Set the initial progress value.
+    material.set_shader_parameter(\"progress\", 0.0)
+    # 4. Assign this new material to our ColorRect.
+    color_rect.material = material
+    
+    # Hide by default
+    visible = false
+
+func transition_to_scene(scene_path: String) -> void:
+    if is_playing:
+        return
+
+    is_playing = true
+    visible = true
+
+    # --- Step 1: Capture the screen ---
+    var screen_texture = ViewportTexture.new()
+    screen_texture.viewport_path = \"/root\"
+    material.set_shader_parameter(\"TEXTURE\", screen_texture)
+
+    # --- Step 2: Create and run the dissolve-out animation ---
+    var tween_out = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_SINE)
+    tween_out.tween_property(material, \"shader_parameter/progress\", 1.0, 0.7)
+    
+    # --- Step 3: Wait for the animation to finish and emit signal ---
+    await tween_out.finished
+    emit_signal(\"transition_halfway\")
+
+    # --- Step 4: Wait for the scene change and dissolve-in call ---
+
+func dissolve_in() -> void:
+    # --- Step 5: Create and run the dissolve-in animation ---
+    var tween_in = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+    tween_in.tween_property(material, \"shader_parameter/progress\", 0.0, 0.7)
+
+    # --- Step 6: Clean up when finished ---
+    await tween_in.finished
+    is_playing = false
+    visible = false
+    emit_signal(\"transition_finished\")
+"
+
+[node name="TransitionLayer" type="CanvasLayer"]
+layer = 128
+script = SubResource("GDScript_uhyhr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

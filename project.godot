@@ -26,6 +26,7 @@ LevelManager="*res://scripts/autoload/LevelManager.gd"
 Constants="*res://scripts/autoload/Constants.gd"
 InputManager="*res://scripts/autoload/InputManager.gd"
 AudioManager="*res://scripts/autoload/audioManager.gd"
+TransitionManager="*res://scenes/autoload/TransitionManager.tscn"
 
 [display]
 
@@ -44,6 +45,7 @@ enabled=PackedStringArray("res://addons/godot_mcp/plugin.cfg")
 [global_group]
 
 Mirrors=""
+player=""
 
 [input]
 
