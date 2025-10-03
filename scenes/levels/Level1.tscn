@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://c6ywnx8f1j1x0"]
+[gd_scene load_steps=44 format=4 uid="uid://c6ywnx8f1j1x0"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_6owa4"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="1_fh0io"]
@@ -8,10 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="4_m00rq"]
 [ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="5_68ib6"]
 [ext_resource type="Texture2D" uid="uid://dnqpadny0nj76" path="res://assets/room assets/ChatGPT Image Sep 25, 2025, 03_05_59 PM.png" id="6_76cw8"]
-[ext_resource type="Script" path="res://scenes/levels/companion.gd" id="8_7d7pp"]
+[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="8_7d7pp"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="8_brv20"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="10_lha2r"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="11_lha2r"]
+[ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="13_kypp1"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="13_n5pya"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
@@ -1549,7 +1550,7 @@ position = Vector2(2084.31, -21)
 scale = Vector2(0.368544, 0.418728)
 texture = ExtResource("6_76cw8")
 
-[node name="Player" parent="." instance=ExtResource("2_x4si1")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("2_x4si1")]
 position = Vector2(958, 425)
 scale = Vector2(3.0218, 3.0218)
 collision_layer = 2
@@ -1591,6 +1592,8 @@ rotation = 0.00472991
 [node name="LightTarget" type="Area2D" parent="."]
 position = Vector2(562, 814)
 collision_layer = 2
+collision_mask = 2
+script = ExtResource("13_kypp1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1611,5 +1614,6 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(131, 618)
 scale = Vector2(0.8, 0.8)
 
+[connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
 [connection signal="rotated" from="Mirror2" to="." method="_on_mirror_rotated"]

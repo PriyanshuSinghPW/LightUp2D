@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://hflwnihbfgi5" path="res://assets/room assets/flower/light up flower sprite-Photoroom.png" id="9_rlwep"]
 [ext_resource type="Texture2D" uid="uid://bnq8e0bh4bmm2" path="res://assets/room assets/window/glass window light up Left.png" id="10_ogpkt"]
 [ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="11_1d2ys"]
-[ext_resource type="Script" path="res://scenes/levels/companion.gd" id="12_o1wco"]
+[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="12_o1wco"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="13_ncpat"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="14_ryai7"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="15_np0mh"]

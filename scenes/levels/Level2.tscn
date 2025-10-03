@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=4 uid="uid://b0sqrw1jycgfl"]
+[gd_scene load_steps=44 format=4 uid="uid://e2wnce44yvr6"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_a6cvn"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_6rin4"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="10_hmwnr"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="11_4ao78"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="12_pi6sb"]
+[ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="13_6rin4"]
 [ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="13_8tmga"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
@@ -1318,7 +1319,7 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_obitl"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_8swoy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvvky"]
@@ -1549,9 +1550,11 @@ position = Vector2(2084.31, -21)
 scale = Vector2(0.368544, 0.418728)
 texture = ExtResource("6_fpd7d")
 
-[node name="Player" parent="." instance=ExtResource("7_nkm7c")]
+[node name="Player" parent="." groups=["player"] instance=ExtResource("7_nkm7c")]
 position = Vector2(958, 425)
 scale = Vector2(3.0218, 3.0218)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Companion" type="CharacterBody2D" parent="."]
 visible = false
@@ -1589,6 +1592,8 @@ rotation = 0.00472991
 [node name="LightTarget" type="Area2D" parent="."]
 position = Vector2(562, 814)
 collision_layer = 2
+collision_mask = 2
+script = ExtResource("13_6rin4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1609,5 +1614,6 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(131, 618)
 scale = Vector2(0.8, 0.8)
 
+[connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
 [connection signal="rotated" from="Mirror2" to="." method="_on_mirror_rotated"]

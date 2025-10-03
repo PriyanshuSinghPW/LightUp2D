@@ -50,8 +50,8 @@ func load_level(level_index: int) -> void:
     
     if not level_path.is_empty() and ResourceLoader.exists(level_path):
         print("GameManager: Loading level %d: %s" % [level_index, level_path])
-        # Change the scene. The new level will set the state to PLAYING.
-        get_tree().change_scene_to_file(level_path)
+        # Use the new TransitionManager to handle the scene change
+        TransitionManager.transition_to_scene(level_path)
     else:
         push_error("GameManager: Failed to load level %d. Scene not found at: %s" % [level_index, level_path])
         go_to_main_menu()
@@ -69,8 +69,8 @@ func level_was_completed() -> void:
     print("GameManager: Level %d complete." % current_level_index)
 
 
-func load_next_level_from_ui() -> void:
-    # This function is called by the 'Next Level' button on the LevelComplete UI.
+func load_next_level() -> void:
+    # This function is now called by the LightTarget when the player enters it.
     var next_level_index = current_level_index + 1
     
     if LevelManager.get_level_path(next_level_index).is_empty():
@@ -110,6 +110,6 @@ func go_to_main_menu():
     print("GameManager: Returning to Main Menu.")
     get_tree().paused = false
     set_state(GameState.MENU)
-    # We will create the main menu scene later
-    # get_tree().change_scene_to_file("res://scenes/ui/MainMenu.tscn")
-    print("GameManager: Main Menu scene not created yet.")
+    # Use the new TransitionManager to handle the scene change
+    TransitionManager.transition_to_scene("res://scenes/main/Main.tscn")
+    print("GameManager: Main Menu scene transition initiated.")

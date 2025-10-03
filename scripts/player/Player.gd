@@ -83,3 +83,7 @@ func update_animation(direction: Vector2) -> void:
     # Only change the animation if the new state is different from the current one
     if animated_sprite.animation != new_animation:
         animated_sprite.play(new_animation)
+
+
+func _on_light_target_body_entered(body: Node2D) -> void:
+    pass # Replace with function body.

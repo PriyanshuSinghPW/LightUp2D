@@ -8,6 +8,8 @@ const ROTATION_FRAMES: float = 30.0
 const FRAME_0_ROTATION_OFFSET: float = PI / 2.0 # 90 degrees for "down"
 @export var interact_distance: float = 140.0 # Max distance player can be to rotate
 @export var require_player_in_range: bool = true
+@export_range(0.05, 5.0, 0.05) var rotation_sensitivity: float = 0.15 # <1 slower, >1 faster
+@export var shift_precision_divisor: float = 4.0 # Hold Shift for finer control
 
 # --- Node References ---
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -94,9 +96,15 @@ func _process(_delta: float) -> void:
             return
         # --- 1. Calculate and Apply Functional Rotation ---
         var current_mouse_angle = (get_global_mouse_position() - global_position).angle()
-        var angle_delta = current_mouse_angle - initial_mouse_angle
-        # Apply rotation to the functional node. This will feel "backwards" but is functionally correct.
-        functional_rotation_node.rotation = initial_rotation + angle_delta
+        # Wrap delta into -PI..PI to avoid jumps crossing the boundary
+        var angle_delta = wrapf(current_mouse_angle - initial_mouse_angle, -PI, PI)
+
+        var applied_sensitivity = rotation_sensitivity
+        # Optional precision mode when Shift is held
+        if Input.is_key_pressed(KEY_SHIFT):
+            applied_sensitivity /= max(shift_precision_divisor, 1.0)
+
+        functional_rotation_node.rotation = initial_rotation + angle_delta * applied_sensitivity
         
         # --- 2. Update Visual Frame ---
         update_visual_frame()
