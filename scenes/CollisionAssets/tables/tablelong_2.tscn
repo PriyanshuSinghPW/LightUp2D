@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj1xhenu68708"]
+
+[ext_resource type="Texture2D" uid="uid://cym0f2y80ux58" path="res://assets/room assets/table/Generated Image September 30, 2025 - 9_28PM-Photoroom.png" id="1_11ute"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ty3cl"]
+size = Vector2(42.791, 17.1005)
+
+[node name="tablelong2" type="StaticBody2D"]
+scale = Vector2(0.202203, 0.202203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="tablelong2" type="Sprite2D" parent="."]
+position = Vector2(24.7263, -222.549)
+scale = Vector2(1.57066, 1.57066)
+texture = ExtResource("1_11ute")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9.88965, -247.276)
+scale = Vector2(29.8181, 30.0772)
+shape = SubResource("RectangleShape2D_ty3cl")

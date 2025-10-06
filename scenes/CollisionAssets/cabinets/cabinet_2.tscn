@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4acwmx7nia0y"]
+
+[ext_resource type="Texture2D" uid="uid://b7pikl8atlb" path="res://assets/room assets/almirah/cabinet2.png" id="1_xffym"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_udtuo"]
+size = Vector2(42.3885, 14.6571)
+
+[node name="cabinet2" type="StaticBody2D"]
+scale = Vector2(0.202203, 0.202203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Cabinet2" type="Sprite2D" parent="."]
+position = Vector2(24.7278, -0.000488281)
+scale = Vector2(1.36299, 1.36299)
+texture = ExtResource("1_xffym")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(19.7822, -375.86)
+scale = Vector2(16.2262, 20.5823)
+shape = SubResource("RectangleShape2D_udtuo")

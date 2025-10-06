@@ -1,0 +1,162 @@
+[gd_scene load_steps=22 format=3 uid="uid://c3egjwunndufg"]
+
+[ext_resource type="Texture2D" uid="uid://y7vvy48j1ip6" path="res://assets/room assets/orb/spinning orb-Photoroom.png" id="1_s6awj"]
+[ext_resource type="Texture2D" uid="uid://bdoxbcrxjxhln" path="res://assets/room assets/flower/white-glow-light-with-glitter-ef2_upscayl_2x_upscayl-standard-4x.png" id="2_x723f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bom7"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_di5pr"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1e10"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u4is4"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlwep"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogpkt"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d2ys"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(320, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1wco"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(640, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncpat"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(960, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryai7"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(0, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_np0mh"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(320, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpweb"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(640, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r875i"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(960, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udtuo"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(0, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5y6c"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(320, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tmin1"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(640, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi023"]
+atlas = ExtResource("1_s6awj")
+region = Rect2(960, 960, 320, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wstsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bom7")
+}],
+"loop": true,
+"name": &"Stable",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_di5pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1e10")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u4is4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlwep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogpkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1d2ys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1wco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncpat")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryai7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_np0mh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpweb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r875i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udtuo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5y6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tmin1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi023")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s6awj"]
+radius = 8.8712
+height = 81.888
+
+[node name="Orb" type="AnimatedSprite2D"]
+scale = Vector2(0.786712, 0.786712)
+sprite_frames = SubResource("SpriteFrames_wstsq")
+animation = &"spinning"
+frame = 3
+frame_progress = 0.818504
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-1.27111, -11.44)
+scale = Vector2(1.86271, 1.86271)
+shape = SubResource("CapsuleShape2D_s6awj")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-5.99998, -88)
+scale = Vector2(0.345684, 0.345684)
+color = Color(0.546113, 0.00397984, 0.997998, 1)
+energy = 1.22
+texture = ExtResource("2_x723f")
+texture_scale = 0.69

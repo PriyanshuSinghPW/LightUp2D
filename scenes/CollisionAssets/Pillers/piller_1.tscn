@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcec7ll1vkprl"]
+
+[ext_resource type="Texture2D" uid="uid://dx43pf283un3h" path="res://assets/room assets/environment/Piller1.png" id="1_rltkb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o1wco"]
+size = Vector2(16.4529, 16.2473)
+
+[node name="Piller1" type="StaticBody2D"]
+scale = Vector2(0.202203, 0.202203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Piller1" type="Sprite2D" parent="."]
+scale = Vector2(1, 1)
+texture = ExtResource("1_rltkb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.000488281, -201.822)
+scale = Vector2(13.029, 20.5823)
+shape = SubResource("RectangleShape2D_o1wco")

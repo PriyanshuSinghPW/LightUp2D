@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b528axh1phgmh"]
+
+[ext_resource type="Texture2D" uid="uid://bjh4aqa4rf6a8" path="res://assets/room assets/environment/Plant2.png" id="1_my5bs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ryai7"]
+size = Vector2(20, 9.0545)
+
+[node name="Plant2" type="StaticBody2D"]
+scale = Vector2(0.163186, 0.163186)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Plant2" type="Sprite2D" parent="."]
+texture = ExtResource("1_my5bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.12793, -169.366)
+scale = Vector2(11.0959, 13.0459)
+shape = SubResource("RectangleShape2D_ryai7")

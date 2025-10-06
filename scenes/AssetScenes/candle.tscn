@@ -1,0 +1,95 @@
+[gd_scene load_steps=10 format=3 uid="uid://df4fvsqgxcbih"]
+
+[ext_resource type="Texture2D" uid="uid://jh5mra3hexvy" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_14PM-Photoroom.png" id="1_yk3qm"]
+[ext_resource type="Texture2D" uid="uid://dqbtkyu8yhapb" path="res://assets/room assets/lights/Candle front.png" id="2_21p5v"]
+[ext_resource type="Texture2D" uid="uid://ba5tvhbvd8cr7" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_20PM-Photoroom.png" id="3_u17qm"]
+[ext_resource type="Texture2D" uid="uid://b4q7uavtio28" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_22PM-Photoroom.png" id="4_uv0mf"]
+[ext_resource type="Texture2D" uid="uid://b3n24ph4tkyui" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_21PM-Photoroom.png" id="5_gkvvs"]
+[ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="6_ekk7w"]
+[ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="7_21p5v"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u4is4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_yk3qm")
+}],
+"loop": true,
+"name": &"CandleFrontOff",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_21p5v")
+}],
+"loop": true,
+"name": &"CandleFrontOn",
+"speed": 11.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_u17qm")
+}],
+"loop": true,
+"name": &"CandleTopDown",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_uv0mf")
+}],
+"loop": true,
+"name": &"candleSideOff",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gkvvs")
+}],
+"loop": true,
+"name": &"candleSideOn",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yk3qm"]
+radius = 8.15704
+
+[node name="Candle" type="AnimatedSprite2D"]
+scale = Vector2(0.189301, 0.189301)
+sprite_frames = SubResource("SpriteFrames_u4is4")
+animation = &"candleSideOn"
+
+[node name="LightUpText" type="Label" parent="."]
+visible = false
+offset_left = -892.758
+offset_top = -1484.41
+offset_right = -192.758
+offset_bottom = -1155.28
+scale = Vector2(2.6538, 2.6538)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("7_21p5v")
+theme_override_font_sizes/font_size = 110
+text = "Press L to LightUp"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(21.1307, -232.434)
+scale = Vector2(9.00911, 9.00911)
+color = Color(1, 1, 0.298039, 1)
+energy = 0.4
+shadow_enabled = true
+texture = ExtResource("6_ekk7w")
+texture_scale = 0.69
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(1.9197, 1.9197)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+scale = Vector2(75.1676, 75.1676)
+shape = SubResource("CircleShape2D_yk3qm")
