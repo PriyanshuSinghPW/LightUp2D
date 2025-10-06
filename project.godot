@@ -25,8 +25,9 @@ GameManager="*res://scripts/autoload/GameManager.gd"
 LevelManager="*res://scripts/autoload/LevelManager.gd"
 Constants="*res://scripts/autoload/Constants.gd"
 InputManager="*res://scripts/autoload/InputManager.gd"
-AudioManager="*res://scripts/autoload/audioManager.gd"
+CameraController="*res://scripts/autoload/CameraController.gd"
 TransitionManager="*res://scenes/autoload/TransitionManager.tscn"
+AudioManager="*res://scripts/autoload/audioManager.gd"
 
 [display]
 

@@ -3,6 +3,9 @@ extends Area2D
 var is_unlocked: bool = false
 
 func _ready():
+    # Add to group for easy discovery
+    add_to_group("light_target")
+    
     # It's good practice to connect signals via code if you are manually changing node types
     # to avoid connections breaking in the editor.
     body_entered.connect(_on_body_entered)
