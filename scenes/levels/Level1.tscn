@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_6owa4"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="1_fh0io"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="2_x4si1"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="2_x4si1"]
 [ext_resource type="Texture2D" uid="uid://cjvc2465rylsd" path="res://assets/tileset/ChatGPT Image Sep 25, 2025, 01_58_08 PM (Custom).png" id="3_68ib6"]
 [ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="3_76cw8"]
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="4_m00rq"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="5_68ib6"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="5_68ib6"]
 [ext_resource type="Texture2D" uid="uid://dnqpadny0nj76" path="res://assets/room assets/ChatGPT Image Sep 25, 2025, 03_05_59 PM.png" id="6_76cw8"]
 [ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="8_7d7pp"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="8_brv20"]
@@ -1256,26 +1256,30 @@ texture_region_size = Vector2i(64, 64)
 3:0/0 = 0
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:1/0 = 0
 2:1/0 = 0
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:1/0 = 0
 5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 7:1/0 = 0
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:2/0 = 0
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:2/0 = 0
 5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 6:2/0 = 0
-6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 18.3048, 32, 17.7583, 32, 32, -32, 32)
+6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:3/0 = 0
 0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:3/0 = 0
@@ -1284,7 +1288,6 @@ texture_region_size = Vector2i(64, 64)
 2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, 18.3048, 32, 17.7583, 32, 32, -32, 32)
 3:3/0 = 0
 3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
-4:3/0 = 0
 7:3/0 = 0
 0:4/0 = 0
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -1293,7 +1296,9 @@ texture_region_size = Vector2i(64, 64)
 3:4/0 = 0
 3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 6:4/0 = 0
+6:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 7:4/0 = 0
+7:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 0:5/0 = 0
 0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:5/0 = 0
@@ -1537,7 +1542,7 @@ tile_set = SubResource("TileSet_mimhc")
 [node name="Walls" type="TileMapLayer" parent="."]
 position = Vector2(248, -104)
 scale = Vector2(3.6915, 3.6915)
-tile_map_data = PackedByteArray("AAD8////AAAAAAAAAAD9////AAABAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAAAAP//AAACAAAAAAABAP//AAACAAAAAAACAP//AAACAAAAAAADAP//AAACAAAAAAAEAP//AAACAAAAAAAFAP//AAACAAAAAAAGAP//AAACAAAAAAAHAP//AAACAAAAAAAIAP//AAACAAAAAAAJAP//AAACAAAAAAAKAP//AAADAAAAAAD8/wAAAAAAAAEAAAD9/wAAAAABAAEAAAD+/wAAAAACAAEAAAD//wAAAAABAAEAAAAAAAAAAAACAAEAAAABAAAAAAABAAEAAAACAAAAAAACAAEAAAADAAAAAAABAAEAAAAEAAAAAAACAAEAAAAFAAAAAAABAAEAAAAGAAAAAAACAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAACAAEAAAAKAAAAAAADAAEAAAD8/wEAAAAAAAIAAAD8/wIAAAAAAAIAAAD8/wMAAAAAAAIAAAD8/wQAAAAAAAIAAAAKAAIAAAADAAIAAAAKAAMAAAADAAIAAAAKAAQAAAAHAAQAAAD8/wUAAAAAAAIAAAD8/wYAAAAAAAIAAAD8/wcAAAAAAAIAAAAKAAUAAAAHAAUAAAAKAAYAAAADAAIAAAAKAAcAAAADAAIAAAD8/wgAAAAAAAIAAAAKAAgAAAADAAIAAAAKAAkAAAADAAMAAAD8/wkAAAAAAAMAAAD9/wkAAAABAAMAAAD+/wkAAAABAAMAAAD//wkAAAABAAMAAAAAAAkAAAABAAMAAAABAAkAAAABAAMAAAACAAkAAAABAAMAAAADAAkAAAABAAMAAAAEAAkAAAABAAMAAAAFAAkAAAABAAMAAAAGAAkAAAABAAMAAAAHAAkAAAABAAMAAAAIAAkAAAABAAMAAAAJAAkAAAABAAMAAAAKAAEAAAADAAIAAAAJAAQAAAACAAAAAAAIAAQAAAACAAAAAAAHAAQAAAACAAAAAAAGAAQAAAACAAAAAAAFAAQAAAACAAAAAAAJAAUAAAACAAEAAAAIAAUAAAACAAEAAAAHAAUAAAACAAEAAAAGAAUAAAACAAEAAAAFAAUAAAACAAEAAAAEAAUAAAACAAEAAAADAAQAAAAGAAQAAAADAAUAAAAGAAUAAAAEAAQAAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD8////AAAAAAAAAAD9////AAABAAAAAAD+////AAACAAAAAAD/////AAACAAAAAAAAAP//AAACAAAAAAABAP//AAACAAAAAAACAP//AAACAAAAAAADAP//AAACAAAAAAAEAP//AAACAAAAAAAFAP//AAACAAAAAAAGAP//AAACAAAAAAAHAP//AAACAAAAAAAIAP//AAACAAAAAAAJAP//AAACAAAAAAAKAP//AAADAAAAAAD8/wAAAAAAAAEAAAD9/wAAAAABAAEAAAD+/wAAAAACAAEAAAD//wAAAAABAAEAAAAAAAAAAAACAAEAAAABAAAAAAABAAEAAAACAAAAAAACAAEAAAADAAAAAAABAAEAAAAEAAAAAAACAAEAAAAFAAAAAAABAAEAAAAGAAAAAAACAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAACAAEAAAAKAAAAAAADAAEAAAD8/wEAAAAAAAIAAAD8/wIAAAAAAAIAAAD8/wMAAAAAAAIAAAD8/wQAAAAAAAIAAAAKAAIAAAADAAIAAAAKAAMAAAADAAIAAAAKAAQAAAADAAAAAAD8/wUAAAAAAAIAAAD8/wYAAAAAAAIAAAD8/wcAAAAAAAIAAAAKAAUAAAADAAEAAAAKAAYAAAADAAIAAAAKAAcAAAADAAIAAAD8/wgAAAAAAAIAAAAKAAgAAAADAAIAAAAKAAkAAAADAAMAAAD8/wkAAAAAAAMAAAD9/wkAAAABAAMAAAD+/wkAAAABAAMAAAD//wkAAAABAAMAAAAAAAkAAAABAAMAAAABAAkAAAABAAMAAAACAAkAAAABAAMAAAADAAkAAAABAAMAAAAEAAkAAAABAAMAAAAFAAkAAAABAAMAAAAGAAkAAAABAAMAAAAHAAkAAAABAAMAAAAIAAkAAAABAAMAAAAJAAkAAAABAAMAAAAKAAEAAAADAAIAAAAJAAQAAAACAAAAAAAIAAQAAAACAAAAAAAHAAQAAAACAAAAAAAGAAQAAAACAAAAAAAFAAQAAAACAAAAAAAJAAUAAAACAAEAAAAIAAUAAAACAAEAAAAHAAUAAAACAAEAAAAGAAUAAAACAAEAAAAFAAUAAAACAAEAAAAEAAUAAAACAAEAAAADAAQAAAAGAAQAAAADAAUAAAAGAAUAAAAEAAQAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_obitl")
 
 [node name="carpet" type="TileMapLayer" parent="."]

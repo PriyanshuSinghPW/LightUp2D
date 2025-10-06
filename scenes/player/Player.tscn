@@ -20,10 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://bhiea6p4ixnem" path="res://assets/sprites/Player Sprites/run dig back right-Photoroom.png" id="13_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="19_lgqa7"]
 
-[sub_resource type="CapsuleShape2D" id="Resource_xyz12"]
-radius = 18.8776
-height = 92.8571
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ydkj"]
 atlas = ExtResource("4_lvxji")
 region = Rect2(0, 0, 256, 256)
@@ -1899,6 +1895,10 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="Resource_xyz12"]
+radius = 8.16327
+height = 75.5102
+
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.96, 1.96)
 script = ExtResource("1_gmlin")
@@ -1907,17 +1907,17 @@ script = ExtResource("1_gmlin")
 visible = false
 texture = ExtResource("2_lvxji")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("Resource_xyz12")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -4)
 scale = Vector2(0.560774, 0.560774)
 sprite_frames = SubResource("SpriteFrames_pnxi5")
-animation = &"idle front"
-frame = 3
-frame_progress = 0.493703
+animation = &"run front"
+frame_progress = 0.404792
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(3.06122, -8.16327)
+shape = SubResource("Resource_xyz12")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(4.85714, 4.85714)
