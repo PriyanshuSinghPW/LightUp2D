@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://2pao3xq3cn3e"]
+
+[ext_resource type="Texture2D" uid="uid://et35is3mmprd" path="res://assets/room assets/table/ChatGPT Image Sep 30, 2025, 06_44_41 PM-Photoroom@0.75x2.png" id="1_adgrh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ss654"]
+size = Vector2(50.5945, 19.488)
+
+[node name="table3" type="StaticBody2D"]
+scale = Vector2(0.202203, 0.202203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="table3" type="Sprite2D" parent="."]
+position = Vector2(9.89098, -153.311)
+scale = Vector2(1.57066, 1.57066)
+texture = ExtResource("1_adgrh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34.6187, -390.696)
+scale = Vector2(19.0152, 19.1804)
+shape = SubResource("RectangleShape2D_ss654")

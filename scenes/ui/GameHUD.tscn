@@ -1,11 +1,31 @@
-[gd_scene format=3 uid="uid://vvsg6nufp4ww"]
+[gd_scene load_steps=2 format=3 uid="uid://vvsg6nufp4ww"]
+
+[ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="1_f41ut"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="Control" type="Control" parent="."]
+[node name="IntractMessages" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
 
-[node name="GameHud" type="Node2D" parent="Control"]
+[node name="LightUpText" type="Label" parent="IntractMessages"]
+visible = false
+layout_mode = 0
+offset_left = 745.0
+offset_top = 47.0
+offset_right = 1445.0
+offset_bottom = 376.125
+scale = Vector2(0.592287, 0.592287)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("1_f41ut")
+theme_override_font_sizes/font_size = 110
+text = "Press L to LightUp"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

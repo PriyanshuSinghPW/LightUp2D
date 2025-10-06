@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=4 uid="uid://c6ekf180s6g8m"]
+[gd_scene load_steps=123 format=4 uid="uid://c6ekf180s6g8m"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_0obl7"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_vmvlm"]
@@ -6,17 +6,37 @@
 [ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="4_4itxr"]
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_0bom7"]
 [ext_resource type="Texture2D" uid="uid://cn1gvf7rkkiyp" path="res://assets/room assets/door/light up door sprite-Photoroom.png" id="6_di5pr"]
+[ext_resource type="Script" uid="uid://bjhs0qbxjexwp" path="res://scenes/levels/CandleManager.gd" id="6_rlwep"]
+[ext_resource type="PackedScene" uid="uid://df4fvsqgxcbih" path="res://scenes/AssetScenes/candle.tscn" id="6_xte2h"]
 [ext_resource type="Texture2D" uid="uid://b1qerfw8iby0s" path="res://assets/room assets/door/light up door close sprite-Photoroom.png" id="7_w1e10"]
 [ext_resource type="Texture2D" uid="uid://bdoxbcrxjxhln" path="res://assets/room assets/flower/white-glow-light-with-glitter-ef2_upscayl_2x_upscayl-standard-4x.png" id="8_u4is4"]
 [ext_resource type="Texture2D" uid="uid://hflwnihbfgi5" path="res://assets/room assets/flower/light up flower sprite-Photoroom.png" id="9_rlwep"]
 [ext_resource type="Texture2D" uid="uid://bnq8e0bh4bmm2" path="res://assets/room assets/window/glass window light up Left.png" id="10_ogpkt"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="11_1d2ys"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="11_1d2ys"]
 [ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="12_o1wco"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="13_ncpat"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="14_ryai7"]
+[ext_resource type="PackedScene" uid="uid://bcec7ll1vkprl" path="res://scenes/CollisionAssets/Pillers/piller_1.tscn" id="15_fi023"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="15_np0mh"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="16_gpweb"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="17_r875i"]
+[ext_resource type="PackedScene" uid="uid://3fs0xdi5qb8w" path="res://scenes/CollisionAssets/almirahs/almirah_side.tscn" id="16_wstsq"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="17_r875i"]
+[ext_resource type="PackedScene" uid="uid://ctva7twb7d0b0" path="res://scenes/CollisionAssets/cabinets/cabinet.tscn" id="17_ss654"]
+[ext_resource type="PackedScene" uid="uid://b4acwmx7nia0y" path="res://scenes/CollisionAssets/cabinets/cabinet_2.tscn" id="18_k2cjq"]
+[ext_resource type="PackedScene" uid="uid://bvm53gnwaeilc" path="res://scenes/CollisionAssets/cabinets/cabinet_brown.tscn" id="19_ty3cl"]
+[ext_resource type="PackedScene" uid="uid://bcsaxku6ac7aw" path="res://scenes/CollisionAssets/cabinets/show_case_1.tscn" id="20_wk48p"]
+[ext_resource type="PackedScene" uid="uid://c3egjwunndufg" path="res://scenes/AssetScenes/orb.tscn" id="21_0bom7"]
+[ext_resource type="PackedScene" uid="uid://dua4qxqkuwhh2" path="res://scenes/CollisionAssets/cabinets/show_case_2.tscn" id="21_pc1oe"]
+[ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="22_di5pr"]
+[ext_resource type="PackedScene" uid="uid://vhqhyhoy0xkk" path="res://scenes/CollisionAssets/tables/table_1.tscn" id="22_mi5fc"]
+[ext_resource type="PackedScene" uid="uid://dt6sx3h4rcvml" path="res://scenes/CollisionAssets/tables/table_2.tscn" id="23_h3y7j"]
+[ext_resource type="PackedScene" uid="uid://2pao3xq3cn3e" path="res://scenes/CollisionAssets/tables/table_3.tscn" id="24_ofa6q"]
+[ext_resource type="PackedScene" uid="uid://dhfippe54i4pi" path="res://scenes/CollisionAssets/tables/tablelong.tscn" id="25_2qny3"]
+[ext_resource type="PackedScene" uid="uid://cj1xhenu68708" path="res://scenes/CollisionAssets/tables/tablelong_2.tscn" id="26_awmp4"]
+[ext_resource type="PackedScene" uid="uid://dvu3noj1qkfjn" path="res://scenes/CollisionAssets/almirahs/almirah.tscn" id="27_t0io3"]
+[ext_resource type="PackedScene" uid="uid://xe2n1y65btu0" path="res://scenes/CollisionAssets/plants/plant_1.tscn" id="28_rx6vs"]
+[ext_resource type="PackedScene" uid="uid://2xoaywkkmio7" path="res://scenes/CollisionAssets/Pillers/piller_2.tscn" id="29_nwioi"]
+[ext_resource type="PackedScene" uid="uid://b528axh1phgmh" path="res://scenes/CollisionAssets/plants/plant_2.tscn" id="30_qwn5u"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1358,6 +1378,18 @@ texture_region_size = Vector2i(93, 93)
 tile_size = Vector2i(93, 93)
 sources/0 = SubResource("TileSetAtlasSource_kvvky")
 
+[sub_resource type="Environment" id="Environment_o1wco"]
+background_mode = 3
+ssr_fade_in = 3.63772
+ssao_radius = 5.1
+adjustment_brightness = 0.66
+adjustment_contrast = 1.45
+adjustment_saturation = 2.03
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ncpat"]
+
+[sub_resource type="Compositor" id="Compositor_ryai7"]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6ex7q"]
 atlas = ExtResource("6_di5pr")
 region = Rect2(0, 0, 320, 320)
@@ -1905,10 +1937,12 @@ height = 301.93
 size = Vector2(40, 40)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
-position = Vector2(0, -2)
 script = ExtResource("1_0obl7")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.505882, 0.505882, 0.756863, 1)
 
 [node name="backFloor" type="TileMapLayer" parent="."]
 position = Vector2(-2432, -686)
@@ -1933,11 +1967,66 @@ position = Vector2(-32, 381)
 tile_map_data = PackedByteArray("AAAVAAIAAAAEAAEAAAAWAAIAAAABAAEAAAAXAAIAAAACAAEAAAAUAAIAAAABAAAAAAATAAIAAAABAAAAAAASAAIAAAABAAAAAAARAAIAAAABAAAAAAAQAAIAAAABAAAAAAAPAAIAAAABAAAAAAAUAAMAAAABAAEAAAATAAMAAAABAAEAAAASAAMAAAABAAEAAAARAAMAAAABAAEAAAAQAAMAAAABAAEAAAAPAAMAAAABAAEAAAAOAAMAAAABAAEAAAAVAAMAAAABAAEAAAAWAAMAAAABAAEAAAAXAAMAAAACAAEAAAAXAAQAAAACAAIAAAAWAAQAAAABAAIAAAAVAAQAAAABAAIAAAAUAAQAAAABAAIAAAATAAQAAAABAAIAAAASAAQAAAABAAIAAAARAAQAAAABAAIAAAAQAAQAAAABAAIAAAAPAAQAAAABAAIAAAAOAAQAAAABAAIAAAAOAAIAAAABAAAAAAANAAIAAAABAAAAAAANAAMAAAABAAEAAAANAAQAAAABAAIAAAAMAAIAAAABAAAAAAAMAAMAAAABAAEAAAAMAAQAAAABAAIAAAALAAIAAAABAAAAAAALAAMAAAABAAEAAAALAAQAAAABAAIAAAAKAAIAAAABAAAAAAAKAAMAAAABAAEAAAAKAAQAAAABAAIAAAAJAAIAAAABAAAAAAAJAAMAAAABAAEAAAAJAAQAAAABAAIAAAAIAAIAAAABAAAAAAAIAAMAAAABAAEAAAAIAAQAAAABAAIAAAAHAAIAAAABAAAAAAAHAAMAAAABAAEAAAAHAAQAAAABAAIAAAAGAAIAAAABAAAAAAAGAAMAAAABAAEAAAAGAAQAAAABAAIAAAAFAAIAAAABAAAAAAAFAAMAAAABAAEAAAAFAAQAAAABAAIAAAAEAAIAAAABAAAAAAAEAAMAAAABAAEAAAAEAAQAAAABAAIAAAADAAIAAAABAAAAAAADAAMAAAABAAEAAAADAAQAAAABAAIAAAACAAIAAAABAAAAAAACAAMAAAABAAEAAAACAAQAAAABAAIAAAABAAIAAAABAAAAAAABAAMAAAABAAEAAAABAAQAAAABAAIAAAAAAAIAAAABAAAAAAAAAAMAAAABAAEAAAAAAAQAAAABAAIAAAD//wIAAAABAAAAAAD//wMAAAABAAEAAAD//wQAAAABAAIAAAD+/wIAAAABAAAAAAD+/wMAAAABAAEAAAD+/wQAAAABAAIAAAD9/wIAAAABAAAAAAD9/wMAAAABAAEAAAD9/wQAAAABAAIAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAEAAAD8/wQAAAAAAAIAAAAXAAEAAAACAAEAAAAWAAEAAAABAAEAAAAVAAEAAAAGAAQAAAAVAAAAAAAGAAQAAAAWAAAAAAABAAEAAAAXAAAAAAACAAEAAAAVAP//AAAGAAQAAAAVAP7/AAAGAAQAAAAVAP3/AAAGAAQAAAAXAP//AAACAAEAAAAXAP7/AAACAAEAAAAXAP3/AAACAAEAAAAWAP//AAABAAEAAAAWAP7/AAABAAEAAAAWAP3/AAABAAEAAAA=")
 tile_set = SubResource("TileSet_2chdx")
 
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Candles" type="Node2D" parent="Environment" node_paths=PackedStringArray("player")]
+position = Vector2(1080, 6)
+scale = Vector2(0.798882, 0.798882)
+script = ExtResource("6_rlwep")
+player = NodePath("../../Player")
+
+[node name="Candle" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(686.984, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle2" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(173.865, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle3" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(-335.757, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle4" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(-857.448, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle7" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(1711.14, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle5" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(-2005.62, 731.95)
+scale = Vector2(0.133835, 0.133835)
+
+[node name="Candle6" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(-2005.62, 1177.9)
+scale = Vector2(0.133835, 0.133835)
+
+[node name="Candle8" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(2041.28, 852.441)
+scale = Vector2(0.133835, 0.133835)
+
+[node name="Candle9" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(2041.28, 415.581)
+scale = Vector2(0.133835, 0.133835)
+
+[node name="Candle10" parent="Environment/Candles" instance=ExtResource("6_xte2h")]
+position = Vector2(2041.28, 1272.23)
+scale = Vector2(0.133835, 0.133835)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_o1wco")
+camera_attributes = SubResource("CameraAttributesPractical_ncpat")
+compositor = SubResource("Compositor_ryai7")
+
 [node name="Door" type="AnimatedSprite2D" parent="."]
 position = Vector2(-239, -81)
 scale = Vector2(1.33269, 1.33269)
 sprite_frames = SubResource("SpriteFrames_86oi8")
-animation = &"doorclosed"
+animation = &"door_closing_anim"
+frame = 14
+frame_progress = 0.222316
 
 [node name="White-glow-light-with-glitter-ef2Upscayl2xUpscayl-standard-4x" type="Sprite2D" parent="Door"]
 visible = false
@@ -1956,6 +2045,14 @@ animation = &"flower opening"
 frame = 6
 frame_progress = 0.129169
 
+[node name="PointLight2D" type="PointLight2D" parent="Door"]
+visible = false
+position = Vector2(43.521, 6.75323)
+scale = Vector2(4.52789, 4.52789)
+color = Color(0.999999, 0.379383, 0.980756, 1)
+texture = ExtResource("8_u4is4")
+texture_scale = 0.28
+
 [node name="Door2" type="AnimatedSprite2D" parent="."]
 position = Vector2(2077, -81)
 scale = Vector2(1.33269, 1.33269)
@@ -1968,6 +2065,68 @@ position = Vector2(-544, 297)
 scale = Vector2(0.17066, 0.171537)
 texture = ExtResource("10_ogpkt")
 
+[node name="PointLight2D" type="PointLight2D" parent="GlassWindowLightUpLeft"]
+position = Vector2(187.507, -5.82963)
+scale = Vector2(7.05876, 7.05876)
+color = Color(1, 1, 0.298039, 1)
+energy = 0.75
+texture = ExtResource("22_di5pr")
+texture_scale = 0.64
+
+[node name="Orb" parent="." instance=ExtResource("21_0bom7")]
+position = Vector2(1330, 796)
+scale = Vector2(0.639178, 0.639178)
+frame = 5
+frame_progress = 0.724301
+
+[node name="Piller1" parent="." instance=ExtResource("15_fi023")]
+position = Vector2(1418, 98)
+
+[node name="almirahSide" parent="." instance=ExtResource("16_wstsq")]
+position = Vector2(-392, 744)
+
+[node name="cabinet" parent="." instance=ExtResource("17_ss654")]
+position = Vector2(131, 908)
+
+[node name="cabinet2" parent="." instance=ExtResource("18_k2cjq")]
+position = Vector2(447, 912)
+
+[node name="cabinetBrown" parent="." instance=ExtResource("19_ty3cl")]
+position = Vector2(799, 913)
+
+[node name="ShowCase1" parent="." instance=ExtResource("20_wk48p")]
+position = Vector2(1556, 905)
+
+[node name="ShowCase2" parent="." instance=ExtResource("21_pc1oe")]
+position = Vector2(1832, 909)
+
+[node name="table1" parent="." instance=ExtResource("22_mi5fc")]
+position = Vector2(2116, 865)
+
+[node name="table2" parent="." instance=ExtResource("23_h3y7j")]
+position = Vector2(2380, 885)
+
+[node name="table3" parent="." instance=ExtResource("24_ofa6q")]
+position = Vector2(2384, 630)
+
+[node name="tablelong" parent="." instance=ExtResource("25_2qny3")]
+position = Vector2(1531, 559)
+
+[node name="tablelong2" parent="." instance=ExtResource("26_awmp4")]
+position = Vector2(1122, 619)
+
+[node name="almirah" parent="." instance=ExtResource("27_t0io3")]
+position = Vector2(-114, 746)
+
+[node name="Plant1" parent="." instance=ExtResource("28_rx6vs")]
+position = Vector2(1414, -12)
+
+[node name="Piller2" parent="." instance=ExtResource("29_nwioi")]
+position = Vector2(596, 108)
+
+[node name="Plant2" parent="." instance=ExtResource("30_qwn5u")]
+position = Vector2(1696, 117)
+
 [node name="Player" parent="." instance=ExtResource("11_1d2ys")]
 position = Vector2(2074, 131)
 scale = Vector2(3.0218, 3.0218)
@@ -1975,8 +2134,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Companion" type="CharacterBody2D" parent="."]
-visible = false
-position = Vector2(1610, 427)
+position = Vector2(1660, -507)
 scale = Vector2(0.865086, 0.865086)
 script = ExtResource("12_o1wco")
 

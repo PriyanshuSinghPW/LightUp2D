@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvu3noj1qkfjn"]
+
+[ext_resource type="Texture2D" uid="uid://26ihn81vsthd" path="res://assets/room assets/almirah/almirah.png" id="1_pb6fd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpweb"]
+size = Vector2(22.5362, 12.2084)
+
+[node name="almirah" type="StaticBody2D"]
+scale = Vector2(0.202203, 0.202203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Almirah" type="Sprite2D" parent="."]
+position = Vector2(34.6189, -19.7825)
+scale = Vector2(1.26569, 1.26569)
+texture = ExtResource("1_pb6fd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(44.5099, -361.024)
+scale = Vector2(23.2615, 29.5062)
+shape = SubResource("RectangleShape2D_gpweb")
