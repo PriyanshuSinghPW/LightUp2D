@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://c6ywnx8f1j1x0"]
+[gd_scene load_steps=59 format=4 uid="uid://c6ywnx8f1j1x0"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_6owa4"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="1_fh0io"]
@@ -24,6 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://bvm53gnwaeilc" path="res://scenes/CollisionAssets/cabinets/cabinet_brown.tscn" id="21_dqba7"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="22_jsker"]
 [ext_resource type="PackedScene" uid="uid://dua4qxqkuwhh2" path="res://scenes/CollisionAssets/cabinets/show_case_2.tscn" id="22_usw5k"]
+[ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_ijfg6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1607,71 +1608,6 @@ tile_set = SubResource("TileSet_2chdx")
 
 [node name="EnvironmentAssets" type="Node2D" parent="."]
 
-[node name="Candles" type="Node2D" parent="EnvironmentAssets"]
-position = Vector2(1080, 6)
-scale = Vector2(0.798882, 0.798882)
-script = ExtResource("7_6ex7q")
-
-[node name="Candle" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(686.984, -167.197)
-animation = &"CandleFrontOn"
-
-[node name="Candle2" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(173.865, -167.197)
-animation = &"CandleFrontOn"
-
-[node name="Candle3" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-335.469, -167.734)
-animation = &"CandleFrontOn"
-
-[node name="Candle4" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-857.448, -167.197)
-animation = &"CandleFrontOn"
-
-[node name="Candle7" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(1711.14, -167.197)
-animation = &"CandleFrontOn"
-
-[node name="Candle5" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-2005.62, 731.95)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle6" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-2005.62, 1177.9)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle11" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-2005.3, 1584.71)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle12" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-2005.63, 2051.29)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle13" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(-2005.31, 2458.11)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle8" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(2041.28, 852.441)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle9" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(2041.28, 415.581)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle10" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(2046.61, 1727.41)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle14" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(2046.61, 2139.24)
-scale = Vector2(0.133835, 0.133835)
-
-[node name="Candle15" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
-position = Vector2(2046.61, 2567.34)
-scale = Vector2(0.133835, 0.133835)
-
 [node name="Piller1" parent="EnvironmentAssets" instance=ExtResource("18_j7nyf")]
 position = Vector2(-296, 1112)
 
@@ -1717,6 +1653,81 @@ scale = Vector2(0.419115, 0.419115)
 position = Vector2(2350, 1238)
 scale = Vector2(0.419115, 0.419115)
 
+[node name="Candles" type="Node2D" parent="EnvironmentAssets" node_paths=PackedStringArray("player")]
+position = Vector2(1080, 6)
+scale = Vector2(0.798882, 0.798882)
+script = ExtResource("7_6ex7q")
+player = NodePath("../../Player")
+
+[node name="Candle" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(686.984, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle2" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(173.865, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle3" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(-335.469, -167.734)
+animation = &"CandleFrontOn"
+
+[node name="Candle4" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(-857.448, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle7" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(1711.14, -167.197)
+animation = &"CandleFrontOn"
+
+[node name="Candle5" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(-2005.62, 731.95)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle6" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(-2005.62, 1177.9)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle11" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(-2005.3, 1584.71)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle12" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(-2005.63, 2051.29)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle8" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(2041.28, 852.441)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle9" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(2041.28, 415.581)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle10" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(2046.61, 1727.41)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle14" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(2046.61, 2139.24)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOn"
+
+[node name="Candle15" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+position = Vector2(2046.61, 2567.34)
+scale = Vector2(0.133835, 0.133835)
+animation = &"candleSideOff"
+
+[node name="GlassWindow" parent="." instance=ExtResource("25_ijfg6")]
+position = Vector2(-577, 1970)
+scale = Vector2(0.160241, 0.160241)
+
 [node name="TargetDoor" parent="." groups=["_on_body_entered"] instance=ExtResource("17_njy47")]
 position = Vector2(-267, -59)
 scale = Vector2(1.31677, 1.31677)
@@ -1756,7 +1767,7 @@ avoidance_enabled = true
 [node name="PauseMenu" parent="." instance=ExtResource("10_lha2r")]
 
 [node name="LightSource" type="Node2D" parent="."]
-position = Vector2(-518, 1937)
+position = Vector2(-563, 1969)
 
 [node name="LaserBeam2D" parent="LightSource" instance=ExtResource("13_n5pya")]
 position = Vector2(-21, 47)
@@ -1783,7 +1794,7 @@ color = Color(1, 1, 0, 0)
 metadata/_edit_use_anchors_ = true
 
 [node name="Mirror" parent="." instance=ExtResource("5_68ib6")]
-position = Vector2(918, 2045)
+position = Vector2(942, 2002)
 scale = Vector2(0.8, 0.8)
 
 [node name="SpawnGate" parent="." instance=ExtResource("22_jsker")]

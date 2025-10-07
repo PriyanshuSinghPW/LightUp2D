@@ -13,9 +13,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_21p5v")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": true,
 "name": &"CandleFrontOff",
@@ -40,9 +37,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("4_u17qm")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": true,
 "name": &"candleSideOff",
@@ -51,9 +45,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("5_uv0mf")
-}, {
-"duration": 1.0,
-"texture": null
 }],
 "loop": true,
 "name": &"candleSideOn",
@@ -66,7 +57,7 @@ radius = 8.15704
 [node name="Candle" type="AnimatedSprite2D"]
 scale = Vector2(0.189301, 0.189301)
 sprite_frames = SubResource("SpriteFrames_u4is4")
-animation = &"candleSideOn"
+animation = &"CandleFrontOff"
 
 [node name="LightUpText" type="Label" parent="."]
 visible = false
