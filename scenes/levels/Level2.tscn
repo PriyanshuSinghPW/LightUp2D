@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://cx35gc6yr5ddu"]
+[gd_scene load_steps=59 format=4 uid="uid://cx35gc6yr5ddu"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_pi6sb"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_8tmga"]
@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="22_tmmrq"]
 [ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="23_lbqyf"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="24_a2sa2"]
+[ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_8tmga"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1652,11 +1653,6 @@ position = Vector2(-2005.63, 2051.29)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle13" parent="EnvironmentAssets/Candles" instance=ExtResource("8_uie84")]
-position = Vector2(-2005.31, 2458.11)
-scale = Vector2(0.133835, 0.133835)
-animation = &"candleSideOn"
-
 [node name="Candle8" parent="EnvironmentAssets/Candles" instance=ExtResource("8_uie84")]
 position = Vector2(2041.28, 852.441)
 scale = Vector2(0.133835, 0.133835)
@@ -1806,6 +1802,9 @@ color = Color(0.505882, 0.505882, 0.756863, 1)
 environment = SubResource("Environment_usw5k")
 camera_attributes = SubResource("CameraAttributesPractical_jsker")
 compositor = SubResource("Compositor_6ex7q")
+
+[node name="GlassWindow" parent="." instance=ExtResource("25_8tmga")]
+position = Vector2(-577, 1970)
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]

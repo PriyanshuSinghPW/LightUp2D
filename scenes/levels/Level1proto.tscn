@@ -2177,7 +2177,6 @@ scale = Vector2(0.8, 0.8)
 
 [node name="GlassWindow" parent="." instance=ExtResource("36_tmin1")]
 position = Vector2(-554, 297)
-scale = Vector2(0.160241, 0.160241)
 
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
 [connection signal="rotated" from="Mirror2" to="." method="_on_mirror_rotated"]

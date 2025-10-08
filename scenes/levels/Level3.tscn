@@ -1,30 +1,30 @@
-[gd_scene load_steps=59 format=4 uid="uid://c6ywnx8f1j1x0"]
+[gd_scene load_steps=59 format=4 uid="uid://bxylnobn4235a"]
 
-[ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_6owa4"]
-[ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="1_fh0io"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="2_x4si1"]
-[ext_resource type="Texture2D" uid="uid://cjvc2465rylsd" path="res://assets/tileset/ChatGPT Image Sep 25, 2025, 01_58_08 PM (Custom).png" id="3_68ib6"]
-[ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="3_76cw8"]
-[ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="4_m00rq"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="5_68ib6"]
-[ext_resource type="Texture2D" uid="uid://b8u1k26r60jgh" path="res://assets/tileset/lightUp 2D carpet map22.png" id="6_ukjja"]
-[ext_resource type="Script" uid="uid://bjhs0qbxjexwp" path="res://scenes/levels/CandleManager.gd" id="7_6ex7q"]
-[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="8_7d7pp"]
-[ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="8_brv20"]
-[ext_resource type="PackedScene" uid="uid://df4fvsqgxcbih" path="res://scenes/AssetScenes/candle.tscn" id="8_ijfg6"]
-[ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="10_lha2r"]
-[ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="11_lha2r"]
-[ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="13_kypp1"]
-[ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="13_n5pya"]
-[ext_resource type="PackedScene" uid="uid://dvu3noj1qkfjn" path="res://scenes/CollisionAssets/almirahs/almirah.tscn" id="16_p5s5a"]
-[ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="17_njy47"]
-[ext_resource type="PackedScene" uid="uid://bcec7ll1vkprl" path="res://scenes/CollisionAssets/Pillers/piller_1.tscn" id="18_j7nyf"]
-[ext_resource type="PackedScene" uid="uid://xe2n1y65btu0" path="res://scenes/CollisionAssets/plants/plant_1.tscn" id="19_xbvxr"]
-[ext_resource type="PackedScene" uid="uid://2pao3xq3cn3e" path="res://scenes/CollisionAssets/tables/table_3.tscn" id="20_bspq0"]
-[ext_resource type="PackedScene" uid="uid://bvm53gnwaeilc" path="res://scenes/CollisionAssets/cabinets/cabinet_brown.tscn" id="21_dqba7"]
-[ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="22_jsker"]
-[ext_resource type="PackedScene" uid="uid://dua4qxqkuwhh2" path="res://scenes/CollisionAssets/cabinets/show_case_2.tscn" id="22_usw5k"]
-[ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_ijfg6"]
+[ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_jy1lg"]
+[ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_h8kw8"]
+[ext_resource type="Texture2D" uid="uid://cjvc2465rylsd" path="res://assets/tileset/ChatGPT Image Sep 25, 2025, 01_58_08 PM (Custom).png" id="3_0i7gq"]
+[ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="4_51yjx"]
+[ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_l0o4u"]
+[ext_resource type="Texture2D" uid="uid://b8u1k26r60jgh" path="res://assets/tileset/lightUp 2D carpet map22.png" id="6_f30i7"]
+[ext_resource type="Script" uid="uid://bjhs0qbxjexwp" path="res://scenes/levels/CandleManager.gd" id="7_cqetg"]
+[ext_resource type="PackedScene" uid="uid://df4fvsqgxcbih" path="res://scenes/AssetScenes/candle.tscn" id="8_g7g6i"]
+[ext_resource type="PackedScene" uid="uid://bcec7ll1vkprl" path="res://scenes/CollisionAssets/Pillers/piller_1.tscn" id="9_k1d1a"]
+[ext_resource type="PackedScene" uid="uid://xe2n1y65btu0" path="res://scenes/CollisionAssets/plants/plant_1.tscn" id="10_dt1av"]
+[ext_resource type="PackedScene" uid="uid://2pao3xq3cn3e" path="res://scenes/CollisionAssets/tables/table_3.tscn" id="11_5gegw"]
+[ext_resource type="PackedScene" uid="uid://bvm53gnwaeilc" path="res://scenes/CollisionAssets/cabinets/cabinet_brown.tscn" id="12_8gw3w"]
+[ext_resource type="PackedScene" uid="uid://dua4qxqkuwhh2" path="res://scenes/CollisionAssets/cabinets/show_case_2.tscn" id="13_pgd7w"]
+[ext_resource type="PackedScene" uid="uid://dvu3noj1qkfjn" path="res://scenes/CollisionAssets/almirahs/almirah.tscn" id="14_ayc54"]
+[ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="15_g8fnm"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="16_iax0x"]
+[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="17_vpmgw"]
+[ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="18_crse0"]
+[ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="19_uw6dx"]
+[ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="20_kak5d"]
+[ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="21_ga15p"]
+[ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="22_bolq5"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="23_30go5"]
+[ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="24_wlmkh"]
+[ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_gy8to"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -919,7 +919,7 @@ texture_region_size = Vector2i(64, 64)
 31:31/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0jyoq"]
-texture = ExtResource("1_fh0io")
+texture = ExtResource("2_h8kw8")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 1:0/0 = 0
@@ -1180,7 +1180,7 @@ sources/0 = SubResource("TileSetAtlasSource_cwlop")
 sources/1 = SubResource("TileSetAtlasSource_0jyoq")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_npuhg"]
-texture = ExtResource("3_68ib6")
+texture = ExtResource("3_0i7gq")
 texture_region_size = Vector2i(128, 128)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1256,7 +1256,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_npuhg")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8swoy"]
-texture = ExtResource("3_76cw8")
+texture = ExtResource("4_51yjx")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -1339,7 +1339,7 @@ physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_8swoy")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvvky"]
-texture = ExtResource("4_m00rq")
+texture = ExtResource("5_l0o4u")
 texture_region_size = Vector2i(93, 93)
 0:0/0 = 0
 1:0/0 = 0
@@ -1368,7 +1368,7 @@ texture_region_size = Vector2i(93, 93)
 7:6/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5s5a"]
-texture = ExtResource("6_ukjja")
+texture = ExtResource("6_f30i7")
 texture_region_size = Vector2i(93, 93)
 0:0/0 = 0
 1:0/0 = 0
@@ -1408,67 +1408,67 @@ sources/0 = SubResource("TileSetAtlasSource_kvvky")
 sources/1 = SubResource("TileSetAtlasSource_p5s5a")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dqba7"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(225, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7d7pp"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(450, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usw5k"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(0, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsker"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(675, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e5nfq"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(675, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lha2r"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(0, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6owa4"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(225, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n5pya"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(450, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kypp1"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(675, 303, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ukjja"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(0, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_brv20"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(225, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xbvxr"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(450, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bspq0"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(675, 606, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p5s5a"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(0, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njy47"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(225, 0, 225, 303)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j7nyf"]
-atlas = ExtResource("8_brv20")
+atlas = ExtResource("18_crse0")
 region = Rect2(450, 0, 225, 303)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bto45"]
@@ -1579,7 +1579,7 @@ glow_intensity = 1.5
 [sub_resource type="Compositor" id="Compositor_6ex7q"]
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
-script = ExtResource("1_6owa4")
+script = ExtResource("1_jy1lg")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")
 
@@ -1608,135 +1608,137 @@ tile_set = SubResource("TileSet_2chdx")
 
 [node name="EnvironmentAssets" type="Node2D" parent="."]
 
-[node name="Piller1" parent="EnvironmentAssets" instance=ExtResource("18_j7nyf")]
-position = Vector2(-296, 1112)
-
-[node name="Piller2" parent="EnvironmentAssets" instance=ExtResource("18_j7nyf")]
-position = Vector2(-296, 1413)
-
-[node name="Piller3" parent="EnvironmentAssets" instance=ExtResource("18_j7nyf")]
-position = Vector2(-299, 1724)
-
-[node name="Plant1" parent="EnvironmentAssets" instance=ExtResource("19_xbvxr")]
-position = Vector2(-298, 999)
-
-[node name="Plant3" parent="EnvironmentAssets" instance=ExtResource("19_xbvxr")]
-position = Vector2(-302, 1617)
-
-[node name="Plant2" parent="EnvironmentAssets" instance=ExtResource("19_xbvxr")]
-position = Vector2(-302, 1310)
-
-[node name="table3" parent="EnvironmentAssets" instance=ExtResource("20_bspq0")]
-position = Vector2(-277, 708)
-
-[node name="cabinetBrown" parent="EnvironmentAssets" instance=ExtResource("21_dqba7")]
-position = Vector2(2000, 1272)
-scale = Vector2(0.322203, 0.322203)
-
-[node name="ShowCase2" parent="EnvironmentAssets" instance=ExtResource("22_usw5k")]
-position = Vector2(2432, 2138)
-
-[node name="ShowCase3" parent="EnvironmentAssets" instance=ExtResource("22_usw5k")]
-position = Vector2(2079, 2138)
-
-[node name="ShowCase4" parent="EnvironmentAssets" instance=ExtResource("22_usw5k")]
-position = Vector2(1735, 2138)
-
-[node name="ShowCase5" parent="EnvironmentAssets" instance=ExtResource("22_usw5k")]
-position = Vector2(1403, 2138)
-
-[node name="almirah" parent="EnvironmentAssets" instance=ExtResource("16_p5s5a")]
-position = Vector2(597, 106)
-scale = Vector2(0.419115, 0.419115)
-
-[node name="almirah2" parent="EnvironmentAssets" instance=ExtResource("16_p5s5a")]
-position = Vector2(2350, 1238)
-scale = Vector2(0.419115, 0.419115)
-
-[node name="Candles" type="Node2D" parent="EnvironmentAssets" node_paths=PackedStringArray("player")]
+[node name="Candles" type="Node2D" parent="EnvironmentAssets"]
 position = Vector2(1080, 6)
 scale = Vector2(0.798882, 0.798882)
-script = ExtResource("7_6ex7q")
-player = NodePath("../../Player")
+script = ExtResource("7_cqetg")
 
-[node name="Candle" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(686.984, -167.197)
 animation = &"CandleFrontOn"
 
-[node name="Candle2" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle2" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(173.865, -167.197)
 animation = &"CandleFrontOn"
 
-[node name="Candle3" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle3" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(-335.469, -167.734)
 animation = &"CandleFrontOn"
 
-[node name="Candle4" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle4" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(-857.448, -167.197)
 animation = &"CandleFrontOn"
 
-[node name="Candle7" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle7" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(1711.14, -167.197)
 animation = &"CandleFrontOn"
 
-[node name="Candle5" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle5" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(-2005.62, 731.95)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle6" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle6" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(-2005.62, 1177.9)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle11" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle11" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(-2005.3, 1584.71)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle12" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle12" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(-2005.63, 2051.29)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle8" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle8" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(2041.28, 852.441)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle9" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle9" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(2041.28, 415.581)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle10" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle10" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(2046.61, 1727.41)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle14" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle14" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(2046.61, 2139.24)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOn"
 
-[node name="Candle15" parent="EnvironmentAssets/Candles" instance=ExtResource("8_ijfg6")]
+[node name="Candle15" parent="EnvironmentAssets/Candles" instance=ExtResource("8_g7g6i")]
 position = Vector2(2046.61, 2567.34)
 scale = Vector2(0.133835, 0.133835)
 animation = &"candleSideOff"
 
-[node name="GlassWindow" parent="." instance=ExtResource("25_ijfg6")]
-position = Vector2(-576.957, 321.433)
+[node name="Piller1" parent="EnvironmentAssets" instance=ExtResource("9_k1d1a")]
+position = Vector2(-296, 1112)
 
-[node name="TargetDoor" parent="." groups=["_on_body_entered"] instance=ExtResource("17_njy47")]
+[node name="Piller2" parent="EnvironmentAssets" instance=ExtResource("9_k1d1a")]
+position = Vector2(-296, 1413)
+
+[node name="Piller3" parent="EnvironmentAssets" instance=ExtResource("9_k1d1a")]
+position = Vector2(-299, 1724)
+
+[node name="Plant1" parent="EnvironmentAssets" instance=ExtResource("10_dt1av")]
+position = Vector2(-298, 999)
+
+[node name="Plant3" parent="EnvironmentAssets" instance=ExtResource("10_dt1av")]
+position = Vector2(-302, 1617)
+
+[node name="Plant2" parent="EnvironmentAssets" instance=ExtResource("10_dt1av")]
+position = Vector2(-302, 1310)
+
+[node name="table3" parent="EnvironmentAssets" instance=ExtResource("11_5gegw")]
+position = Vector2(-277, 708)
+
+[node name="cabinetBrown" parent="EnvironmentAssets" instance=ExtResource("12_8gw3w")]
+position = Vector2(2000, 1272)
+scale = Vector2(0.322203, 0.322203)
+
+[node name="ShowCase2" parent="EnvironmentAssets" instance=ExtResource("13_pgd7w")]
+position = Vector2(2432, 2138)
+
+[node name="ShowCase3" parent="EnvironmentAssets" instance=ExtResource("13_pgd7w")]
+position = Vector2(2079, 2138)
+
+[node name="ShowCase4" parent="EnvironmentAssets" instance=ExtResource("13_pgd7w")]
+position = Vector2(1735, 2138)
+
+[node name="ShowCase5" parent="EnvironmentAssets" instance=ExtResource("13_pgd7w")]
+position = Vector2(1403, 2138)
+
+[node name="almirah" parent="EnvironmentAssets" instance=ExtResource("14_ayc54")]
+position = Vector2(597, 106)
+scale = Vector2(0.419115, 0.419115)
+
+[node name="almirah2" parent="EnvironmentAssets" instance=ExtResource("14_ayc54")]
+position = Vector2(2350, 1238)
+scale = Vector2(0.419115, 0.419115)
+
+[node name="TargetDoor" parent="." groups=["_on_body_entered"] instance=ExtResource("15_g8fnm")]
 position = Vector2(-267, -59)
 scale = Vector2(1.31677, 1.31677)
 animation = &"doorclosed"
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("16_iax0x")]
+position = Vector2(958, 425)
+scale = Vector2(3.0218, 3.0218)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Companion" type="CharacterBody2D" parent="."]
 visible = false
 position = Vector2(1610, 427)
 scale = Vector2(0.865086, 0.865086)
-script = ExtResource("8_7d7pp")
+script = ExtResource("17_vpmgw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Companion"]
 position = Vector2(-2.31226, 1.15594)
@@ -1755,14 +1757,14 @@ navigation_layers = 51
 simplify_path = true
 avoidance_enabled = true
 
-[node name="GameHud" parent="." instance=ExtResource("11_lha2r")]
+[node name="GameHud" parent="." instance=ExtResource("19_uw6dx")]
 
-[node name="PauseMenu" parent="." instance=ExtResource("10_lha2r")]
+[node name="PauseMenu" parent="." instance=ExtResource("20_kak5d")]
 
 [node name="LightSource" type="Node2D" parent="."]
-position = Vector2(-562.957, 320.432)
+position = Vector2(-518, 1937)
 
-[node name="LaserBeam2D" parent="LightSource" instance=ExtResource("13_n5pya")]
+[node name="LaserBeam2D" parent="LightSource" instance=ExtResource("21_ga15p")]
 position = Vector2(-21, 47)
 rotation = 0.00472991
 enabled = false
@@ -1773,7 +1775,7 @@ is_casting = false
 position = Vector2(-214, -16)
 collision_layer = 2
 collision_mask = 2
-script = ExtResource("13_kypp1")
+script = ExtResource("22_bolq5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1786,18 +1788,12 @@ offset_bottom = 20.0
 color = Color(1, 1, 0, 0)
 metadata/_edit_use_anchors_ = true
 
-[node name="Mirror" parent="." instance=ExtResource("5_68ib6")]
-position = Vector2(318, 353)
+[node name="Mirror" parent="." instance=ExtResource("23_30go5")]
+position = Vector2(918, 2045)
 scale = Vector2(0.8, 0.8)
 
-[node name="SpawnGate" parent="." instance=ExtResource("22_jsker")]
+[node name="SpawnGate" parent="." instance=ExtResource("24_wlmkh")]
 position = Vector2(2079, -58)
-
-[node name="Player" parent="." groups=["player"] instance=ExtResource("2_x4si1")]
-position = Vector2(2069, 242)
-scale = Vector2(3.0218, 3.0218)
-collision_layer = 2
-collision_mask = 2
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.505882, 0.505882, 0.756863, 1)
@@ -1806,6 +1802,9 @@ color = Color(0.505882, 0.505882, 0.756863, 1)
 environment = SubResource("Environment_usw5k")
 camera_attributes = SubResource("CameraAttributesPractical_jsker")
 compositor = SubResource("Compositor_6ex7q")
+
+[node name="GlassWindow" parent="." instance=ExtResource("25_gy8to")]
+position = Vector2(-577, 1970)
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]
