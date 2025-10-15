@@ -74,16 +74,6 @@ grow_vertical = 2
 scale = Vector2(0.714225, 0.714225)
 pivot_offset = Vector2(-415.481, -449.381)
 
-[node name="PlayButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
-layout_mode = 0
-offset_left = -1001.46
-offset_top = -691.068
-offset_right = 278.543
-offset_bottom = 39.9318
-pivot_offset = Vector2(271, 115)
-texture_normal = ExtResource("4_ostsq")
-stretch_mode = 0
-
 [node name="SettingsButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
 visible = false
 layout_mode = 0
@@ -109,6 +99,14 @@ text = "Settings"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="PlayButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
+layout_mode = 0
+offset_left = -1039.26
+offset_top = -661.666
+offset_right = 240.739
+offset_bottom = 69.3344
+texture_normal = ExtResource("4_ostsq")
 
 [node name="LightUp logo" type="TextureRect" parent="Control/StartingScreen"]
 layout_mode = 0
