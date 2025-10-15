@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ck7nudm1dtn34"]
+
+[ext_resource type="Texture2D" uid="uid://bnq8e0bh4bmm2" path="res://assets/room assets/window/glass window light up Left.png" id="1_vbi0f"]
+[ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="2_etj4k"]
+
+[node name="GlassWindowLightUpLeft" type="Sprite2D"]
+scale = Vector2(0.17066, 0.171537)
+texture = ExtResource("1_vbi0f")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(187.507, -5.82963)
+scale = Vector2(7.05876, 7.05876)
+color = Color(1, 1, 0.298039, 1)
+energy = 0.75
+texture = ExtResource("2_etj4k")
+texture_scale = 0.64

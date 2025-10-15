@@ -52,12 +52,12 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not is_instance_valid(player_to_follow):
-		return # Stop processing if the player is not valid.
+    if not is_instance_valid(player_to_follow):
+        return # Stop processing if the player is not valid.
 
-	var current_position = global_position
-	var player_position = player_to_follow.global_position
-	var distance_to_player = current_position.distance_to(player_position)
+    var current_position = global_position
+    var player_position = player_to_follow.global_position
+    var distance_to_player = current_position.distance_to(player_position)
 
 	# --- Fallback Logic: Handle getting stuck or too far away ---
 	if distance_to_player > respawn_distance:
@@ -149,23 +149,23 @@ func update_animation(direction: Vector2) -> void:
 
 
 func check_if_stuck(delta: float) -> void:
-	# If moving very slowly (or not at all) while trying to move...
-	if velocity.length() > 0 and global_position.distance_to(last_position) < 1.0:
-		stuck_timer += delta
-	else:
-		stuck_timer = 0 # Reset timer if moving normally.
+    # If moving very slowly (or not at all) while trying to move...
+    if velocity.length() > 0 and global_position.distance_to(last_position) < 1.0:
+        stuck_timer += delta
+    else:
+        stuck_timer = 0 # Reset timer if moving normally.
 
-	# If the timer exceeds the threshold, teleport.
-	if stuck_timer > stuck_time_threshold:
-		teleport_near_player()
-		stuck_timer = 0 # Reset after teleporting.
+    # If the timer exceeds the threshold, teleport.
+    if stuck_timer > stuck_time_threshold:
+        teleport_near_player()
+        stuck_timer = 0 # Reset after teleporting.
 
-	last_position = global_position
+    last_position = global_position
 
 
 func teleport_near_player() -> void:
-	# Find a safe position near the player and move the companion there.
-	# This places it slightly behind the player.
-	var offset = (player_to_follow.global_position - global_position).normalized() * (follow_distance - 20)
-	global_position = player_to_follow.global_position - offset
-	velocity = Vector2.ZERO # Stop movement immediately after teleport.
+    # Find a safe position near the player and move the companion there.
+    # This places it slightly behind the player.
+    var offset = (player_to_follow.global_position - global_position).normalized() * (follow_distance - 20)
+    global_position = player_to_follow.global_position - offset
+    velocity = Vector2.ZERO # Stop movement immediately after teleport.

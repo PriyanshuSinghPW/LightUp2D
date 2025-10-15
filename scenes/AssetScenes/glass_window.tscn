@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmejxsrufulmg"]
+
+[ext_resource type="Texture2D" uid="uid://4btfi2b8s3og" path="res://assets/room assets/window/glass window light up.png" id="1_3oku5"]
+[ext_resource type="Texture2D" uid="uid://bnq8e0bh4bmm2" path="res://assets/room assets/window/glass window light up Left.png" id="2_flkr8"]
+[ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="3_8sj7x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ss654"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3oku5")
+}],
+"loop": true,
+"name": &"Front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_flkr8")
+}],
+"loop": true,
+"name": &"Side",
+"speed": 5.0
+}]
+
+[node name="GlassWindow" type="AnimatedSprite2D"]
+scale = Vector2(0.160241, 0.160241)
+sprite_frames = SubResource("SpriteFrames_ss654")
+animation = &"Side"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(187.507, -5.82963)
+scale = Vector2(7.05876, 7.05876)
+color = Color(1, 1, 0.298039, 1)
+energy = 0.75
+texture = ExtResource("3_8sj7x")
+texture_scale = 0.64

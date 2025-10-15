@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://df4fvsqgxcbih"]
 
-[ext_resource type="Texture2D" uid="uid://jh5mra3hexvy" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_14PM-Photoroom.png" id="1_yk3qm"]
+[ext_resource type="Texture2D" uid="uid://mrnx2qlkqb3d" path="res://assets/room assets/lights/Candleoff Front.png" id="1_21p5v"]
 [ext_resource type="Texture2D" uid="uid://dqbtkyu8yhapb" path="res://assets/room assets/lights/Candle front.png" id="2_21p5v"]
 [ext_resource type="Texture2D" uid="uid://ba5tvhbvd8cr7" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_20PM-Photoroom.png" id="3_u17qm"]
-[ext_resource type="Texture2D" uid="uid://b4q7uavtio28" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_22PM-Photoroom.png" id="4_uv0mf"]
-[ext_resource type="Texture2D" uid="uid://b3n24ph4tkyui" path="res://assets/room assets/lights/Generated Image October 01, 2025 - 4_21PM-Photoroom.png" id="5_gkvvs"]
+[ext_resource type="Texture2D" uid="uid://dejjdgml1jsre" path="res://assets/room assets/lights/Candle top off.png" id="4_u17qm"]
+[ext_resource type="Texture2D" uid="uid://4rdfdijbffbc" path="res://assets/room assets/lights/Candle top.png" id="5_uv0mf"]
 [ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="6_ekk7w"]
 [ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="7_21p5v"]
 
@@ -12,7 +12,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_yk3qm")
+"texture": ExtResource("1_21p5v")
 }],
 "loop": true,
 "name": &"CandleFrontOff",
@@ -36,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_uv0mf")
+"texture": ExtResource("4_u17qm")
 }],
 "loop": true,
 "name": &"candleSideOff",
@@ -44,7 +44,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_gkvvs")
+"texture": ExtResource("5_uv0mf")
 }],
 "loop": true,
 "name": &"candleSideOn",
@@ -57,7 +57,7 @@ radius = 8.15704
 [node name="Candle" type="AnimatedSprite2D"]
 scale = Vector2(0.189301, 0.189301)
 sprite_frames = SubResource("SpriteFrames_u4is4")
-animation = &"candleSideOn"
+animation = &"CandleFrontOff"
 
 [node name="LightUpText" type="Label" parent="."]
 visible = false
