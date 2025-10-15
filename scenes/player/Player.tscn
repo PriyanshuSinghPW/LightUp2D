@@ -1911,8 +1911,7 @@ texture = ExtResource("2_lvxji")
 position = Vector2(3, -4)
 scale = Vector2(0.560774, 0.560774)
 sprite_frames = SubResource("SpriteFrames_pnxi5")
-animation = &"run front"
-frame_progress = 0.404792
+animation = &"idle front"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

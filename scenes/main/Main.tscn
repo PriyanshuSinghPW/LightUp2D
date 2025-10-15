@@ -1,121 +1,14 @@
-[gd_scene load_steps=14 format=3 uid="uid://begfxb032tx6l"]
+[gd_scene load_steps=10 format=3 uid="uid://begfxb032tx6l"]
 
 [ext_resource type="Script" uid="uid://n8xi4d1bxx5w" path="res://scripts/ui/MainMenu.gd" id="1_p5fgu"]
-[ext_resource type="Texture2D" uid="uid://d278lrhbi6s1h" path="res://assets/Background/game background.png" id="2_1rhdn"]
 [ext_resource type="Material" uid="uid://bcn42i3b344gv" path="res://assets/Shaders/speedlines_material.tres" id="2_sjxhf"]
-[ext_resource type="Texture2D" uid="uid://b6ckydc8ny4gm" path="res://assets/graphics/mathamatical snake white.png" id="4_3km4f"]
-[ext_resource type="Texture2D" uid="uid://da43pm66ltwpk" path="res://assets/Logo/Knowlege snake logo2.png" id="5_3km4f"]
+[ext_resource type="Texture2D" uid="uid://dneefye32qvhd" path="res://assets/Background/Generated Image October 07, 2025 - 4_20PM.png" id="3_ko0rf"]
+[ext_resource type="Texture2D" uid="uid://bus0w6s6a0po6" path="res://assets/Buttons/Generated Image October 13, 2025 - 5_34PM-Photoroom.png" id="4_ostsq"]
 [ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="5_ostsq"]
-[ext_resource type="Texture2D" uid="uid://jar5i84mddsb" path="res://assets/Logo/speedyboi snake.png" id="5_qkm1d"]
-[ext_resource type="Script" uid="uid://yx34mob3r4il" path="res://scripts/effects/TextureRect_shake_effect.gd" id="6_qkm1d"]
-[ext_resource type="Texture2D" uid="uid://lhvdsjo0d1g8" path="res://assets/Logo/Generated Image August 19, 2025 - 10_10PM-Photoroom.png" id="7_3km4f"]
+[ext_resource type="Texture2D" uid="uid://porrrf2b7npl" path="res://assets/Logo/light up logo golden.png" id="6_ostsq"]
+[ext_resource type="Texture2D" uid="uid://bqcfi0kig8ywj" path="res://assets/CharacterArts/Generated Image October 07, 2025 - 4_29PM-Photoroom.png" id="7_qkm1d"]
 [ext_resource type="Script" uid="uid://orvdk4tc675j" path="res://scripts/effects/Control_shake_effect.gd" id="8_p5fgu"]
-
-[sub_resource type="Animation" id="Animation_2tpxt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../StartingScreen/SnakeGraphic:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-165, 46)]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../StartingScreen/SpeedLines:material:shader_parameter/line_density")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.146, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../StartingScreen/SnakeLogo:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(973, 205)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../StartingScreen/ButtonsContainer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1444, 1004)]
-}
-
-[sub_resource type="Animation" id="Animation_p5fgu"]
-resource_name = "Starting_Anim"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../StartingScreen/SnakeGraphic:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.966667),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(-1170, 46), Vector2(-165, 46)]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../StartingScreen/SpeedLines:material:shader_parameter/line_density")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.146, -0.25, 0, 0.25, 0, 0.396, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1)
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../StartingScreen/SnakeLogo:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.966667),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(-850, 205), Vector2(973, 205)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../StartingScreen/ButtonsContainer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.933333),
-"transitions": PackedFloat32Array(1, 2),
-"update": 0,
-"values": [Vector2(1444, 1400), Vector2(1444, 1004)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_2tpxt"]
-_data = {
-&"RESET": SubResource("Animation_2tpxt"),
-&"Starting_Anim": SubResource("Animation_p5fgu")
-}
+[ext_resource type="Texture2D" uid="uid://kiuxdmfbn6nq" path="res://assets/Background/Generated Image October 07, 2025 - 4_27PM_upscayl_2x_upscayl-standard-4x-Photoroom.png" id="9_p5fgu"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
@@ -136,14 +29,14 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="TextureBG" type="TextureRect" parent="Control/StartingScreen"]
-visible = false
 modulate = Color(1, 1, 1, 0.760784)
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
-texture = ExtResource("2_1rhdn")
+texture = ExtResource("3_ko0rf")
 
 [node name="ColorRect" type="ColorRect" parent="Control/StartingScreen"]
+visible = false
 modulate = Color(1, 1, 1, 0.639216)
 layout_mode = 1
 anchors_preset = 15
@@ -156,59 +49,14 @@ grow_vertical = 2
 scale = Vector2(1.9272, 1.9272)
 color = Color(0.210186, 4.45691e-05, 0.771321, 1)
 
-[node name="MathsSymbols" type="TextureRect" parent="Control/StartingScreen"]
-modulate = Color(1, 1, 1, 0.384314)
-layout_mode = 0
-offset_left = 21.0
-offset_top = -29.0
-offset_right = 1642.0
-offset_bottom = 995.0
-scale = Vector2(1.17328, 1.17328)
-texture = ExtResource("4_3km4f")
-script = ExtResource("8_p5fgu")
-shake_intensity = 2.0
-shake_speed = 1.0
-
 [node name="SpeedLines" type="ColorRect" parent="Control/StartingScreen"]
+visible = false
 material = ExtResource("2_sjxhf")
 layout_mode = 0
 offset_top = -2.0
 offset_right = 1920.0
 offset_bottom = 1078.0
 scale = Vector2(1.1922, 1.1922)
-
-[node name="SnakeLogo" type="TextureRect" parent="Control/StartingScreen"]
-layout_mode = 0
-offset_left = 973.0
-offset_top = 205.0
-offset_right = 1891.0
-offset_bottom = 654.0
-scale = Vector2(0.985379, 0.985379)
-texture = ExtResource("5_3km4f")
-script = ExtResource("8_p5fgu")
-shake_intensity = 10.0
-shake_speed = 1.0
-
-[node name="ArithmeticLogo" type="TextureRect" parent="Control/StartingScreen/SnakeLogo"]
-layout_mode = 0
-offset_left = 238.487
-offset_top = 307.496
-offset_right = 1262.49
-offset_bottom = 818.496
-scale = Vector2(0.444085, 0.444085)
-texture = ExtResource("7_3km4f")
-
-[node name="SnakeGraphic" type="TextureRect" parent="Control/StartingScreen"]
-layout_mode = 0
-offset_left = -165.0
-offset_top = 46.0
-offset_right = 1115.0
-offset_bottom = 1070.0
-scale = Vector2(0.974757, 0.974757)
-texture = ExtResource("5_qkm1d")
-script = ExtResource("6_qkm1d")
-shake_intensity = 10.0
-shake_speed = 5.0
 
 [node name="ButtonsContainer" type="Control" parent="Control/StartingScreen"]
 layout_mode = 1
@@ -217,48 +65,22 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 1444.0
-offset_top = 1004.0
-offset_right = 1444.0
-offset_bottom = 1004.0
+offset_left = 1594.0
+offset_top = 1037.0
+offset_right = 1594.0
+offset_bottom = 1037.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.739061, 0.739061)
-pivot_offset = Vector2(-14.8838, -178.605)
-script = ExtResource("8_p5fgu")
-
-[node name="PlayButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
-layout_mode = 0
-offset_left = -284.0
-offset_top = -303.0
-offset_right = 237.0
-offset_bottom = -60.0
-pivot_offset = Vector2(271, 115)
-stretch_mode = 0
-
-[node name="Label" type="Label" parent="Control/StartingScreen/ButtonsContainer/PlayButton"]
-layout_mode = 0
-offset_left = 41.0
-offset_top = 47.0
-offset_right = 341.0
-offset_bottom = 157.0
-scale = Vector2(1.43487, 1.43487)
-theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
-theme_override_constants/outline_size = 25
-theme_override_fonts/font = ExtResource("5_ostsq")
-theme_override_font_sizes/font_size = 110
-text = "play"
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+scale = Vector2(0.714225, 0.714225)
+pivot_offset = Vector2(-415.481, -449.381)
 
 [node name="SettingsButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
 visible = false
 layout_mode = 0
-offset_left = -287.0
-offset_top = 6.0
-offset_right = 260.0
-offset_bottom = 268.0
+offset_left = -685.704
+offset_top = -361.173
+offset_right = -138.704
+offset_bottom = -99.1735
 scale = Vector2(0.898345, 0.898345)
 pivot_offset = Vector2(271, 115)
 stretch_mode = 0
@@ -278,8 +100,41 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Control"]
-root_node = NodePath("")
-libraries = {
-&"": SubResource("AnimationLibrary_2tpxt")
-}
+[node name="PlayButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
+layout_mode = 0
+offset_left = -1039.26
+offset_top = -661.666
+offset_right = 240.739
+offset_bottom = 69.3344
+texture_normal = ExtResource("4_ostsq")
+
+[node name="LightUp logo" type="TextureRect" parent="Control/StartingScreen"]
+layout_mode = 0
+offset_left = 513.0
+offset_top = -96.0
+offset_right = 1793.0
+offset_bottom = 635.0
+scale = Vector2(1.11903, 1.11903)
+texture = ExtResource("6_ostsq")
+script = ExtResource("8_p5fgu")
+shake_intensity = 10.0
+shake_speed = 1.0
+
+[node name="CharactersGraphic" type="TextureRect" parent="Control/StartingScreen"]
+layout_mode = 0
+offset_left = -30.0
+offset_top = 39.0
+offset_right = 1056.0
+offset_bottom = 1435.0
+scale = Vector2(0.764435, 0.764435)
+texture = ExtResource("7_qkm1d")
+
+[node name="MirrorGraphic" type="TextureRect" parent="Control/StartingScreen"]
+visible = false
+layout_mode = 0
+offset_left = 1077.0
+offset_top = 422.0
+offset_right = 2386.0
+offset_bottom = 1807.0
+scale = Vector2(0.432475, 0.432475)
+texture = ExtResource("9_p5fgu")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=122 format=4 uid="uid://c6ekf180s6g8m"]
+[gd_scene load_steps=103 format=4 uid="uid://c6ekf180s6g8m"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_0obl7"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_vmvlm"]
@@ -11,15 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://b1qerfw8iby0s" path="res://assets/room assets/door/light up door close sprite-Photoroom.png" id="7_w1e10"]
 [ext_resource type="Texture2D" uid="uid://bdoxbcrxjxhln" path="res://assets/room assets/flower/white-glow-light-with-glitter-ef2_upscayl_2x_upscayl-standard-4x.png" id="8_u4is4"]
 [ext_resource type="Texture2D" uid="uid://hflwnihbfgi5" path="res://assets/room assets/flower/light up flower sprite-Photoroom.png" id="9_rlwep"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="11_1d2ys"]
-[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="12_o1wco"]
-[ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="13_ncpat"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="11_1d2ys"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="14_ryai7"]
 [ext_resource type="PackedScene" uid="uid://bcec7ll1vkprl" path="res://scenes/CollisionAssets/Pillers/piller_1.tscn" id="15_fi023"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="15_np0mh"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="16_gpweb"]
 [ext_resource type="PackedScene" uid="uid://3fs0xdi5qb8w" path="res://scenes/CollisionAssets/almirahs/almirah_side.tscn" id="16_wstsq"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="17_r875i"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="17_r875i"]
 [ext_resource type="PackedScene" uid="uid://ctva7twb7d0b0" path="res://scenes/CollisionAssets/cabinets/cabinet.tscn" id="17_ss654"]
 [ext_resource type="PackedScene" uid="uid://b4acwmx7nia0y" path="res://scenes/CollisionAssets/cabinets/cabinet_2.tscn" id="18_k2cjq"]
 [ext_resource type="PackedScene" uid="uid://bvm53gnwaeilc" path="res://scenes/CollisionAssets/cabinets/cabinet_brown.tscn" id="19_ty3cl"]
@@ -35,6 +33,7 @@
 [ext_resource type="PackedScene" uid="uid://xe2n1y65btu0" path="res://scenes/CollisionAssets/plants/plant_1.tscn" id="28_rx6vs"]
 [ext_resource type="PackedScene" uid="uid://2xoaywkkmio7" path="res://scenes/CollisionAssets/Pillers/piller_2.tscn" id="29_nwioi"]
 [ext_resource type="PackedScene" uid="uid://b528axh1phgmh" path="res://scenes/CollisionAssets/plants/plant_2.tscn" id="30_qwn5u"]
+[ext_resource type="PackedScene" uid="uid://ddbx7o34etjnv" path="res://scenes/player/companion.tscn" id="31_tmin1"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="36_tmin1"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
@@ -1383,7 +1382,7 @@ ssr_fade_in = 3.63772
 ssao_radius = 5.1
 adjustment_brightness = 0.66
 adjustment_contrast = 1.45
-adjustment_saturation = 2.03
+adjustment_saturation = 1.21
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ncpat"]
 
@@ -1773,165 +1772,6 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqba7"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(225, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7d7pp"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(450, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_usw5k"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(0, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jsker"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(675, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5nfq"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(675, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lha2r"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(0, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6owa4"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(225, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5pya"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(450, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kypp1"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(675, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukjja"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(0, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_brv20"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(225, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbvxr"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(450, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bspq0"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(675, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5s5a"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(0, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_njy47"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(225, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7nyf"]
-atlas = ExtResource("13_ncpat")
-region = Rect2(450, 0, 225, 303)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bto45"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dqba7")
-}],
-"loop": true,
-"name": &"idle back",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7d7pp")
-}],
-"loop": true,
-"name": &"idle front",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_usw5k")
-}],
-"loop": true,
-"name": &"idle left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jsker")
-}],
-"loop": true,
-"name": &"idle right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5nfq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lha2r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6owa4")
-}],
-"loop": true,
-"name": &"walk back",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5pya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kypp1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ukjja")
-}],
-"loop": true,
-"name": &"walk back left",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_brv20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xbvxr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bspq0")
-}],
-"loop": true,
-"name": &"walk back right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5s5a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_njy47")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j7nyf")
-}],
-"loop": true,
-"name": &"walk front",
-"speed": 7.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7mqe6"]
-radius = 54.3917
-height = 301.93
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abcde"]
 size = Vector2(40, 40)
 
@@ -2113,33 +1953,14 @@ position = Vector2(596, 108)
 [node name="Plant2" parent="." instance=ExtResource("30_qwn5u")]
 position = Vector2(1696, 117)
 
+[node name="Companion" parent="." instance=ExtResource("31_tmin1")]
+position = Vector2(1782, 253)
+
 [node name="Player" parent="." instance=ExtResource("11_1d2ys")]
 position = Vector2(2074, 131)
 scale = Vector2(3.0218, 3.0218)
 collision_layer = 2
 collision_mask = 2
-
-[node name="Companion" type="CharacterBody2D" parent="."]
-position = Vector2(1660, -507)
-scale = Vector2(0.865086, 0.865086)
-script = ExtResource("12_o1wco")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Companion"]
-position = Vector2(-2.31226, 1.15594)
-scale = Vector2(1.10837, 1.10837)
-sprite_frames = SubResource("SpriteFrames_bto45")
-animation = &"idle front"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Companion"]
-visible = false
-position = Vector2(-31.2107, -16.1833)
-scale = Vector2(0.700872, 0.820872)
-shape = SubResource("CapsuleShape2D_7mqe6")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Companion"]
-navigation_layers = 51
-simplify_path = true
-avoidance_enabled = true
 
 [node name="GameHud" parent="." instance=ExtResource("14_ryai7")]
 

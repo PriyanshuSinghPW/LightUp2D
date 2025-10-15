@@ -12,79 +12,90 @@ var last_direction = Vector2(0, 1) # Default to facing down (front)
 @onready var camera: Camera2D = $Camera2D
 
 func _ready() -> void:
-    # Set the initial state to idle front.
-    animated_sprite.play("idle front")
-    
-    # Configure camera controller with our camera
-    if camera:
-        CameraController.configure(camera)
+	# Set the initial state to idle front.
+	animated_sprite.play("idle front")
+	
+	# Configure camera controller with our camera
+	if camera:
+		CameraController.configure(camera)
 
 func _physics_process(delta: float) -> void:
-    # Get the input direction
-    var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-    
-    # Handle the movement
-    velocity = input_direction.normalized() * speed
-    move_and_slide()
-    
-    # Update animation based on state
-    update_animation(input_direction)
+	# Get the input direction
+	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	
+	# Handle the movement
+	velocity = input_direction.normalized() * speed
+	move_and_slide()
+	
+	# --- NEW: Pushing Logic ---
+	# Check for collisions after moving.
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		# Check if the collided body is a companion and can be pushed.
+		if collision.get_collider().is_in_group("companion"):
+			var companion = collision.get_collider()
+			if companion.has_method("apply_push"):
+				# Apply a push force to the companion.
+				companion.apply_push(velocity)
+	
+	# Update animation based on state
+	update_animation(input_direction)
 
 func update_animation(direction: Vector2) -> void:
-    var new_animation = animated_sprite.animation
-    
-    if direction != Vector2.ZERO:
-        # Player is moving, so update last_direction
-        last_direction = direction
-        
-        # --- Check for Diagonal Movement First ---
-        if direction.x != 0 and direction.y != 0:
-            if direction.y < 0: # Moving Up
-                if direction.x < 0:
-                    new_animation = "run dig back left"
-                else:
-                    new_animation = "run dig back right"
-            else: # Moving Down
-                if direction.x < 0:
-                    new_animation = "run dig front left"
-                else:
-                    new_animation = "run dig front right"
-        # --- Else, Check for Cardinal Movement ---
-        elif direction.y < 0:
-            new_animation = "run back"
-        elif direction.y > 0:
-            new_animation = "run front"
-        elif direction.x < 0:
-            new_animation = "run left"
-        elif direction.x > 0:
-            new_animation = "run right"
-    else:
-        # --- Player is Idle ---
-        # Use the last direction to set the idle animation
-        var is_diagonal = last_direction.x != 0 and last_direction.y != 0
-        
-        # --- Check for Diagonal Idle State First ---
-        if is_diagonal:
-            if last_direction.y < 0: # Was moving Up
-                if last_direction.x < 0:
-                    new_animation = "idle dig back left"
-                else:
-                    new_animation = "idle dig back right"
-            else: # Was moving Down
-                if last_direction.x < 0:
-                    new_animation = "idle dig front left"
-                else:
-                    new_animation = "idle dig front right"
-        # --- Else, Check for Cardinal Idle State ---
-        elif last_direction.y < 0:
-            new_animation = "idle back"
-        elif last_direction.y > 0:
-            new_animation = "idle front"
-        elif last_direction.x < 0:
-            new_animation = "idle left"
-        elif last_direction.x > 0:
-            new_animation = "idle right"
-            
-    # Only change the animation if the new state is different from the current one
-    if animated_sprite.animation != new_animation:
-        animated_sprite.play(new_animation)
+	var new_animation = animated_sprite.animation
+	
+	if direction != Vector2.ZERO:
+		# Player is moving, so update last_direction
+		last_direction = direction
+		
+		# --- Check for Diagonal Movement First ---
+		if direction.x != 0 and direction.y != 0:
+			if direction.y < 0: # Moving Up
+				if direction.x < 0:
+					new_animation = "run dig back left"
+				else:
+					new_animation = "run dig back right"
+			else: # Moving Down
+				if direction.x < 0:
+					new_animation = "run dig front left"
+				else:
+					new_animation = "run dig front right"
+		# --- Else, Check for Cardinal Movement ---
+		elif direction.y < 0:
+			new_animation = "run back"
+		elif direction.y > 0:
+			new_animation = "run front"
+		elif direction.x < 0:
+			new_animation = "run left"
+		elif direction.x > 0:
+			new_animation = "run right"
+	else:
+		# --- Player is Idle ---
+		# Use the last direction to set the idle animation
+		var is_diagonal = last_direction.x != 0 and last_direction.y != 0
+		
+		# --- Check for Diagonal Idle State First ---
+		if is_diagonal:
+			if last_direction.y < 0: # Was moving Up
+				if last_direction.x < 0:
+					new_animation = "idle dig back left"
+				else:
+					new_animation = "idle dig back right"
+			else: # Was moving Down
+				if last_direction.x < 0:
+					new_animation = "idle dig front left"
+				else:
+					new_animation = "idle dig front right"
+		# --- Else, Check for Cardinal Idle State ---
+		elif last_direction.y < 0:
+			new_animation = "idle back"
+		elif last_direction.y > 0:
+			new_animation = "idle front"
+		elif last_direction.x < 0:
+			new_animation = "idle left"
+		elif last_direction.x > 0:
+			new_animation = "idle right"
+			
+	# Only change the animation if the new state is different from the current one
+	if animated_sprite.animation != new_animation:
+		animated_sprite.play(new_animation)
