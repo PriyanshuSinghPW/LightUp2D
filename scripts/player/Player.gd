@@ -27,6 +27,17 @@ func _physics_process(delta: float) -> void:
 	velocity = input_direction.normalized() * speed
 	move_and_slide()
 	
+	# --- NEW: Pushing Logic ---
+	# Check for collisions after moving.
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		# Check if the collided body is a companion and can be pushed.
+		if collision.get_collider().is_in_group("companion"):
+			var companion = collision.get_collider()
+			if companion.has_method("apply_push"):
+				# Apply a push force to the companion.
+				companion.apply_push(velocity)
+	
 	# Update animation based on state
 	update_animation(input_direction)
 

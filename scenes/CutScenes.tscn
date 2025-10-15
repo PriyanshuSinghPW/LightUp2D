@@ -1,0 +1,507 @@
+[gd_scene load_steps=16 format=3 uid="uid://ufije5euvy2d"]
+
+[ext_resource type="Texture2D" uid="uid://q1o6mf154s0v" path="res://assets/CutSceneAssets/museum/Generated Image October 13, 2025 - 4_18PM.png" id="1_6op2m"]
+[ext_resource type="Script" uid="uid://cwlu1ljdmf8ow" path="res://scenes/cut_scenes.gd" id="1_rcpro"]
+[ext_resource type="FontFile" uid="uid://dkrvcfgcvaqd5" path="res://assets/fonts/Phantom Shadow Serif Demo.otf" id="2_aar2y"]
+[ext_resource type="Texture2D" uid="uid://0ew5p8n7nxku" path="res://assets/Buttons/Generated Image October 13, 2025 - 5_33PM (2)-Photoroom.png" id="2_ccb1h"]
+[ext_resource type="Texture2D" uid="uid://3tmgmb5tcwab" path="res://assets/CutSceneAssets/letter boxing png.png" id="2_dvwtt"]
+[ext_resource type="Texture2D" uid="uid://cd678mh6pud3o" path="res://assets/CutSceneAssets/museum/Generated Image October 13, 2025 - 4_19PM.png" id="2_jef5i"]
+[ext_resource type="Texture2D" uid="uid://chjo1px4ecs4v" path="res://assets/CutSceneAssets/Jay&Roshni/jay&Roshni.png" id="3_4v03o"]
+[ext_resource type="Texture2D" uid="uid://d3gc8n5ji24hi" path="res://assets/Buttons/Generated Image October 13, 2025 - 5_35PM-Photoroom.png" id="3_wqgl2"]
+[ext_resource type="Texture2D" uid="uid://bmjc337j580ty" path="res://assets/CutSceneAssets/museum/Screenshot 2025-10-13 162814.png" id="6_373et"]
+[ext_resource type="Texture2D" uid="uid://cpdgfwdewid2j" path="res://assets/CutSceneAssets/Jay/jayLookingUp.png" id="7_2ioim"]
+[ext_resource type="Texture2D" uid="uid://b7e853ju8v4o8" path="res://assets/CutSceneAssets/Saanvi/Roshnilookingup.png" id="8_crgdb"]
+[ext_resource type="Texture2D" uid="uid://mt50higk6osv" path="res://assets/DialogueBox/Bar Background light up.png" id="10_crgdb"]
+
+[sub_resource type="Animation" id="Animation_4v03o"]
+resource_name = "1st_cutscene"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroScene/MuseumNight:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroScene/MuseumDay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.53333, 2.83333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IntroScene/MuseumDay:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.3, 4.8),
+"transitions": PackedFloat32Array(0.63728, 1),
+"update": 0,
+"values": [Vector2(3.02222, 3.02222), Vector2(1.347, 1.347)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IntroScene/jay&Saanvi:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.3, 4.8),
+"transitions": PackedFloat32Array(0.574349, 1),
+"update": 0,
+"values": [Vector2(522, 680), Vector2(522, 410)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IntroScene/jay&Saanvi:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.3, 4.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.471116, 0.471116), Vector2(0.331, 0.331)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("IntroScene:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(5.6, 5.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 5.63333, 8.66667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene2/Background:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(5.63333, 6.96667),
+"transitions": PackedFloat32Array(1, 0.482968),
+"update": 0,
+"values": [Vector2(0.916, 0.916), Vector2(0.816066, 0.816066)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scene2/Jay1:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(5.66667, 7),
+"transitions": PackedFloat32Array(1, 0.482968),
+"update": 0,
+"values": [Vector2(0.981, 0.981), Vector2(0.901074, 0.901074)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Scene2/Saanvi1:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(5.66667, 7),
+"transitions": PackedFloat32Array(1, 0.482968),
+"update": 0,
+"values": [Vector2(0.991, 0.991), Vector2(0.901074, 0.901074)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Fade effect:color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Scene3:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0.0333333, 8.63333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_rcpro"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("IntroScene/MuseumNight:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("IntroScene/MuseumDay:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("IntroScene/MuseumDay:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.02222, 3.02222)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("IntroScene/jay&Saanvi:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(522, 410)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("IntroScene/jay&Saanvi:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.471116, 0.471116)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("IntroScene:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Scene2:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Scene2/Background:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.816066, 0.816066)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Scene2/Jay1:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.901074, 0.901074)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Scene2/Saanvi1:scale")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.901074, 0.901074)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Fade effect:color")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Scene3:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_373et"]
+_data = {
+&"1st_cutscene": SubResource("Animation_4v03o"),
+&"RESET": SubResource("Animation_rcpro")
+}
+
+[node name="CutScenes" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rcpro")
+
+[node name="IntroScene" type="Node2D" parent="."]
+
+[node name="MuseumNight" type="TextureRect" parent="IntroScene"]
+offset_left = 234.0
+offset_top = 171.0
+offset_right = 1706.0
+offset_bottom = 875.0
+scale = Vector2(3.02222, 3.02222)
+pivot_offset = Vector2(736.173, 352.266)
+texture = ExtResource("1_6op2m")
+
+[node name="MuseumDay" type="TextureRect" parent="IntroScene"]
+offset_left = 234.0
+offset_top = 171.0
+offset_right = 1706.0
+offset_bottom = 875.0
+scale = Vector2(3.02222, 3.02222)
+pivot_offset = Vector2(736.173, 352.266)
+texture = ExtResource("2_jef5i")
+
+[node name="jay&Saanvi" type="TextureRect" parent="IntroScene"]
+offset_left = 522.0
+offset_top = 410.0
+offset_right = 1418.0
+offset_bottom = 1562.0
+scale = Vector2(0.471116, 0.471116)
+pivot_offset = Vector2(448.31, 526.472)
+texture = ExtResource("3_4v03o")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="IntroScene"]
+visible = false
+offset_left = 494.0
+offset_top = 444.0
+offset_right = 1444.0
+offset_bottom = 594.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_aar2y")
+theme_override_font_sizes/normal_font_size = 65
+text = "LIGHT UP"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Scene2" type="Node2D" parent="."]
+
+[node name="Background" type="TextureRect" parent="Scene2"]
+offset_left = -269.0
+offset_top = -61.0
+offset_right = 2193.0
+offset_bottom = 1166.0
+scale = Vector2(0.816066, 0.816066)
+pivot_offset = Vector2(1230.42, 612.897)
+texture = ExtResource("6_373et")
+
+[node name="Jay1" type="TextureRect" parent="Scene2"]
+offset_left = 519.0
+offset_top = 214.0
+offset_right = 943.0
+offset_bottom = 1366.0
+scale = Vector2(0.901074, 0.901074)
+pivot_offset = Vector2(182.195, 494.16)
+texture = ExtResource("7_2ioim")
+
+[node name="Saanvi1" type="TextureRect" parent="Scene2"]
+offset_left = 893.0
+offset_top = 263.0
+offset_right = 1339.0
+offset_bottom = 1415.0
+scale = Vector2(0.901074, 0.901074)
+pivot_offset = Vector2(182.195, 494.16)
+texture = ExtResource("8_crgdb")
+metadata/_edit_lock_ = true
+
+[node name="Scene3" type="Node2D" parent="."]
+visible = false
+
+[node name="Background" type="TextureRect" parent="Scene3"]
+offset_left = -269.0
+offset_top = -61.0
+offset_right = 2193.0
+offset_bottom = 1166.0
+scale = Vector2(0.816066, 0.816066)
+pivot_offset = Vector2(1230.42, 612.897)
+texture = ExtResource("6_373et")
+
+[node name="Jay1" type="TextureRect" parent="Scene3"]
+offset_left = 519.0
+offset_top = 214.0
+offset_right = 943.0
+offset_bottom = 1366.0
+scale = Vector2(0.901074, 0.901074)
+pivot_offset = Vector2(182.195, 494.16)
+texture = ExtResource("7_2ioim")
+
+[node name="Saanvi1" type="TextureRect" parent="Scene3"]
+offset_left = 893.0
+offset_top = 263.0
+offset_right = 1339.0
+offset_bottom = 1415.0
+scale = Vector2(0.901074, 0.901074)
+pivot_offset = Vector2(182.195, 494.16)
+texture = ExtResource("8_crgdb")
+metadata/_edit_lock_ = true
+
+[node name="LetterBoxing" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 34.0
+offset_right = 1954.0
+offset_bottom = 1080.0
+scale = Vector2(1.24352, 1.24352)
+pivot_offset = Vector2(920.693, 540.173)
+texture = ExtResource("2_dvwtt")
+
+[node name="Fade effect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -110.0
+offset_right = -30.0
+offset_bottom = 40.77
+scale = Vector2(26.76, 26.76)
+color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="DialogueBackground" type="TextureRect" parent="CanvasLayer"]
+offset_left = 427.0
+offset_top = 675.0
+offset_right = 1352.0
+offset_bottom = 887.0
+scale = Vector2(1.10692, 1.10692)
+texture = ExtResource("10_crgdb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/DialogueBackground"]
+layout_mode = 0
+offset_left = 36.5134
+offset_top = 27.5714
+offset_right = 886.513
+offset_bottom = 177.571
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_aar2y")
+theme_override_font_sizes/normal_font_size = 36
+text = "Gay boy Fuck Nigger"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CanvasLayer/DialogueBackground"]
+visible = false
+layout_mode = 0
+offset_top = 14.9035
+offset_right = 200.0
+offset_bottom = 71.9035
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("2_aar2y")
+theme_override_font_sizes/normal_font_size = 36
+text = "Diddy"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1059.0
+offset_top = 782.0
+offset_right = 2339.0
+offset_bottom = 1513.0
+scale = Vector2(0.325115, 0.325115)
+texture_normal = ExtResource("2_ccb1h")
+
+[node name="SkipButton" type="TextureButton" parent="CanvasLayer"]
+visible = false
+self_modulate = Color(1, 1, 1, 0.439216)
+offset_left = -59.0
+offset_top = 675.0
+offset_right = 1221.0
+offset_bottom = 1406.0
+scale = Vector2(0.394152, 0.394152)
+texture_normal = ExtResource("3_wqgl2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_373et")
+}
