@@ -19,14 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://3fs0xdi5qb8w" path="res://scenes/CollisionAssets/almirahs/almirah_side.tscn" id="17_fljmm"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="18_v0jxs"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="19_hgkar"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="20_ruoom"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="20_ruoom"]
 [ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="21_oqeha"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="22_al2i5"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="23_arbgu"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="24_5fmri"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="25_tb7tq"]
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="26_hq4kv"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="27_xy3bv"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="27_xy3bv"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="28_iyyii"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
@@ -1618,10 +1618,11 @@ tile_set = SubResource("TileSet_2chdx")
 
 [node name="EnvironmentAssets" type="Node2D" parent="."]
 
-[node name="Candles" type="Node2D" parent="EnvironmentAssets"]
+[node name="Candles" type="Node2D" parent="EnvironmentAssets" node_paths=PackedStringArray("player")]
 position = Vector2(1080, 6)
 scale = Vector2(0.798882, 0.798882)
 script = ExtResource("7_gcuca")
+player = NodePath("../../Player")
 
 [node name="Candle" parent="EnvironmentAssets/Candles" instance=ExtResource("8_xow11")]
 position = Vector2(686.984, -167.197)
