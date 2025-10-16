@@ -18,7 +18,7 @@ extends Node
 var _camera: Camera2D
 var _active: bool = false
 var _player: Node2D
-var _target: Node2D
+var _targets: Array[Node2D] = []
 var _base_zoom: Vector2 = Vector2.ONE
 
 func configure(cam: Camera2D):
@@ -52,10 +52,32 @@ func focus_pair(player: Node2D, target: Node2D):
             push_warning("[CameraController] No camera found, focus_pair aborted")
         return
     _player = player
-    _target = target
+    _targets = [target]
     _active = true
     if debug_mode:
-        print("[CameraController] Focusing on player:", player.name, " + target:", target.name, " | base_zoom:", _base_zoom)
+        print("[CameraController] Focusing (pair) on player:", player.name, " + target:", target.name, " | base_zoom:", _base_zoom)
+
+func focus_points(player: Node2D, extra_points: Array[Node2D]):
+    if not _camera:
+        _auto_find_camera()
+    if not _camera:
+        if debug_mode:
+            push_warning("[CameraController] No camera found, focus_points aborted")
+        return
+    _player = player
+    _targets = []
+    for p in extra_points:
+        if p and is_instance_valid(p):
+            _targets.append(p)
+    if _targets.size() == 0:
+        _active = false
+        return
+    _active = true
+    if debug_mode:
+        var names := []
+        for t in _targets:
+            names.append(t.name)
+        print("[CameraController] Focusing on player + points:", names, " | count:", _targets.size())
 
 func clear_focus():
     _active = false
@@ -79,19 +101,36 @@ func _process(delta: float) -> void:
         return
     
     # Active mode - frame player + target
-    if not is_instance_valid(_player) or not is_instance_valid(_target):
+    if not is_instance_valid(_player):
+        _active = false
+        return
+    # Filter invalid targets
+    var valid_targets: Array[Node2D] = []
+    for t in _targets:
+        if t and is_instance_valid(t):
+            valid_targets.append(t)
+    if valid_targets.size() == 0:
         _active = false
         return
 
     var p_pos = _player.global_position
-    var t_pos = _target.global_position
-    var center = (p_pos + t_pos) * 0.5
+    # Compute bounding box of all targets + player
+    var min_x = p_pos.x
+    var max_x = p_pos.x
+    var min_y = p_pos.y
+    var max_y = p_pos.y
+    for t in valid_targets:
+        var tp = t.global_position
+        min_x = min(min_x, tp.x)
+        max_x = max(max_x, tp.x)
+        min_y = min(min_y, tp.y)
+        max_y = max(max_y, tp.y)
+    var center = Vector2((min_x + max_x) * 0.5, (min_y + max_y) * 0.5)
     _camera.global_position = _camera.global_position.lerp(center, clamp(delta * lerp_speed, 0.0, 1.0))
 
-    # Determine required extents to include both points with padding
-    var diff = (t_pos - p_pos).abs()
-    var required_width = diff.x + padding * 2.0
-    var required_height = diff.y + padding * 2.0
+    # Required extents from bounding box
+    var required_width = (max_x - min_x) + padding * 2.0
+    var required_height = (max_y - min_y) + padding * 2.0
 
     # Calculate zoom needed to fit this world-space rect
     var viewport_size = get_viewport().size
