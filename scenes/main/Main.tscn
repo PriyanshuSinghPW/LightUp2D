@@ -1,23 +1,338 @@
-[gd_scene load_steps=10 format=3 uid="uid://begfxb032tx6l"]
+[gd_scene load_steps=19 format=3 uid="uid://begfxb032tx6l"]
 
 [ext_resource type="Script" uid="uid://n8xi4d1bxx5w" path="res://scripts/ui/MainMenu.gd" id="1_p5fgu"]
 [ext_resource type="Material" uid="uid://bcn42i3b344gv" path="res://assets/Shaders/speedlines_material.tres" id="2_sjxhf"]
 [ext_resource type="Texture2D" uid="uid://dneefye32qvhd" path="res://assets/Background/Generated Image October 07, 2025 - 4_20PM.png" id="3_ko0rf"]
-[ext_resource type="Texture2D" uid="uid://bus0w6s6a0po6" path="res://assets/Buttons/Generated Image October 13, 2025 - 5_34PM-Photoroom.png" id="4_ostsq"]
+[ext_resource type="Texture2D" uid="uid://clvg3g4gm47i2" path="res://assets/Buttons/playlightup.png" id="5_3km4f"]
 [ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="5_ostsq"]
+[ext_resource type="Texture2D" uid="uid://r5r5v8bjh2d0" path="res://assets/CharacterArts/player&Companion.png" id="6_3km4f"]
 [ext_resource type="Texture2D" uid="uid://porrrf2b7npl" path="res://assets/Logo/light up logo golden.png" id="6_ostsq"]
-[ext_resource type="Texture2D" uid="uid://bqcfi0kig8ywj" path="res://assets/CharacterArts/Generated Image October 07, 2025 - 4_29PM-Photoroom.png" id="7_qkm1d"]
-[ext_resource type="Script" uid="uid://orvdk4tc675j" path="res://scripts/effects/Control_shake_effect.gd" id="8_p5fgu"]
+[ext_resource type="Shader" uid="uid://dtyd712p3s1ti" path="res://assets/Shaders/burn_logo.gdshader" id="8_qkm1d"]
 [ext_resource type="Texture2D" uid="uid://kiuxdmfbn6nq" path="res://assets/Background/Generated Image October 07, 2025 - 4_27PM_upscayl_2x_upscayl-standard-4x-Photoroom.png" id="9_p5fgu"]
+[ext_resource type="Shader" uid="uid://2pm06yor5abj" path="res://scenes/main/fog_shader.gdshader" id="10_3km4f"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p5fgu"]
+shader = ExtResource("8_qkm1d")
+shader_parameter/progress = 0.0
+shader_parameter/glow_color = Color(1, 0.55, 0.1, 1)
+shader_parameter/edge_width = 0.06
+shader_parameter/glow_intensity = 1.2
+shader_parameter/dissolve_softness = 0.25
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3km4f"]
+frequency = 0.0018
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3km4f"]
+width = 1920
+height = 1080
+seamless = true
+seamless_blend_skirt = 0.75
+noise = SubResource("FastNoiseLite_3km4f")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qkm1d"]
+shader = ExtResource("10_3km4f")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_3km4f")
+shader_parameter/density = 0.25
+shader_parameter/speed = Vector2(0.02, 0.01)
+
+[sub_resource type="Animation" id="Animation_3km4f"]
+resource_name = "MainMenu_Animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/StartingScreen/Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1.96667),
+"transitions": PackedFloat32Array(1, 0.466517),
+"update": 0,
+"values": [Vector2(2.44, 2.44), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/StartingScreen/Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0666667, 1.96667),
+"transitions": PackedFloat32Array(1, 0.466517),
+"update": 0,
+"values": [Vector2(0, 500), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/StartingScreen/LightUp logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0666667, 1.96667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1933, -100), Vector2(513, -96)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/StartingScreen/ButtonsContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0680012, 1.96667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(1614, 1593), Vector2(1614, 1057)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/StartingScreen/CharactersGraphic:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0666134, 1.96667),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(-821, 0), Vector2(-33, 0)]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(6.015, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.0665095, 1.96868)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParallaxBackground:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(6.015, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.0665095, 1.96868)
+}
+
+[sub_resource type="Animation" id="Animation_p5fgu"]
+resource_name = "Play_Click_Animation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/StartingScreen/Fade effect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/StartingScreen/Fade effect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ParallaxBackground/ParallaxLayer/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.366667, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/StartingScreen/LightUp logo:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.91072),
+"transitions": PackedFloat32Array(1.56917, 1),
+"update": 0,
+"values": [Vector2(513, -96), Vector2(239, 89)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/StartingScreen/LightUp logo:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.11876, 1.11876)]
+}
+
+[sub_resource type="Animation" id="Animation_qkm1d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/StartingScreen/Background:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/StartingScreen/Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/StartingScreen/LightUp logo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(513, -96)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/StartingScreen/ButtonsContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1614, 1057)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/StartingScreen/CharactersGraphic:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 0)]
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ParallaxBackground:scale:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.015, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ParallaxBackground:scale:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(6.015, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/StartingScreen/Fade effect:color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Control/StartingScreen/Fade effect:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ParallaxBackground/ParallaxLayer/ColorRect:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Control/StartingScreen/LightUp logo:scale")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.11876, 1.11876)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qkm1d"]
+_data = {
+&"MainMenu_Animation": SubResource("Animation_3km4f"),
+&"Play_Click_Animation": SubResource("Animation_p5fgu"),
+&"RESET": SubResource("Animation_qkm1d")
+}
 
 [node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_p5fgu")
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_p5fgu")
 
 [node name="StartingScreen" type="Control" parent="Control"]
 material = ExtResource("2_sjxhf")
@@ -28,26 +343,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureBG" type="TextureRect" parent="Control/StartingScreen"]
+[node name="Background" type="TextureRect" parent="Control/StartingScreen"]
 modulate = Color(1, 1, 1, 0.760784)
 layout_mode = 0
+offset_top = 500.0
 offset_right = 1920.0
-offset_bottom = 1080.0
+offset_bottom = 1580.0
+pivot_offset = Vector2(918, 509)
 texture = ExtResource("3_ko0rf")
-
-[node name="ColorRect" type="ColorRect" parent="Control/StartingScreen"]
-visible = false
-modulate = Color(1, 1, 1, 0.639216)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1000.0
-offset_bottom = 570.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.9272, 1.9272)
-color = Color(0.210186, 4.45691e-05, 0.771321, 1)
 
 [node name="SpeedLines" type="ColorRect" parent="Control/StartingScreen"]
 visible = false
@@ -57,6 +360,7 @@ offset_top = -2.0
 offset_right = 1920.0
 offset_bottom = 1078.0
 scale = Vector2(1.1922, 1.1922)
+mouse_filter = 2
 
 [node name="ButtonsContainer" type="Control" parent="Control/StartingScreen"]
 layout_mode = 1
@@ -66,9 +370,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 1594.0
-offset_top = 1037.0
+offset_top = 1573.0
 offset_right = 1594.0
-offset_bottom = 1037.0
+offset_bottom = 1573.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.714225, 0.714225)
@@ -77,10 +381,10 @@ pivot_offset = Vector2(-415.481, -449.381)
 [node name="SettingsButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
 visible = false
 layout_mode = 0
-offset_left = -685.704
-offset_top = -361.173
-offset_right = -138.704
-offset_bottom = -99.1735
+offset_left = -665.429
+offset_top = -178.625
+offset_right = -118.429
+offset_bottom = 83.375
 scale = Vector2(0.898345, 0.898345)
 pivot_offset = Vector2(271, 115)
 stretch_mode = 0
@@ -102,39 +406,69 @@ autowrap_mode = 2
 
 [node name="PlayButton" type="TextureButton" parent="Control/StartingScreen/ButtonsContainer"]
 layout_mode = 0
-offset_left = -1039.26
-offset_top = -661.666
-offset_right = 240.739
-offset_bottom = 69.3344
-texture_normal = ExtResource("4_ostsq")
-
-[node name="LightUp logo" type="TextureRect" parent="Control/StartingScreen"]
-layout_mode = 0
-offset_left = 513.0
-offset_top = -96.0
-offset_right = 1793.0
-offset_bottom = 635.0
-scale = Vector2(1.11903, 1.11903)
-texture = ExtResource("6_ostsq")
-script = ExtResource("8_p5fgu")
-shake_intensity = 10.0
-shake_speed = 1.0
+offset_left = -778.838
+offset_top = -478.25
+offset_right = 272.162
+offset_bottom = -79.25
+scale = Vector2(0.707441, 0.707441)
+texture_normal = ExtResource("5_3km4f")
 
 [node name="CharactersGraphic" type="TextureRect" parent="Control/StartingScreen"]
 layout_mode = 0
-offset_left = -30.0
-offset_top = 39.0
-offset_right = 1056.0
-offset_bottom = 1435.0
+offset_left = -821.0
+offset_right = 265.0
+offset_bottom = 1396.0
 scale = Vector2(0.764435, 0.764435)
-texture = ExtResource("7_qkm1d")
+mouse_filter = 2
+texture = ExtResource("6_3km4f")
 
 [node name="MirrorGraphic" type="TextureRect" parent="Control/StartingScreen"]
 visible = false
 layout_mode = 0
-offset_left = 1077.0
-offset_top = 422.0
-offset_right = 2386.0
-offset_bottom = 1807.0
+offset_left = 2013.0
+offset_top = 502.0
+offset_right = 3322.0
+offset_bottom = 1887.0
 scale = Vector2(0.432475, 0.432475)
+mouse_filter = 2
 texture = ExtResource("9_p5fgu")
+
+[node name="Fade effect" type="ColorRect" parent="Control/StartingScreen"]
+visible = false
+layout_mode = 0
+offset_left = -110.0
+offset_right = -30.0
+offset_bottom = 40.77
+scale = Vector2(26.76, 26.76)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="LightUp logo" type="TextureRect" parent="Control/StartingScreen"]
+material = SubResource("ShaderMaterial_p5fgu")
+layout_mode = 0
+offset_left = 1933.0
+offset_top = -100.0
+offset_right = 3213.0
+offset_bottom = 631.0
+scale = Vector2(1.11876, 1.11876)
+mouse_filter = 2
+texture = ExtResource("6_ostsq")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = 2
+scale = Vector2(6.015, 6.015)
+transform = Transform2D(6.015, 0, 0, 6.015, 0, 0)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1920, 1080)
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground/ParallaxLayer"]
+material = SubResource("ShaderMaterial_qkm1d")
+offset_right = 1920.0
+offset_bottom = 1080.0
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qkm1d")
+}

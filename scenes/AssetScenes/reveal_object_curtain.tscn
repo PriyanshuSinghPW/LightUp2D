@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3n1ksce6kw4v"]
+
+[ext_resource type="Script" uid="uid://b1fabh5qmboww" path="res://scenes/levels/reveal_object.gd" id="1_i2v88"]
+[ext_resource type="Texture2D" uid="uid://duwo44pju38ds" path="res://assets/room assets/showcases/HidingCurtain.png" id="2_tpb11"]
+[ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="3_y5061"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_q4hq2"]
+radius = 17.0876
+
+[node name="RevealObject_curtain" type="Area2D"]
+scale = Vector2(0.652942, 0.652942)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_i2v88")
+
+[node name="HidingCloth" type="Sprite2D" parent="."]
+texture = ExtResource("2_tpb11")
+
+[node name="HidingCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 176.126)
+scale = Vector2(12.332, 12.332)
+shape = SubResource("CircleShape2D_q4hq2")
+
+[node name="Text" type="Label" parent="."]
+visible = false
+offset_left = -244.603
+offset_top = -434.103
+offset_right = 455.397
+offset_bottom = -104.973
+scale = Vector2(0.686751, 0.686751)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("3_y5061")
+theme_override_font_sizes/font_size = 110
+text = "Press E to Reveal"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

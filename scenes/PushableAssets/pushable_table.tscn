@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://canu0xx1fj5jo"]
+
+[ext_resource type="Script" uid="uid://dokd3xfmqw6wk" path="res://scenes/levels/pushable_object.gd" id="1_5uvfh"]
+[ext_resource type="Texture2D" uid="uid://et35is3mmprd" path="res://assets/room assets/table/ChatGPT Image Sep 30, 2025, 06_44_41 PM-Photoroom@0.75x2.png" id="2_v633j"]
+[ext_resource type="Texture2D" uid="uid://bjh4aqa4rf6a8" path="res://assets/room assets/environment/Plant2.png" id="3_v633j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t2wor"]
+size = Vector2(50.5945, 19.488)
+
+[node name="PushableTable" type="CharacterBody2D" groups=["pushable"]]
+scale = Vector2(0.167226, 0.167226)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_5uvfh")
+
+[node name="table3" type="Sprite2D" parent="."]
+position = Vector2(9.89098, -153.311)
+scale = Vector2(1.57066, 1.57066)
+texture = ExtResource("2_v633j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(34.6187, -390.696)
+scale = Vector2(19.0152, 19.1804)
+shape = SubResource("RectangleShape2D_t2wor")
+
+[node name="Plant2" type="Sprite2D" parent="."]
+position = Vector2(17.9398, -580.053)
+scale = Vector2(0.721615, 0.721615)
+texture = ExtResource("3_v633j")

@@ -1,7 +1,16 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3egjwunndufg"]
+[gd_scene load_steps=35 format=3 uid="uid://c3egjwunndufg"]
 
 [ext_resource type="Texture2D" uid="uid://y7vvy48j1ip6" path="res://assets/room assets/orb/spinning orb-Photoroom.png" id="1_s6awj"]
+[ext_resource type="Texture2D" uid="uid://duomrlcy3kf46" path="res://assets/room assets/orb/empty pillar.png" id="2_bqx7c"]
 [ext_resource type="Texture2D" uid="uid://bdoxbcrxjxhln" path="res://assets/room assets/flower/white-glow-light-with-glitter-ef2_upscayl_2x_upscayl-standard-4x.png" id="2_x723f"]
+[ext_resource type="Script" uid="uid://depw75ydhxy6v" path="res://scenes/AssetScenes/orb.gd" id="3_2wcd1"]
+[ext_resource type="Texture2D" uid="uid://baabn8ne6nam3" path="res://assets/gameplay objects/Closed Scroll.png" id="3_x723f"]
+[ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="6_t6vlx"]
+[ext_resource type="Texture2D" uid="uid://blfusbrlrtv00" path="res://assets/scrolls/old scroll.png" id="7_4dyqo"]
+[ext_resource type="Shader" uid="uid://uvx3yc86fnbm" path="res://assets/Shaders/simple_blur.gdshader" id="7_i6apb"]
+[ext_resource type="Shader" uid="uid://cgmyxivcab4by" path="res://assets/Shaders/Vignette.gdshader" id="8_s8ly5"]
+[ext_resource type="FontFile" uid="uid://dkrvcfgcvaqd5" path="res://assets/fonts/Phantom Shadow Serif Demo.otf" id="10_k88qn"]
+[ext_resource type="Texture2D" uid="uid://c1y6owfuwckwi" path="res://assets/Buttons/closelightUp.png" id="11_7ax82"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0bom7"]
 atlas = ExtResource("1_s6awj")
@@ -75,10 +84,18 @@ region = Rect2(960, 960, 320, 320)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_bqx7c")
+}],
+"loop": true,
+"name": &"EmptyPillar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0bom7")
 }],
 "loop": true,
-"name": &"Stable",
+"name": &"default",
 "speed": 5.0
 }, {
 "frames": [{
@@ -139,24 +156,171 @@ animations = [{
 radius = 8.8712
 height = 81.888
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_s6awj"]
+radius = 42.6344
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bqx7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_x723f")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4dyqo"]
+shader = ExtResource("7_i6apb")
+shader_parameter/lod = 3.682
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k88qn"]
+shader = ExtResource("8_s8ly5")
+shader_parameter/radius = 0.523
+shader_parameter/softness = 0.676
+shader_parameter/intensity = 0.181
+shader_parameter/contrast = 2.472
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
+
 [node name="Orb" type="AnimatedSprite2D"]
 scale = Vector2(0.786712, 0.786712)
 sprite_frames = SubResource("SpriteFrames_wstsq")
-animation = &"spinning"
-frame = 3
-frame_progress = 0.818504
+frame_progress = 0.013662
+script = ExtResource("3_2wcd1")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 31.7778)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-1.27111, -11.44)
 scale = Vector2(1.86271, 1.86271)
 shape = SubResource("CapsuleShape2D_s6awj")
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="orbLight" type="PointLight2D" parent="."]
 position = Vector2(-5.99998, -88)
 scale = Vector2(0.345684, 0.345684)
 color = Color(0.546113, 0.00397984, 0.997998, 1)
 energy = 1.22
 texture = ExtResource("2_x723f")
-texture_scale = 0.69
+texture_scale = 0.7
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2.54223, -95.3335)
+shape = SubResource("CircleShape2D_s6awj")
+
+[node name="Scroll" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(-1.27111, -109.316)
+scale = Vector2(0.250549, 0.250549)
+sprite_frames = SubResource("SpriteFrames_bqx7c")
+
+[node name="ScrollLight" type="PointLight2D" parent="Scroll"]
+position = Vector2(2.38419e-06, -5.07336)
+scale = Vector2(18.0719, 18.0719)
+enabled = false
+color = Color(0.999999, 0.379383, 0.980756, 1)
+energy = 0.3
+texture = ExtResource("2_x723f")
+texture_scale = 0.8
+
+[node name="Text" type="Label" parent="."]
+visible = false
+offset_left = -247.867
+offset_top = -369.894
+offset_right = 452.133
+offset_bottom = -40.764
+scale = Vector2(0.70301, 0.70301)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("6_t6vlx")
+theme_override_font_sizes/font_size = 110
+text = "Press E to Open Scroll"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="BlurBg" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4dyqo")
+offset_right = 1599.99
+offset_bottom = 900.0
+scale = Vector2(1.20604, 1.20604)
+mouse_filter = 2
+color = Color(0.0392157, 0, 0.231373, 1)
+
+[node name="Vignette" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_k88qn")
+offset_left = 3.0
+offset_top = -2.0
+offset_right = 1520.72
+offset_bottom = 849.205
+scale = Vector2(1.26294, 1.26294)
+
+[node name="OpenedScroll" type="TextureRect" parent="CanvasLayer"]
+offset_left = 464.0
+offset_top = 51.0
+offset_right = 1260.0
+offset_bottom = 819.0
+scale = Vector2(1.25565, 1.25565)
+texture = ExtResource("7_4dyqo")
+
+[node name="ScrollText" type="Label" parent="CanvasLayer/OpenedScroll"]
+layout_mode = 0
+offset_left = 117.867
+offset_top = 74.8616
+offset_right = 917.867
+offset_bottom = 974.862
+scale = Vector2(0.70301, 0.70301)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("10_k88qn")
+theme_override_font_sizes/font_size = 49
+text = "When all the parallel rays reflected
+ from a rough or irregular surface are
+ not parallel, the reflection is known as
+ diffused or irregular reflection.
+
+ On the other hand, reflection from
+ a smooth surface like that of a
+ mirror is called regular reflection"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/OpenedScroll"]
+visible = false
+layout_mode = 0
+offset_left = 99.55
+offset_top = 74.8616
+offset_right = 699.55
+offset_bottom = 724.862
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("10_k88qn")
+theme_override_font_sizes/normal_font_size = 30
+text = "When all the parallel rays reflected
+ from a rough or irregular surface are
+ not parallel, the reflection is known as
+ diffused or irregular reflection.
+ 
+ On the other hand, reflection from
+ a smooth surface like that of a
+ mirror is called regular reflection"
+fit_content = true
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CloseButton" type="TextureButton" parent="CanvasLayer"]
+offset_left = 1397.0
+offset_top = 18.0
+offset_right = 2448.0
+offset_bottom = 417.0
+scale = Vector2(0.305113, 0.305113)
+texture_normal = ExtResource("11_7ax82")

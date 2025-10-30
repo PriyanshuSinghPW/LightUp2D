@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkaxurs2fn03r"]
+
+[ext_resource type="Texture2D" uid="uid://m2ygc3uiaeqq" path="res://assets/room assets/museumAssets/platform2.png" id="1_cvbtk"]
+[ext_resource type="Texture2D" uid="uid://cc6kax2pw7hbg" path="res://assets/room assets/museumAssets/mammoth2.png" id="2_cvbtk"]
+[ext_resource type="Texture2D" uid="uid://e614wakwfbtu" path="res://assets/room assets/museumAssets/ExtinctBoard.png" id="2_qi262"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ex7q"]
+size = Vector2(29.716, 12.6721)
+
+[node name="Mammoth" type="StaticBody2D"]
+scale = Vector2(1.25459, 1.25459)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Platform" type="Sprite2D" parent="."]
+texture = ExtResource("1_cvbtk")
+
+[node name="ExtinctBoard" type="Sprite2D" parent="."]
+position = Vector2(159.415, 207.239)
+scale = Vector2(0.488463, 0.488463)
+texture = ExtResource("2_qi262")
+
+[node name="Mammoth" type="Sprite2D" parent="."]
+position = Vector2(165.12, -215.304)
+scale = Vector2(1.61883, 1.61883)
+texture = ExtResource("2_cvbtk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.76, -10.5438)
+scale = Vector2(23.2615, 29.5062)
+shape = SubResource("RectangleShape2D_6ex7q")

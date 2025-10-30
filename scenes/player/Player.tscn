@@ -1,4 +1,4 @@
-[gd_scene load_steps=278 format=3 uid="uid://b5w5g5f5g5g5"]
+[gd_scene load_steps=280 format=3 uid="uid://b5w5g5f5g5g5"]
 
 [ext_resource type="Script" uid="uid://dyypufdlrh3pb" path="res://scripts/player/Player.gd" id="1_gmlin"]
 [ext_resource type="Texture2D" uid="uid://cqye3lndql0w6" path="res://icon.svg" id="2_lvxji"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://bkwfueuy4nw45" path="res://assets/sprites/Player Sprites/run dig front left-Photoroom.png" id="12_myrg7"]
 [ext_resource type="Texture2D" uid="uid://bhiea6p4ixnem" path="res://assets/sprites/Player Sprites/run dig back right-Photoroom.png" id="13_uf5tr"]
 [ext_resource type="Texture2D" uid="uid://djp3wjnh5aj72" path="res://assets/room assets/lights/light.png" id="19_lgqa7"]
+[ext_resource type="Texture2D" uid="uid://r77w375hq8yw" path="res://assets/room assets/Lasereyes.png" id="20_8ydkj"]
+[ext_resource type="AudioStream" uid="uid://r4x26qgrrnmn" path="res://assets/audio/footsteps-on-wood-fast.mp3" id="21_3j4b4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8ydkj"]
 atlas = ExtResource("4_lvxji")
@@ -1897,7 +1899,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="Resource_xyz12"]
 radius = 8.16327
-height = 75.5102
+height = 77.551
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(1.96, 1.96)
@@ -1930,3 +1932,20 @@ scale = Vector2(0.441446, 0.441446)
 color = Color(0.831373, 0.666667, 0.654902, 1)
 energy = 0.5
 texture = ExtResource("19_lgqa7")
+
+[node name="LaserEyes" type="Node2D" parent="."]
+visible = false
+
+[node name="Laser1" type="Sprite2D" parent="LaserEyes"]
+position = Vector2(-0.510204, -43.3674)
+scale = Vector2(0.0272951, 0.0272951)
+texture = ExtResource("20_8ydkj")
+
+[node name="Laser2" type="Sprite2D" parent="LaserEyes"]
+position = Vector2(6.12245, -43.3674)
+scale = Vector2(0.0272951, 0.0272951)
+texture = ExtResource("20_8ydkj")
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_3j4b4")
+volume_db = -10.363

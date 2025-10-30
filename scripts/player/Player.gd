@@ -4,12 +4,20 @@ extends CharacterBody2D
 
 # We'll get the speed from our global constants file.
 var speed = Constants.PLAYER_DEFAULTS.speed
+# A multiplier for how much faster we move and animate when sprinting.
+@export var sprint_multiplier: float = 1.75
+# The base pitch for footstep sounds.
+@export var base_footstep_pitch: float = 1.0
+# The pitch multiplier for footstep sounds when sprinting.
+@export var sprint_footstep_pitch_multiplier: float = 1.2
 
 # Keep track of the last movement direction to determine the correct idle state.
 var last_direction = Vector2(0, 1) # Default to facing down (front)
+var is_pushing: bool = false # State to track if we are pushing
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var camera: Camera2D = $Camera2D
+@onready var footstep_player: AudioStreamPlayer2D = $FootstepPlayer
 
 func _ready() -> void:
 	# Set the initial state to idle front.
@@ -18,28 +26,69 @@ func _ready() -> void:
 	# Configure camera controller with our camera
 	if camera:
 		CameraController.configure(camera)
+	
+	# Ensure the footstep player starts with the base pitch.
+	footstep_player.pitch_scale = base_footstep_pitch
 
 func _physics_process(delta: float) -> void:
-	# Get the input direction
+	# Get the input direction from the player's input.
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	
-	# Handle the movement
-	velocity = input_direction.normalized() * speed
+	# Handle sprinting.
+	var current_speed = speed
+	var footstep_pitch_scale = base_footstep_pitch
+	if Input.is_action_pressed("sprint") and input_direction != Vector2.ZERO:
+		current_speed *= sprint_multiplier
+		animated_sprite.speed_scale = sprint_multiplier
+		footstep_pitch_scale *= sprint_footstep_pitch_multiplier
+	else:
+		animated_sprite.speed_scale = 1.0
+	
+	# Set the player's velocity based on input and speed.
+	velocity = input_direction.normalized() * current_speed
+	
+	# --- NEW AND CORRECTED PUSHING LOGIC ---
+	# We simulate the movement for this frame to see what we would hit.
+	# The 'true' at the end of move_and_collide means this is a "test only" move.
+	# The player will not actually move from this line of code.
+	var was_pushing_this_frame: bool = false
+	var collision = move_and_collide(velocity * delta, true)
+	
+	if collision:
+		var collider = collision.get_collider()
+		
+		if collider.is_in_group("pushable") or collider.is_in_group("companion"):
+			if collider.has_method("apply_push"):
+				if collider.is_in_group("pushable"):
+					was_pushing_this_frame = true
+					# Tell the AudioManager to play the looping sound
+					AudioManager.play_looping_sfx(Constants.AUDIO.pushing, 0.0)
+				collider.apply_push(velocity)
+
+	# If we were pushing but are not anymore, stop the sound.
+	if is_pushing and not was_pushing_this_frame:
+		AudioManager.stop_looping_sfx(Constants.AUDIO.pushing)
+	
+	# Update the state for the next frame.
+	is_pushing = was_pushing_this_frame
+
+	# Now, perform the actual player movement.
+	# This function handles sliding against walls and other bodies correctly.
 	move_and_slide()
 	
-	# --- NEW: Pushing Logic ---
-	# Check for collisions after moving.
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		# Check if the collided body is a companion and can be pushed.
-		if collision.get_collider().is_in_group("companion"):
-			var companion = collision.get_collider()
-			if companion.has_method("apply_push"):
-				# Apply a push force to the companion.
-				companion.apply_push(velocity)
-	
-	# Update animation based on state
+	# Update the animation based on the player's state.
 	update_animation(input_direction)
+	
+	# --- Footstep sound logic ---
+	if input_direction != Vector2.ZERO:
+		# If moving, ensure footstep player is playing and update pitch.
+		if not footstep_player.playing:
+			footstep_player.play()
+		footstep_player.pitch_scale = footstep_pitch_scale
+	else:
+		# If idle, stop the footstep player.
+		if footstep_player.playing:
+			footstep_player.stop()
 
 func update_animation(direction: Vector2) -> void:
 	var new_animation = animated_sprite.animation

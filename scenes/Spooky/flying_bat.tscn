@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=3 uid="uid://dby6ms4hir38x"]
+
+[ext_resource type="Texture2D" uid="uid://317gk6sg3eoe" path="res://assets/creatures/bat flying.png" id="1_0jwrf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l40or"]
+atlas = ExtResource("1_0jwrf")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnhv5"]
+atlas = ExtResource("1_0jwrf")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86um8"]
+atlas = ExtResource("1_0jwrf")
+region = Rect2(0, 512, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpass"]
+atlas = ExtResource("1_0jwrf")
+region = Rect2(512, 512, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srkvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l40or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnhv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86um8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpass")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="FlyingBat" type="AnimatedSprite2D"]
+scale = Vector2(0.391111, 0.391111)
+sprite_frames = SubResource("SpriteFrames_srkvl")
+frame_progress = 0.399286

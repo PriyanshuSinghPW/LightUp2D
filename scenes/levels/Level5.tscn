@@ -19,14 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://3fs0xdi5qb8w" path="res://scenes/CollisionAssets/almirahs/almirah_side.tscn" id="17_fljmm"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="18_v0jxs"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="19_hgkar"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="20_ruoom"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="20_ruoom"]
 [ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="21_oqeha"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="22_al2i5"]
-[ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="23_arbgu"]
-[ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="24_5fmri"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="25_tb7tq"]
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="26_hq4kv"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="27_xy3bv"]
+[ext_resource type="PackedScene" uid="uid://n3lt112jus6h" path="res://scenes/CollisionAssets/Muesum/dinosaur.tscn" id="26_wham7"]
+[ext_resource type="PackedScene" uid="uid://b5lmqguddvefe" path="res://scenes/ui.tscn" id="27_t0m4p"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="27_xy3bv"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="28_iyyii"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
@@ -1832,10 +1832,6 @@ navigation_layers = 51
 simplify_path = true
 avoidance_enabled = true
 
-[node name="GameHud" parent="." instance=ExtResource("23_arbgu")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("24_5fmri")]
-
 [node name="LightSource" type="Node2D" parent="."]
 position = Vector2(-574.997, 349)
 
@@ -1891,6 +1887,9 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(608, 379)
 scale = Vector2(0.8, 0.8)
 
+[node name="dinosaur" parent="." instance=ExtResource("26_wham7")]
+position = Vector2(2846, 2408)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.505882, 0.505882, 0.756863, 1)
 
@@ -1901,6 +1900,9 @@ compositor = SubResource("Compositor_6ex7q")
 
 [node name="GlassWindow" parent="." instance=ExtResource("28_iyyii")]
 position = Vector2(-577.957, 350.433)
+
+[node name="UI" parent="." instance=ExtResource("27_t0m4p")]
+follow_viewport_enabled = false
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]

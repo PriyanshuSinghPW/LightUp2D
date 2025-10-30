@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=4 uid="uid://c6ekf180s6g8m"]
+[gd_scene load_steps=120 format=4 uid="uid://c6ekf180s6g8m"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_0obl7"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_vmvlm"]
@@ -1520,6 +1520,72 @@ region = Rect2(960, 960, 320, 320)
 atlas = ExtResource("7_w1e10")
 region = Rect2(960, 960, 320, 320)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n5y6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fi023"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(0, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wstsq"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(320, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ss654"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(640, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2cjq"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(960, 0, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ty3cl"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(0, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk48p"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(320, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pc1oe"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(640, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi5fc"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(960, 320, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3y7j"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(0, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofa6q"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(320, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2qny3"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(640, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awmp4"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(960, 640, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0io3"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(0, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rx6vs"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(320, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwioi"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(640, 960, 320, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qwn5u"]
+atlas = SubResource("CompressedTexture2D_n5y6c")
+region = Rect2(960, 960, 320, 320)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_86oi8"]
 animations = [{
 "frames": [{
@@ -1634,6 +1700,59 @@ animations = [{
 }],
 "loop": true,
 "name": &"doorclosed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fi023")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wstsq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ss654")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2cjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ty3cl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wk48p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pc1oe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi5fc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3y7j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofa6q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2qny3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_awmp4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0io3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rx6vs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qwn5u")
+}],
+"loop": true,
+"name": &"new_animation",
 "speed": 5.0
 }]
 
@@ -1776,6 +1895,7 @@ animations = [{
 size = Vector2(40, 40)
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
+position = Vector2(0, -2)
 script = ExtResource("1_0obl7")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")
@@ -1863,9 +1983,7 @@ compositor = SubResource("Compositor_ryai7")
 position = Vector2(-239, -81)
 scale = Vector2(1.33269, 1.33269)
 sprite_frames = SubResource("SpriteFrames_86oi8")
-animation = &"door_closing_anim"
-frame = 14
-frame_progress = 0.222316
+animation = &"doorclosed"
 
 [node name="White-glow-light-with-glitter-ef2Upscayl2xUpscayl-standard-4x" type="Sprite2D" parent="Door"]
 visible = false
@@ -1902,8 +2020,7 @@ frame_progress = 0.366412
 [node name="Orb" parent="." instance=ExtResource("21_0bom7")]
 position = Vector2(1330, 796)
 scale = Vector2(0.639178, 0.639178)
-frame = 5
-frame_progress = 0.724301
+frame_progress = 0.180439
 
 [node name="Piller1" parent="." instance=ExtResource("15_fi023")]
 position = Vector2(1418, 98)

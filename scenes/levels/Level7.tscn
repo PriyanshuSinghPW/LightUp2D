@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://tnxqu45f72s3"]
+[gd_scene load_steps=27 format=4 uid="uid://tnxqu45f72s3"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_ui8ht"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_45ogs"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_tyi47"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="6_ui8ht"]
 [ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="7_0h58p"]
+[ext_resource type="PackedScene" uid="uid://cdwmi8htkpiwb" path="res://scenes/AssetScenes/Left_side_target_door.tscn" id="7_ui8ht"]
+[ext_resource type="PackedScene" uid="uid://b6hxqw6eqj70u" path="res://scenes/AssetScenes/right_side_target_door.tscn" id="8_45ogs"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="10_w3v1g"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="11_20ref"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="12_vxftt"]
@@ -1389,6 +1391,13 @@ tile_set = SubResource("TileSet_2chdx")
 position = Vector2(2084, -59)
 scale = Vector2(1.31677, 1.31677)
 
+[node name="LeftSideTargetDoor" parent="." instance=ExtResource("7_ui8ht")]
+position = Vector2(-559, 779)
+
+[node name="RightSideTargetDoor" parent="." instance=ExtResource("8_45ogs")]
+position = Vector2(2715, 690)
+scale = Vector2(0.743039, 0.743039)
+
 [node name="Player" parent="." groups=["player"] instance=ExtResource("7_0h58p")]
 position = Vector2(1367, 394)
 scale = Vector2(3.0218, 3.0218)
@@ -1437,6 +1446,8 @@ scale = Vector2(0.8, 0.8)
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]
+[connection signal="player_entered" from="LightTarget" to="LeftSideTargetDoor" method="_on_light_target_player_entered"]
 [connection signal="unlocked" from="LightTarget" to="TargetDoor" method="_on_light_target_unlocked"]
+[connection signal="unlocked" from="LightTarget" to="LeftSideTargetDoor" method="_on_light_target_unlocked"]
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
 [connection signal="rotated" from="Mirror2" to="." method="_on_mirror_rotated"]

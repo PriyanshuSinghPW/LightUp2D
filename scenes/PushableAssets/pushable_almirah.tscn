@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://7wxevvmjuerb"]
+
+[ext_resource type="Script" uid="uid://dokd3xfmqw6wk" path="res://scenes/levels/pushable_object.gd" id="1_fpq5d"]
+[ext_resource type="Texture2D" uid="uid://c86serbwwix4" path="res://assets/room assets/almirah/almirah top.png" id="2_1sdr0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnhv5"]
+size = Vector2(36.1653, 40.402)
+
+[node name="PushableAlmirah" type="CharacterBody2D" groups=["pushable"]]
+scale = Vector2(0.167226, 0.167226)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_fpq5d")
+
+[node name="Almirah" type="Sprite2D" parent="."]
+position = Vector2(9.89098, -153.311)
+scale = Vector2(1.57066, 1.57066)
+texture = ExtResource("2_1sdr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.99036, -340.855)
+scale = Vector2(19.0152, 19.1804)
+shape = SubResource("RectangleShape2D_hnhv5")
