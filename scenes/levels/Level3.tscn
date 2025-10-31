@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://bxylnobn4235a"]
+[gd_scene load_steps=42 format=4 uid="uid://bxylnobn4235a"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_jy1lg"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_h8kw8"]
@@ -15,14 +15,14 @@
 [ext_resource type="PackedScene" uid="uid://dua4qxqkuwhh2" path="res://scenes/CollisionAssets/cabinets/show_case_2.tscn" id="13_pgd7w"]
 [ext_resource type="PackedScene" uid="uid://dvu3noj1qkfjn" path="res://scenes/CollisionAssets/almirahs/almirah.tscn" id="14_ayc54"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="15_g8fnm"]
+[ext_resource type="PackedScene" uid="uid://c3egjwunndufg" path="res://scenes/AssetScenes/orb.tscn" id="15_jy1lg"]
 [ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="16_iax0x"]
-[ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="17_vpmgw"]
-[ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="18_crse0"]
-[ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="19_uw6dx"]
-[ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="20_kak5d"]
+[ext_resource type="PackedScene" uid="uid://ddbx7o34etjnv" path="res://scenes/player/companion.tscn" id="20_nik0u"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="21_ga15p"]
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="22_bolq5"]
 [ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="23_30go5"]
+[ext_resource type="PackedScene" uid="uid://bsuhdan1f4303" path="res://scenes/AssetScenes/reveal_object.tscn" id="24_jy1lg"]
+[ext_resource type="PackedScene" uid="uid://b5lmqguddvefe" path="res://scenes/ui.tscn" id="24_nik0u"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="24_wlmkh"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_gy8to"]
 
@@ -1410,165 +1410,6 @@ sources/1 = SubResource("TileSetAtlasSource_p5s5a")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy1lg"]
 size = Vector2(20, 41.8044)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dqba7"]
-atlas = ExtResource("18_crse0")
-region = Rect2(225, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7d7pp"]
-atlas = ExtResource("18_crse0")
-region = Rect2(450, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_usw5k"]
-atlas = ExtResource("18_crse0")
-region = Rect2(0, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jsker"]
-atlas = ExtResource("18_crse0")
-region = Rect2(675, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e5nfq"]
-atlas = ExtResource("18_crse0")
-region = Rect2(675, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lha2r"]
-atlas = ExtResource("18_crse0")
-region = Rect2(0, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6owa4"]
-atlas = ExtResource("18_crse0")
-region = Rect2(225, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5pya"]
-atlas = ExtResource("18_crse0")
-region = Rect2(450, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kypp1"]
-atlas = ExtResource("18_crse0")
-region = Rect2(675, 303, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ukjja"]
-atlas = ExtResource("18_crse0")
-region = Rect2(0, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_brv20"]
-atlas = ExtResource("18_crse0")
-region = Rect2(225, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xbvxr"]
-atlas = ExtResource("18_crse0")
-region = Rect2(450, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bspq0"]
-atlas = ExtResource("18_crse0")
-region = Rect2(675, 606, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_p5s5a"]
-atlas = ExtResource("18_crse0")
-region = Rect2(0, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_njy47"]
-atlas = ExtResource("18_crse0")
-region = Rect2(225, 0, 225, 303)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j7nyf"]
-atlas = ExtResource("18_crse0")
-region = Rect2(450, 0, 225, 303)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bto45"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dqba7")
-}],
-"loop": true,
-"name": &"idle back",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7d7pp")
-}],
-"loop": true,
-"name": &"idle front",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_usw5k")
-}],
-"loop": true,
-"name": &"idle left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jsker")
-}],
-"loop": true,
-"name": &"idle right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e5nfq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lha2r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6owa4")
-}],
-"loop": true,
-"name": &"walk back",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n5pya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kypp1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ukjja")
-}],
-"loop": true,
-"name": &"walk back left",
-"speed": 7.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_brv20")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xbvxr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bspq0")
-}],
-"loop": true,
-"name": &"walk back right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_p5s5a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_njy47")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j7nyf")
-}],
-"loop": true,
-"name": &"walk front",
-"speed": 7.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7mqe6"]
-radius = 54.3917
-height = 301.93
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abcde"]
 size = Vector2(40, 40)
 
@@ -1724,6 +1565,21 @@ shape = SubResource("RectangleShape2D_jy1lg")
 [node name="table3" parent="EnvironmentAssets" instance=ExtResource("11_5gegw")]
 position = Vector2(2467, 196)
 
+[node name="Orb" parent="EnvironmentAssets" node_paths=PackedStringArray("player") instance=ExtResource("15_jy1lg")]
+position = Vector2(573, 962)
+frame_progress = 0.0
+player = NodePath("../../Player")
+scroll_text_content = "When all the parallel rays reflected
+ from a rough or irregular surface are
+ not parallel, the reflection is known as
+ diffused or irregular reflection.
+ Remember that the diffused reflection
+ is not due to the failure of the laws of
+ reflection.
+ On the other hand, reflection from
+ a smooth surface like that of a
+ mirror is called regular reflection"
+
 [node name="TargetDoor" parent="." groups=["_on_body_entered"] instance=ExtResource("15_g8fnm")]
 position = Vector2(2082.68, -59.3168)
 scale = Vector2(1.31677, 1.31677)
@@ -1731,49 +1587,6 @@ animation = &"doorclosed"
 
 [node name="SpawnGate" parent="." instance=ExtResource("24_wlmkh")]
 position = Vector2(-230, -58)
-
-[node name="Player" parent="." groups=["player"] instance=ExtResource("16_iax0x")]
-position = Vector2(-255, 127)
-scale = Vector2(3.0218, 3.0218)
-collision_layer = 2
-collision_mask = 2
-
-[node name="Companion" type="CharacterBody2D" parent="."]
-visible = false
-position = Vector2(1610, 427)
-scale = Vector2(0.865086, 0.865086)
-script = ExtResource("17_vpmgw")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Companion"]
-position = Vector2(-2.31226, 1.15594)
-scale = Vector2(1.10837, 1.10837)
-sprite_frames = SubResource("SpriteFrames_bto45")
-animation = &"idle front"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Companion"]
-visible = false
-position = Vector2(-31.2107, -16.1833)
-scale = Vector2(0.700872, 0.820872)
-shape = SubResource("CapsuleShape2D_7mqe6")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="Companion"]
-navigation_layers = 51
-simplify_path = true
-avoidance_enabled = true
-
-[node name="GameHud" parent="." instance=ExtResource("19_uw6dx")]
-
-[node name="PauseMenu" parent="." instance=ExtResource("20_kak5d")]
-
-[node name="LightSource" type="Node2D" parent="."]
-position = Vector2(-518, 1937)
-
-[node name="LaserBeam2D" parent="LightSource" instance=ExtResource("21_ga15p")]
-position = Vector2(-21, 47)
-rotation = 0.00472991
-enabled = false
-target_position = Vector2(0, 0)
-is_casting = false
 
 [node name="LightTarget" type="Area2D" parent="."]
 position = Vector2(2135.68, -16.3168)
@@ -1804,6 +1617,30 @@ scale = Vector2(0.8, 0.8)
 position = Vector2(2093, 689)
 scale = Vector2(0.8, 0.8)
 
+[node name="RevealObject" parent="." node_paths=PackedStringArray("player") instance=ExtResource("24_jy1lg")]
+position = Vector2(2083, 654)
+player = NodePath("../Player")
+
+[node name="Companion" parent="." node_paths=PackedStringArray("player_to_follow") instance=ExtResource("20_nik0u")]
+position = Vector2(-18, 103)
+player_to_follow = NodePath("../Player")
+
+[node name="Player" parent="." groups=["player"] instance=ExtResource("16_iax0x")]
+position = Vector2(-255, 127)
+scale = Vector2(3.0218, 3.0218)
+collision_layer = 2
+collision_mask = 2
+
+[node name="LightSource" type="Node2D" parent="."]
+position = Vector2(-518, 1937)
+
+[node name="LaserBeam2D" parent="LightSource" instance=ExtResource("21_ga15p")]
+position = Vector2(-21, 47)
+rotation = 0.00472991
+enabled = false
+target_position = Vector2(0, 0)
+is_casting = false
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.505882, 0.505882, 0.756863, 1)
 
@@ -1813,7 +1650,10 @@ camera_attributes = SubResource("CameraAttributesPractical_jsker")
 compositor = SubResource("Compositor_6ex7q")
 
 [node name="GlassWindow" parent="." instance=ExtResource("25_gy8to")]
-position = Vector2(-577, 1970)
+position = Vector2(-577, 1940)
+
+[node name="UI" parent="." instance=ExtResource("24_nik0u")]
+follow_viewport_enabled = false
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]

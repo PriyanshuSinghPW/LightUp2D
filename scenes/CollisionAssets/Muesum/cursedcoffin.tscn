@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl4glkhbak2n3"]
+
+[ext_resource type="Texture2D" uid="uid://dcnmy44jxjm7r" path="res://assets/room assets/Spooky/coffin.png" id="1_158h2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_45xmf"]
+size = Vector2(36.2757, 66.862)
+
+[node name="Cursedcoffin" type="StaticBody2D"]
+rotation = 1.563
+scale = Vector2(0.202203, 0.202203)
+collision_layer = 2
+collision_mask = 2
+
+[node name="coffin" type="Sprite2D" parent="."]
+position = Vector2(24.7276, -153.311)
+rotation = -1.57079
+scale = Vector2(1.33278, 1.33278)
+texture = ExtResource("1_158h2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.82227, -175.503)
+scale = Vector2(16.2262, 20.5823)
+shape = SubResource("RectangleShape2D_45xmf")

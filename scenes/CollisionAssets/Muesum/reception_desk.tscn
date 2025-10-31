@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpbjlw6opx1pw"]
+
+[ext_resource type="Texture2D" uid="uid://r8l6v6am4wco" path="res://assets/room assets/museumAssets/desk.png" id="1_7ndcl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ex7q"]
+size = Vector2(19.9041, 4.27476)
+
+[node name="ReceptionDesk" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Desk" type="Sprite2D" parent="."]
+position = Vector2(-5.75366, -0.131912)
+scale = Vector2(0.591002, 0.591002)
+texture = ExtResource("1_7ndcl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.25366, 19.934)
+scale = Vector2(23.2615, 29.5062)
+shape = SubResource("RectangleShape2D_6ex7q")

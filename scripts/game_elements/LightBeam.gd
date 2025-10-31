@@ -16,6 +16,8 @@ extends RayCast2D
 ## See `appear()` and `disappear()` for more information.
 @export var is_casting := false: set = set_is_casting
 
+var current_ghost_hit = null
+
 var tween: Tween = null
 var line_width : float = 20.0 # Default value for safety
 
@@ -53,6 +55,10 @@ func _physics_process(delta: float) -> void:
 	if not is_node_ready() or line_2d == null:
 		return
 
+	# Keep track of what was being hit in the previous frame
+	var previous_ghost_hit = current_ghost_hit
+	current_ghost_hit = null
+
 	target_position = target_position.move_toward(Vector2.RIGHT * max_length, cast_speed * delta)
 
 	var laser_end_position := target_position
@@ -60,9 +66,34 @@ func _physics_process(delta: float) -> void:
 
 	if is_colliding():
 		laser_end_position = to_local(get_collision_point())
+		
+		var collider = get_collider()
+		if collider != null and collider.has_method("get_parent"):
+			var parent_node = collider.get_parent()
+			
+			# --- EXISTING LOGIC FOR TARGETS ---
+			if (parent_node.is_in_group("light_target") or parent_node.is_in_group("ClueTarget")) and parent_node.has_method("unlock_target"):
+				parent_node.unlock_target()
+			
+			# --- NEW LOGIC FOR GHOSTS ---
+			if parent_node.is_in_group("ghost"):
+				# Store the currently hit ghost and tell it it's being hit.
+				current_ghost_hit = parent_node
+				if current_ghost_hit.has_method("hit_by_beam"):
+					current_ghost_hit.hit_by_beam()
+
 		if collision_particles:
 			collision_particles.global_rotation = get_collision_normal().angle()
 			collision_particles.position = laser_end_position
+
+	# --- NEW LOGIC TO DETECT WHEN A GHOST LEAVES THE BEAM ---
+	# If we were hitting a ghost last frame, but are not hitting it this frame
+	# (either by hitting nothing, a different object, or a different ghost),
+	# tell the old ghost it is no longer in the beam.
+	if is_instance_valid(previous_ghost_hit) and previous_ghost_hit != current_ghost_hit:
+		if previous_ghost_hit.has_method("left_beam"):
+			previous_ghost_hit.left_beam()
+	# --- END OF NEW GHOST LOGIC ---
 
 	line_2d.points[1] = laser_end_position
 

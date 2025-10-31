@@ -254,14 +254,13 @@ animations = [{
 radius = 32.9863
 height = 273.191
 
-[node name="Companion" type="CharacterBody2D" node_paths=PackedStringArray("player_to_follow") groups=["companion"]]
+[node name="Companion" type="CharacterBody2D" groups=["companion"]]
 scale = Vector2(0.865086, 0.865086)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_e1l5u")
-player_to_follow = NodePath("")
 speed = 280.0
-follow_distance = 300.0
+follow_distance = 500.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(26.5869, 32.3667)

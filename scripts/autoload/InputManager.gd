@@ -14,5 +14,3 @@ func _unhandled_input(event: InputEvent):
 	# Player movement is handled in the Player.gd script.
 	if event.is_action_pressed("pause_toggle"):
 		emit_signal("pause_toggled")
-
-

@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://clv14mtcug461"]
+
+[ext_resource type="Texture2D" uid="uid://m2ygc3uiaeqq" path="res://assets/room assets/museumAssets/platform2.png" id="1_2kju1"]
+[ext_resource type="Texture2D" uid="uid://dv4008ywmh4od" path="res://assets/room assets/museumAssets/rapa nui.png" id="2_28kpe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x4kh"]
+size = Vector2(38.9933, 18.6678)
+
+[node name="RapaStatue" type="StaticBody2D"]
+scale = Vector2(1.43447, 1.43447)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Platform" type="Sprite2D" parent="."]
+scale = Vector2(0.495755, 0.565219)
+texture = ExtResource("1_2kju1")
+
+[node name="Statue" type="Sprite2D" parent="."]
+position = Vector2(-3.8147e-05, -116.419)
+scale = Vector2(0.424123, 0.424123)
+texture = ExtResource("2_28kpe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.348572, -1.52814)
+scale = Vector2(9.31442, 11.8149)
+shape = SubResource("RectangleShape2D_1x4kh")

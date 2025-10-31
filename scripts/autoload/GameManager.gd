@@ -2,6 +2,8 @@ extends Node
 
 # Emitted when the game transitions between states
 signal game_state_changed(new_state)
+# Emitted specifically when the game over sequence should begin
+signal game_over_triggered
 
 # Defines the possible states for the game
 enum GameState {
@@ -42,15 +44,38 @@ func start_new_game() -> void:
 
 
 func load_level(level_index: int) -> void:
+	# --- FIX START ---
+	# Ensure the engine is unpaused when loading a level.
+	# This fixes the issue where restarting from the pause menu leaves the new game paused.
+	if get_tree().paused:
+		get_tree().paused = false
+	# --- FIX END ---
 	set_state(GameState.LOADING)
 	current_level_index = level_index
 	
-	# Use the LevelManager to get the path
 	var level_path = LevelManager.get_level_path(level_index)
+	
+	# --- MODIFICATION START ---
+	# Get both the BGM path and its specific volume from the LevelManager.
+	var bgm_path = LevelManager.get_level_bgm(level_index)
+	var bgm_volume = LevelManager.get_level_bgm_volume(level_index) # Get the volume here
+	
+	if not bgm_path.is_empty():
+		# Play the music using the volume we just retrieved.
+		# A timer is used here to ensure any previous music has time to stop/fade out
+		# during the scene transition, preventing audio conflicts.
+		get_tree().create_timer(1.0).timeout.connect(
+			func():
+				# Use bgm_volume instead of a hardcoded value.
+				AudioManager.play_music(bgm_path, 0.5, true, bgm_volume)
+		)
+	else:
+		# If no BGM is defined for the level, just stop any currently playing music.
+		AudioManager.stop_music(0.5)
+	# --- MODIFICATION END ---
 	
 	if not level_path.is_empty() and ResourceLoader.exists(level_path):
 		print("GameManager: Loading level %d: %s" % [level_index, level_path])
-		# Use the new TransitionManager to handle the scene change
 		TransitionManager.transition_to_scene(level_path)
 	else:
 		push_error("GameManager: Failed to load level %d. Scene not found at: %s" % [level_index, level_path])
@@ -63,24 +88,36 @@ func reload_current_level() -> void:
 
 
 func level_was_completed() -> void:
-	# This function is called by the level itself when the objective is met.
-	# It simply changes the state, which will trigger the LevelComplete UI to show.
 	set_state(GameState.LEVEL_COMPLETE)
+	AudioManager.stop_music(1.0)
 	print("GameManager: Level %d complete." % current_level_index)
 
 
 func load_next_level() -> void:
-	# This function is now called by the LightTarget when the player enters it.
 	var next_level_index = current_level_index + 1
 	
 	if LevelManager.get_level_path(next_level_index).is_empty():
-		# This was the last level
 		set_state(GameState.GAME_COMPLETE)
 		print("GameManager: All levels complete! Returning to menu.")
-		go_to_main_menu() # Or a "You Win!" screen
+		go_to_main_menu()
 	else:
 		print("GameManager: Loading next level...")
 		load_level(next_level_index)
+
+
+func trigger_game_over() -> void:
+	# Prevent triggering game over multiple times if already in that state
+	if current_state == GameState.GAME_OVER:
+		return
+	
+	set_state(GameState.GAME_OVER)
+	# Emit the signal that the UI script is waiting for
+	emit_signal("game_over_triggered")
+	print("GameManager: GAME OVER triggered.")
+	
+	# --- FIX START: Pause the game to allow the UI animation to play ---
+	get_tree().paused = true
+	# --- FIX END ---
 
 
 func toggle_pause():
@@ -98,10 +135,19 @@ func pause_game():
 	print("GameManager: Game Paused.")
 
 
-func resume_game():
+# --- FIX: THIS FUNCTION IS NOW ASYNC TO PREVENT THE RACE CONDITION ---
+func resume_game() -> void:
 	if current_state != GameState.PAUSED:
 		return
+	
+	# First, change the state. This will signal the UI to start its hiding animation.
 	set_state(GameState.PLAYING)
+	
+	# Then, wait for an amount of time slightly longer than the UI's hide animation (0.3s).
+	# This gives the animation time to complete BEFORE we unpause the game.
+	await get_tree().create_timer(0.4).timeout
+	
+	# Now that the pause menu is hidden, we can safely unpause the game tree.
 	get_tree().paused = false
 	print("GameManager: Game Resumed.")
 
@@ -110,6 +156,5 @@ func go_to_main_menu():
 	print("GameManager: Returning to Main Menu.")
 	get_tree().paused = false
 	set_state(GameState.MENU)
-	# Use the new TransitionManager to handle the scene change
 	TransitionManager.transition_to_scene("res://scenes/main/Main.tscn")
 	print("GameManager: Main Menu scene transition initiated.")

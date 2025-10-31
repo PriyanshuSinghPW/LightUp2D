@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwxg7p6t4ckps"]
+
+[ext_resource type="Texture2D" uid="uid://c5vbbw6u15fw7" path="res://assets/creatures/Ghost.png" id="1_5bb1w"]
+[ext_resource type="Script" uid="uid://dpgaugh16tme6" path="res://scenes/levels/ghost.gd" id="2_53drd"]
+[ext_resource type="AudioStream" uid="uid://rjgiugbpv5s" path="res://assets/audio/zombie-sound-357975.mp3" id="3_53drd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_die6j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5bb1w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g3f77"]
+radius = 10.6714
+
+[node name="Ghost" type="AnimatedSprite2D"]
+scale = Vector2(0.421181, 0.421181)
+sprite_frames = SubResource("SpriteFrames_die6j")
+script = ExtResource("2_53drd")
+float_amplitude = 1.0
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(16.6034, 16.6034)
+shape = SubResource("CapsuleShape2D_g3f77")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_53drd")
+volume_db = 1.0
+autoplay = true
+parameters/looping = true

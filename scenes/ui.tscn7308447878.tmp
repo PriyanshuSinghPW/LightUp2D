@@ -1,0 +1,567 @@
+[gd_scene load_steps=17 format=3 uid="uid://b5lmqguddvefe"]
+
+[ext_resource type="Script" uid="uid://dwqcfn4pyseh0" path="res://scripts/utils/DebugDisplay.gd" id="1_wquew"]
+[ext_resource type="Script" uid="uid://ce7f0p6i7k4ly" path="res://scripts/ui/GameHUD.gd" id="2_pawqx"]
+[ext_resource type="Texture2D" uid="uid://dt7eijihn80nv" path="res://assets/howToPlay/ap formula.png" id="4_ukrhx"]
+[ext_resource type="Texture2D" uid="uid://dapo4pty61p8m" path="res://assets/Frames/Score Frame snake.png" id="5_5ls34"]
+[ext_resource type="FontFile" uid="uid://bseh15ef1yqw5" path="res://assets/fonts/JungleAdventurer.ttf" id="6_fsl8s"]
+[ext_resource type="Texture2D" uid="uid://kiuxdmfbn6nq" path="res://assets/Background/Generated Image October 07, 2025 - 4_27PM_upscayl_2x_upscayl-standard-4x-Photoroom.png" id="8_h1mc3"]
+[ext_resource type="FontFile" uid="uid://bw25oxrpabjfd" path="res://assets/fonts/Ticketing.otf" id="9_mgb8n"]
+[ext_resource type="Shader" uid="uid://uvx3yc86fnbm" path="res://assets/Shaders/simple_blur.gdshader" id="11_phcun"]
+[ext_resource type="Texture2D" uid="uid://d4ivb1ndd1h03" path="res://assets/Frames/head download.png" id="13_wibvp"]
+[ext_resource type="Texture2D" uid="uid://d278lrhbi6s1h" path="res://assets/Background/game background.png" id="18_gng4c"]
+[ext_resource type="Material" uid="uid://ieb1t76k5o15" path="res://assets/Shaders/simple_blur.tres" id="23_4ixst"]
+[ext_resource type="Texture2D" uid="uid://bpj803u662xcr" path="res://assets/graphics/Snake Stars.png" id="24_mc4m6"]
+[ext_resource type="Texture2D" uid="uid://md5wrdq628jr" path="res://assets/Background/CardInfoComponent-Base.png" id="25_87egt"]
+[ext_resource type="Texture2D" uid="uid://2e5f6525vl6e" path="res://assets/graphics/GameOver.png" id="27_2ajps"]
+[ext_resource type="Texture2D" uid="uid://dw3g31vx32skd" path="res://assets/graphics/ScoreXp.png" id="28_lqayg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o703g"]
+shader = ExtResource("11_phcun")
+shader_parameter/lod = 3.682
+
+[node name="UI" type="CanvasLayer"]
+layer = 0
+follow_viewport_enabled = true
+
+[node name="DebugLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_font_sizes/bold_italics_font_size = 24
+theme_override_font_sizes/italics_font_size = 24
+theme_override_font_sizes/mono_font_size = 24
+theme_override_font_sizes/normal_font_size = 24
+theme_override_font_sizes/bold_font_size = 24
+script = ExtResource("1_wquew")
+
+[node name="GameUI" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_pawqx")
+
+[node name="Logo" type="TextureRect" parent="GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 1275.0
+offset_top = -70.0
+offset_right = 2555.0
+offset_bottom = 1210.0
+scale = Vector2(0.271364, 0.271364)
+
+[node name="Formula" type="TextureRect" parent="GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 24.0
+offset_top = 412.0
+offset_right = 1304.0
+offset_bottom = 1692.0
+scale = Vector2(0.14682, 0.14682)
+texture = ExtResource("4_ukrhx")
+
+[node name="ScoreLabel" type="TextureRect" parent="GameUI"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 21.0
+offset_right = 1986.0
+offset_bottom = 703.0
+scale = Vector2(0.195691, 0.195691)
+texture = ExtResource("5_5ls34")
+
+[node name="Score" type="RichTextLabel" parent="GameUI/ScoreLabel"]
+layout_mode = 0
+offset_left = 777.144
+offset_top = 183.84
+offset_right = 1377.14
+offset_bottom = 252.84
+scale = Vector2(4.7765, 4.7765)
+theme_override_colors/font_outline_color = Color(0, 0.503838, 6.73831e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("6_fsl8s")
+theme_override_font_sizes/normal_font_size = 53
+text = "Score"
+fit_content = true
+vertical_alignment = 1
+
+[node name="PauseButton" type="TextureButton" parent="GameUI"]
+layout_mode = 0
+offset_left = 1747.0
+offset_top = 32.0
+offset_right = 2047.0
+offset_bottom = 387.0
+scale = Vector2(0.390718, 0.390718)
+
+[node name="SequenceContainer" type="Control" parent="GameUI"]
+anchors_preset = 0
+offset_left = 626.0
+offset_top = 36.0
+offset_right = 1326.0
+offset_bottom = 156.0
+
+[node name="SequenceBar" type="TextureRect" parent="GameUI/SequenceContainer"]
+layout_mode = 0
+offset_left = 33.0
+offset_top = 9.99999
+offset_right = 1953.0
+offset_bottom = 155.0
+scale = Vector2(0.321312, 0.660586)
+
+[node name="Sequence" type="RichTextLabel" parent="GameUI/SequenceContainer"]
+clip_contents = false
+layout_mode = 0
+offset_left = 43.0
+offset_top = 29.0
+offset_right = 743.0
+offset_bottom = 98.0
+scale = Vector2(0.862387, 0.862387)
+theme_override_colors/font_outline_color = Color(0, 0.503838, 6.73831e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/normal_font = ExtResource("6_fsl8s")
+theme_override_font_sizes/normal_font_size = 53
+text = "Sequence: "
+fit_content = true
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="GameUI"]
+visible = false
+layout_mode = 0
+offset_left = 1708.0
+offset_top = 412.0
+offset_right = 1759.0
+offset_bottom = 494.333
+scale = Vector2(3.30134, 3.30134)
+theme_override_colors/font_color = Color(0.782141, 0.825335, 0.944518, 1)
+theme_override_constants/line_spacing = -4
+theme_override_fonts/font = ExtResource("9_mgb8n")
+text = "Do
+Not
+Hit
+The 
+Walls!"
+horizontal_alignment = 1
+
+[node name="PauseMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -983.0
+offset_top = -557.0
+offset_right = -983.0
+offset_bottom = -557.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.27164, 1.27164)
+pivot_offset = Vector2(943, 573)
+mouse_filter = 2
+
+[node name="BlurBg" type="ColorRect" parent="PauseMenu"]
+modulate = Color(1, 1, 1, 0.639216)
+material = SubResource("ShaderMaterial_o703g")
+layout_mode = 1
+offset_left = 221.097
+offset_top = 132.623
+offset_right = 1021.1
+offset_bottom = 532.623
+scale = Vector2(1.87034, 2.15344)
+color = Color(0.0372946, 3.44135e-06, 0.232527, 1)
+
+[node name="background" type="TextureRect" parent="PauseMenu"]
+layout_mode = 0
+offset_left = 418.48
+offset_top = 128.692
+offset_right = 1628.48
+offset_bottom = 1408.69
+scale = Vector2(0.926593, 0.926593)
+texture = ExtResource("8_h1mc3")
+
+[node name="Banner" type="TextureRect" parent="PauseMenu"]
+visible = false
+layout_mode = 0
+offset_left = 587.553
+offset_top = 221.485
+offset_right = 1303.55
+offset_bottom = 411.485
+scale = Vector2(0.8336, 0.8336)
+pivot_offset = Vector2(371.554, 81.9898)
+texture = ExtResource("13_wibvp")
+
+[node name="Label" type="Label" parent="PauseMenu/Banner"]
+layout_mode = 0
+offset_left = 56.382
+offset_top = 37.1881
+offset_right = 656.382
+offset_bottom = 147.188
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("6_fsl8s")
+theme_override_font_sizes/font_size = 110
+text = "PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="PauseMenu"]
+layout_mode = 2
+offset_left = 1103.42
+offset_top = 281.251
+offset_right = 1555.42
+offset_bottom = 787.251
+scale = Vector2(0.898593, 0.898593)
+theme_override_constants/separation = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="PauseMenu/BoxContainer/VBoxContainer"]
+layout_mode = 2
+stretch_mode = 0
+
+[node name="HowToPlayButton" type="TextureButton" parent="PauseMenu/BoxContainer/VBoxContainer"]
+layout_mode = 2
+stretch_mode = 0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PauseMenu/BoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="PauseMenu/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+stretch_mode = 0
+
+[node name="HomeButton" type="TextureButton" parent="PauseMenu/BoxContainer/VBoxContainer2"]
+layout_mode = 2
+stretch_mode = 0
+
+[node name="StartingScreen" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureBG" type="TextureRect" parent="StartingScreen"]
+modulate = Color(1, 1, 1, 0.760784)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("18_gng4c")
+
+[node name="ColorRect" type="ColorRect" parent="StartingScreen"]
+modulate = Color(1, 1, 1, 0.639216)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0372946, 3.44135e-06, 0.232527, 1)
+
+[node name="TextureRect" type="TextureRect" parent="StartingScreen"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 53.0
+offset_right = 821.0
+offset_bottom = 821.0
+scale = Vector2(1.35341, 1.35341)
+
+[node name="ButtonsContainer" type="Control" parent="StartingScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 474.0
+offset_top = 67.0
+offset_right = 474.0
+offset_bottom = 67.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="TextureButton" parent="StartingScreen/ButtonsContainer"]
+layout_mode = 0
+offset_left = -284.0
+offset_top = -303.0
+offset_right = 237.0
+offset_bottom = -60.0
+pivot_offset = Vector2(271, 115)
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="StartingScreen/ButtonsContainer/PlayButton"]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 47.0
+offset_right = 341.0
+offset_bottom = 157.0
+scale = Vector2(1.43487, 1.43487)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("6_fsl8s")
+theme_override_font_sizes/font_size = 110
+text = "play"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="SettingsButton" type="TextureButton" parent="StartingScreen/ButtonsContainer"]
+layout_mode = 0
+offset_left = -287.0
+offset_top = 6.0
+offset_right = 260.0
+offset_bottom = 268.0
+scale = Vector2(0.898345, 0.898345)
+pivot_offset = Vector2(271, 115)
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="StartingScreen/ButtonsContainer/SettingsButton"]
+layout_mode = 0
+offset_left = -36.2317
+offset_top = 74.9263
+offset_right = 563.768
+offset_bottom = 184.926
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("6_fsl8s")
+theme_override_font_sizes/font_size = 110
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureBG" type="TextureRect" parent="GameOver"]
+visible = false
+modulate = Color(1, 1, 1, 0.760784)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("18_gng4c")
+
+[node name="BlurBg" type="ColorRect" parent="GameOver"]
+modulate = Color(1, 1, 1, 0.639216)
+material = ExtResource("23_4ixst")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0372946, 3.44135e-06, 0.232527, 1)
+
+[node name="Stars" type="TextureRect" parent="GameOver"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -14.0
+offset_right = 1380.0
+offset_bottom = 766.0
+scale = Vector2(1.3775, 1.3775)
+texture = ExtResource("24_mc4m6")
+
+[node name="Card" type="TextureRect" parent="GameOver"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 112.0
+offset_right = 1559.0
+offset_bottom = 892.0
+scale = Vector2(1.10142, 1.10142)
+texture = ExtResource("25_87egt")
+
+[node name="CloseButton" type="TextureButton" parent="GameOver"]
+visible = false
+layout_mode = 0
+offset_left = 1591.0
+offset_top = 48.0
+offset_right = 1758.0
+offset_bottom = 218.0
+
+[node name="GameOverGraphic" type="TextureRect" parent="GameOver"]
+layout_mode = 0
+offset_left = 233.0
+offset_top = 60.0
+offset_right = 1279.0
+offset_bottom = 451.0
+scale = Vector2(1.30632, 1.30632)
+texture = ExtResource("27_2ajps")
+
+[node name="TextureRect" type="TextureRect" parent="GameOver"]
+visible = false
+layout_mode = 0
+offset_left = 420.0
+offset_top = 444.0
+offset_right = 654.0
+offset_bottom = 625.0
+scale = Vector2(1.30632, 1.30632)
+texture = ExtResource("28_lqayg")
+
+[node name="ScoresContainer" type="Control" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 855.0
+offset_top = -19.0
+offset_right = 855.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.947493, 0.947493)
+pivot_offset = Vector2(-1362.19, 88.3947)
+
+[node name="ScoreLabel" type="Label" parent="GameOver/ScoresContainer"]
+layout_mode = 0
+offset_left = -1387.7
+offset_top = -32.7508
+offset_right = -787.696
+offset_bottom = 102.458
+theme_override_colors/font_color = Color(0.701961, 0.956863, 0.701961, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = ExtResource("9_mgb8n")
+theme_override_font_sizes/font_size = 110
+text = "Score:"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="XPLabel" type="Label" parent="GameOver/ScoresContainer"]
+visible = false
+layout_mode = 0
+offset_left = -1394.07
+offset_top = 89.67
+offset_right = -794.072
+offset_bottom = 224.878
+theme_override_colors/font_color = Color(0.701961, 0.956863, 0.701961, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_outline_size = 14
+theme_override_fonts/font = ExtResource("9_mgb8n")
+theme_override_font_sizes/font_size = 110
+text = "XP:"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="ButtonsContainer" type="Control" parent="GameOver"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 464.0
+offset_top = 93.0001
+offset_right = 464.0
+offset_bottom = 93.0001
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.784181, 0.784181)
+pivot_offset = Vector2(-483.307, 151.751)
+
+[node name="RestartButton" type="TextureButton" parent="GameOver/ButtonsContainer"]
+layout_mode = 0
+offset_left = -721.772
+offset_top = 49.7334
+offset_right = -516.772
+offset_bottom = 292.733
+pivot_offset = Vector2(100.742, 112.219)
+stretch_mode = 0
+
+[node name="HomeButton" type="TextureButton" parent="GameOver/ButtonsContainer"]
+layout_mode = 0
+offset_left = -460.353
+offset_top = 49.7334
+offset_right = -255.353
+offset_bottom = 292.733
+pivot_offset = Vector2(100.742, 112.219)
+stretch_mode = 0
+
+[node name="HowToPlay" type="Control" parent="."]
+process_mode = 3
+visible = false
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BlurBg" type="ColorRect" parent="HowToPlay"]
+material = ExtResource("23_4ixst")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0372946, 3.44135e-06, 0.232527, 1)
+
+[node name="HowToPlay" type="TextureRect" parent="HowToPlay"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 112.0
+offset_right = 1559.0
+offset_bottom = 892.0
+scale = Vector2(1.10142, 1.10142)
+
+[node name="CloseButton" type="TextureButton" parent="HowToPlay"]
+layout_mode = 0
+offset_left = 1591.0
+offset_top = 48.0
+offset_right = 1758.0
+offset_bottom = 218.0
+
+[node name="StartButton" type="TextureButton" parent="HowToPlay"]
+layout_mode = 0
+offset_left = 1232.0
+offset_top = 794.0
+offset_right = 1609.0
+offset_bottom = 905.0
+
+[node name="Label" type="Label" parent="HowToPlay/StartButton"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = -18.0
+offset_right = 442.0
+offset_bottom = 200.417
+scale = Vector2(0.715947, 0.715947)
+theme_override_colors/font_outline_color = Color(0.0666667, 0.0941176, 0.109804, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("6_fsl8s")
+theme_override_font_sizes/font_size = 110
+text = "let's go"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2

@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bftfr46nwv1bi"]
+
+[ext_resource type="Script" uid="uid://dokd3xfmqw6wk" path="res://scenes/levels/pushable_object.gd" id="1_f1ins"]
+[ext_resource type="Texture2D" uid="uid://ct58hwcu24d61" path="res://assets/room assets/showcases/Display.png" id="2_dy63x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjd1d"]
+size = Vector2(50.5945, 46.766)
+
+[node name="PushableShowcase" type="CharacterBody2D" groups=["pushable"]]
+scale = Vector2(0.167226, 0.167226)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_f1ins")
+
+[node name="ShowCase" type="Sprite2D" parent="."]
+position = Vector2(9.89098, -153.311)
+scale = Vector2(1.57066, 1.57066)
+texture = ExtResource("2_dy63x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-29.8997, -197.337)
+scale = Vector2(19.0152, 19.1804)
+shape = SubResource("RectangleShape2D_rjd1d")

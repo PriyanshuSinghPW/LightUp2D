@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dapmikb4ik6qp"]
+
+[ext_resource type="Texture2D" uid="uid://m2ygc3uiaeqq" path="res://assets/room assets/museumAssets/platform2.png" id="1_6swc1"]
+[ext_resource type="Texture2D" uid="uid://ccwxrywgnqru7" path="res://assets/room assets/museumAssets/MuseumHorse.png" id="2_2h0hf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eim73"]
+size = Vector2(44.2324, 18.6678)
+
+[node name="HorseStatue" type="StaticBody2D"]
+scale = Vector2(1.43447, 1.43447)
+collision_layer = 2
+collision_mask = 2
+
+[node name="Platform" type="Sprite2D" parent="."]
+scale = Vector2(0.565219, 0.565219)
+texture = ExtResource("1_6swc1")
+
+[node name="Statue" type="Sprite2D" parent="."]
+position = Vector2(1.39429, -86.4431)
+scale = Vector2(0.603839, 0.603839)
+texture = ExtResource("2_2h0hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.43994, -1.52814)
+scale = Vector2(9.31442, 11.8149)
+shape = SubResource("RectangleShape2D_eim73")
