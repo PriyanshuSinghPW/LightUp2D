@@ -13,10 +13,16 @@ extends CanvasLayer
 @onready var BlurBg: ColorRect = $PauseMenu/BlurBg
 @onready var Vignette: ColorRect = $PauseMenu/Vignette
 @onready var SpookyImage: TextureRect = $PauseMenu/Spooky
-
 @onready var GameOver: Control = $GameOver
 @onready var GameOverFade: ColorRect = $"GameOver/FadeEffect"
 @onready var GameOverGraphic: TextureRect = $GameOver/GameOverGraphic
+
+@onready var SprintButton: TextureButton = $GameUI/SprintButton
+@onready var CompanionButton: TextureButton = $GameUI/CompanionButton
+@onready var InteractionButton: TextureButton = $GameUI/InteractionButton
+
+# NEW: A counter to track how many objects are requesting the button to be shown.
+var _interaction_request_counter: int = 0
 
 # Variables to store the original positions.
 var _buttons_original_pos: Vector2
@@ -53,7 +59,25 @@ func _ready() -> void:
 	ExitButton.pressed.connect(_on_main_menu_pressed)
 	PauseButton.pressed.connect(_on_pause_button_pressed)
 	RestartButton.pressed.connect(_on_restart_pressed)
+	
+		# Connect the sprint button's down and up signals to our new functions.
+	SprintButton.button_down.connect(_on_sprint_button_down)
+	SprintButton.button_up.connect(_on_sprint_button_up)
+	
+		# --- NEW: Connect to interaction signals ---
+	InputManager.show_interaction_button.connect(_on_show_interaction_button)
+	InputManager.hide_interaction_button.connect(_on_hide_interaction_button)
+	InteractionButton.pressed.connect(_on_interaction_button_pressed)
+	
+	CompanionButton.pressed.connect(_on_companion_button_pressed)
 
+	# Start with the button hidden
+	InteractionButton.hide()
+
+# --- NEW: Function to handle the companion button press ---
+func _on_companion_button_pressed() -> void:
+	# Broadcast the global signal that the companion is listening for.
+	InputManager.emit_signal("toggle_companion_standby")
 
 # --- THIS IS THE CORRECTED FUNCTION ---
 func _on_game_state_changed(new_state: GameManager.GameState) -> void:
@@ -165,3 +189,30 @@ func _on_game_over_triggered() -> void:
 
 	_is_animating = false
 	GameManager.reload_current_level()
+	
+	
+# This function is called when the sprint button is pressed down.
+func _on_sprint_button_down() -> void:
+	# Broadcast the global "pressed" signal from our InputManager.
+	InputManager.emit_signal("sprint_button_pressed")
+
+# This function is called when the sprint button is released.
+func _on_sprint_button_up() -> void:
+	# Broadcast the global "released" signal from our InputManager.
+	InputManager.emit_signal("sprint_button_released")
+	
+	
+func _on_show_interaction_button() -> void:
+	_interaction_request_counter += 1
+	if _interaction_request_counter > 0:
+		InteractionButton.show()
+
+func _on_hide_interaction_button() -> void:
+	_interaction_request_counter = max(0, _interaction_request_counter - 1)
+	if _interaction_request_counter == 0:
+		InteractionButton.hide()
+
+# Called when the actual on-screen button is pressed by the player
+func _on_interaction_button_pressed() -> void:
+	# Broadcast the global signal that all interactable objects are listening for.
+	InputManager.emit_signal("interaction_button_pressed")

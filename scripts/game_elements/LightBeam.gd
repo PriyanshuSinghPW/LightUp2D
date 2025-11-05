@@ -68,6 +68,11 @@ func _physics_process(delta: float) -> void:
 		laser_end_position = to_local(get_collision_point())
 		
 		var collider = get_collider()
+		
+		if collider != null and collider.is_in_group("mirror"):
+			# Call the function we created in Mirror.gd
+			collider.has_been_hit_by_beam()
+		
 		if collider != null and collider.has_method("get_parent"):
 			var parent_node = collider.get_parent()
 			

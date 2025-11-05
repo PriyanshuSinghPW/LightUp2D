@@ -4,36 +4,45 @@ extends Area2D
 @onready var HidingCollision: CollisionShape2D = $HidingCollision
 @onready var Text: Label = $Text
 
-# Assign your player node to this variable in the Godot Editor's Inspector.
 @export var player: CharacterBody2D
+@export var dialogue_manager: Node
 
+# NEW: State variable to track if the text was visible last frame
+var was_text_visible: bool = false
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# Hide the interaction text by default.
 	Text.visible = false
+	# NEW: Connect to the global interaction signal
+	InputManager.interaction_button_pressed.connect(_on_interact)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	# First, check if the player variable has been assigned in the editor to avoid errors.
 	if not player:
 		return
 
-	# Check if the player is inside the area and if the hiding spot is still active.
 	var is_player_in_area = get_overlapping_bodies().has(player)
 	var is_hiding_spot_active = not HidingCollision.disabled
 
-	# If the player is in range of an active hiding spot...
-	if is_player_in_area and is_hiding_spot_active:
-		Text.visible = true # Show the interaction text.
+	# Determine if the text should be visible this frame
+	var should_be_visible = is_player_in_area and is_hiding_spot_active
+	Text.visible = should_be_visible
 
-		# ...then check if the player presses the "Interaction" button.
-		if Input.is_action_just_pressed("Interaction"):
-			Cloth.visible = false
-			HidingCollision.disabled = true
-			Text.visible = false # Hide text immediately after interaction.
-			AudioManager.play_sfx(Constants.AUDIO.cloth_drop, 1)
-	else:
-		# If the player is not in the area or the spot is no longer active, hide the text.
-		Text.visible = false
+	# NEW: Check if the visibility state CHANGED to emit signals
+	if Text.visible and not was_text_visible:
+		InputManager.emit_signal("show_interaction_button")
+	elif not Text.visible and was_text_visible:
+		InputManager.emit_signal("hide_interaction_button")
+	
+	was_text_visible = Text.visible
+
+# NEW: This function is called by the global signal from InputManager
+func _on_interact() -> void:
+	# We still check if the player is in the area to make sure we're the
+	# intended target of the interaction.
+	if Text.visible:
+		Cloth.visible = false
+		HidingCollision.disabled = true
+		Text.visible = false # This will trigger the hide signal in the next _process frame
+		AudioManager.play_sfx(Constants.AUDIO.cloth_drop, 1)
+
+		if dialogue_manager:
+			dialogue_manager.trigger_cloth_removed()

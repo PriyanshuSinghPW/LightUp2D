@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=4 uid="uid://b0footg5adjk"]
+[gd_scene load_steps=71 format=4 uid="uid://b0footg5adjk"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_003bp"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_lw1aq"]
@@ -32,6 +32,8 @@
 [ext_resource type="PackedScene" uid="uid://c3n1ksce6kw4v" path="res://scenes/AssetScenes/reveal_object_curtain.tscn" id="29_g3f77"]
 [ext_resource type="PackedScene" uid="uid://cwxg7p6t4ckps" path="res://scenes/creatures/ghost.tscn" id="30_1x4kh"]
 [ext_resource type="Script" uid="uid://bic3qi5xejcnq" path="res://scenes/levels/ghost_spawner.gd" id="32_x12d3"]
+[ext_resource type="Script" uid="uid://dhom38wnafe28" path="res://scripts/autoload/CutsceneCameraController.gd" id="33_45xmf"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="34_q4hq2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1812,11 +1814,12 @@ enabled = false
 target_position = Vector2(0, 0)
 is_casting = false
 
-[node name="LightTarget" type="Area2D" parent="."]
+[node name="LightTarget" type="Area2D" parent="." node_paths=PackedStringArray("player_node")]
 position = Vector2(2387.68, 1171.68)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("22_fw4bh")
+player_node = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1866,14 +1869,27 @@ player = NodePath("../Player")
 
 [node name="RevealObject_curtain" parent="." node_paths=PackedStringArray("player") instance=ExtResource("29_g3f77")]
 position = Vector2(837, -70)
-scale = Vector2(0.652942, 0.652942)
 player = NodePath("../Player")
 
 [node name="GhostSpawner" type="Node2D" parent="."]
 position = Vector2(1643, 1728)
 script = ExtResource("32_x12d3")
 ghost_scene = ExtResource("30_1x4kh")
-total_ghosts_to_spawn = 15
+total_ghosts_to_spawn = 6
+
+[node name="CutsceneCameraController" type="Node" parent="."]
+script = ExtResource("33_45xmf")
+
+[node name="MobileControls" type="CanvasLayer" parent="."]
+
+[node name="Virtual Joystick" parent="MobileControls" instance=ExtResource("34_q4hq2")]
+mouse_filter = 1
+visibility_mode = 1
+player_path = NodePath("../../Player")
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]

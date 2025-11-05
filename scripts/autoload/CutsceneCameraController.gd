@@ -1,18 +1,20 @@
 extends Node
 
-# Manages a sequence of camera movements for a cutscene.
-# It automatically finds the global CameraController and disables it during the cutscene.
-
 @export var default_transition_speed: float = 4.0
 @export var default_zoom_speed: float = 3.0
 
 var _camera: Camera2D
-var _gameplay_controller: Node # Reference to the global gameplay CameraController
+var _gameplay_controller: Node
 var _is_active: bool = false
 var _shot_queue: Array = []
 var _current_target_pos: Vector2
 var _current_target_zoom: Vector2
 var _wait_timer: float = 0.0
+
+var _original_zoom: Vector2
+
+const POS_COMPLETE_THRESHOLD = 0.5
+const ZOOM_COMPLETE_THRESHOLD = 0.01
 
 func _process(delta: float) -> void:
 	if not _is_active or not is_instance_valid(_camera):
@@ -27,26 +29,33 @@ func _process(delta: float) -> void:
 	_camera.global_position = _camera.global_position.lerp(_current_target_pos, delta * default_transition_speed)
 	_camera.zoom = _camera.zoom.lerp(_current_target_zoom, delta * default_zoom_speed)
 
-	if _camera.global_position.is_equal_approx(_current_target_pos) and _camera.zoom.is_equal_approx(_current_target_zoom):
+	var pos_reached = _camera.global_position.distance_to(_current_target_pos) < POS_COMPLETE_THRESHOLD
+	var zoom_reached = abs(_camera.zoom.x - _current_target_zoom.x) < ZOOM_COMPLETE_THRESHOLD
+
+	if pos_reached and zoom_reached:
+		_camera.global_position = _current_target_pos
+		_camera.zoom = _current_target_zoom
 		_process_next_shot_in_queue()
 
 # --- Public API ---
 
-# Call this to begin setting up the cutscene.
+func is_playing() -> bool:
+	return _is_active
+
 func start_cutscene(camera: Camera2D):
 	_camera = camera
 	
-	# Find and disable the global gameplay controller
-	_gameplay_controller = get_node_or_null("/root/CameraController")
+	_original_zoom = camera.zoom
+	
+	_gameplay_controller = get_tree().get_root().get_node_or_null("CameraController")
 	if is_instance_valid(_gameplay_controller):
-		_gameplay_controller.set_process(false) # CRITICAL STEP: Prevents conflicts
+		_gameplay_controller.set_process(false)
 	else:
-		push_warning("CutsceneCameraController: Global CameraController not found.")
+		push_warning("CutsceneCameraController: Global CameraController at path '/root/CameraController' not found.")
 
 	_shot_queue.clear()
 	_is_active = false
 
-# Add a camera movement to focus on a specific Node2D.
 func add_focus_on_node(target_node: Node2D, zoom_level: float = 1.0):
 	if not is_instance_valid(target_node):
 		push_warning("CutsceneCameraController: Invalid target node provided.")
@@ -58,7 +67,17 @@ func add_focus_on_node(target_node: Node2D, zoom_level: float = 1.0):
 	}
 	_shot_queue.append(shot_data)
 
-# Add a pause where the camera holds its position.
+func add_return_shot(target_node: Node2D):
+	if not is_instance_valid(target_node):
+		push_warning("CutsceneCameraController: Invalid target node provided for return shot.")
+		return
+	var shot_data = {
+		"type": "move_and_resume", # Changed type to be more descriptive
+		"target_pos": target_node.global_position,
+		"target_zoom": _original_zoom
+	}
+	_shot_queue.append(shot_data)
+
 func add_wait(duration: float):
 	var shot_data = {
 		"type": "wait",
@@ -66,9 +85,8 @@ func add_wait(duration: float):
 	}
 	_shot_queue.append(shot_data)
 
-# Start executing the queued shots.
 func play():
-	if _shot_queue.size() == 0:
+	if _shot_queue.is_empty():
 		push_warning("CutsceneCameraController: Play called with no shots in queue.")
 		end_cutscene()
 		return
@@ -76,27 +94,31 @@ func play():
 	_is_active = true
 	_process_next_shot_in_queue()
 
-# --- Internal Logic ---
-
 func _process_next_shot_in_queue():
-	if _shot_queue.size() > 0:
+	if not _shot_queue.is_empty():
 		var next_shot = _shot_queue.pop_front()
 		if next_shot.type == "move":
 			_wait_timer = 0.0
 			_current_target_pos = next_shot.target_pos
 			_current_target_zoom = next_shot.target_zoom
+		elif next_shot.type == "move_and_resume": # New case to handle the return
+			_wait_timer = 0.0
+			_current_target_pos = next_shot.target_pos
+			_current_target_zoom = next_shot.target_zoom
+			# Re-enable the gameplay camera immediately
+			if is_instance_valid(_gameplay_controller):
+				_gameplay_controller.set_process(true)
 		elif next_shot.type == "wait":
 			_wait_timer = next_shot.duration
 	else:
 		end_cutscene()
 
-# Cleans up and returns control to the gameplay camera.
 func end_cutscene():
 	_is_active = false
 	_shot_queue.clear()
 	
-	# Re-enable the gameplay controller
+	if is_instance_valid(_camera):
+		_camera.zoom = _original_zoom
+	
 	if is_instance_valid(_gameplay_controller):
 		_gameplay_controller.set_process(true)
-		if _gameplay_controller.has_method("clear_focus"):
-			_gameplay_controller.clear_focus()

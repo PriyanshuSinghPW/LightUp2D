@@ -12,6 +12,8 @@ var turn_off_timer = Timer.new()
 @export var player: CharacterBody2D
 # We no longer need the global interaction_ui export
 
+var mobile_interact_pressed: bool = false
+
 
 func _ready():
 	# Populate the candles array and hide all their interaction texts
@@ -42,7 +44,45 @@ func _ready():
 	turn_off_timer.timeout.connect(_on_turn_off_timer_timeout)
 	add_child(turn_off_timer)
 	turn_off_timer.start()
+		# NEW: Connect to the global interaction signal
+	InputManager.interaction_button_pressed.connect(_on_interact)
 
+
+func _process(delta):
+	for candle in candles:
+		var interaction_area = candle.get_node_or_null("Area2D")
+		var light_up_text = candle.get_node_or_null("LightUpText")
+
+		if not interaction_area or not light_up_text:
+			continue
+
+		var is_player_in_area = interaction_area.get_overlapping_bodies().has(player)
+		var is_candle_off = "Off" in candle.animation
+		
+		# Store previous visibility to detect changes
+		var was_visible = light_up_text.visible
+
+		if is_player_in_area and is_candle_off:
+			light_up_text.show()
+
+			# MODIFIED: Check for keyboard OR our new mobile flag
+			if Input.is_action_just_pressed("light") or mobile_interact_pressed:
+				_light_up_candle(candle)
+		else:
+			light_up_text.hide()
+			
+		# NEW: Emit signals if visibility changed
+		if light_up_text.visible and not was_visible:
+			InputManager.emit_signal("show_interaction_button")
+		elif not light_up_text.visible and was_visible:
+			InputManager.emit_signal("hide_interaction_button")
+
+	# NEW: Reset the flag at the end of the frame
+	mobile_interact_pressed = false
+
+
+func _on_interact() -> void:
+	mobile_interact_pressed = true
 
 func _on_flicker_timer_timeout():
 	# Apply a flickering effect to all lit candles
@@ -94,32 +134,3 @@ func _light_up_candle(candle: AnimatedSprite2D):
 		candle.play("CandleFrontOn")
 	elif candle.animation == "candleSideOff":
 		candle.play("candleSideOn")
-
-
-func _process(delta):
-	# Iterate through each candle to manage its own state and UI
-	for candle in candles:
-		var interaction_area = candle.get_node_or_null("Area2D")
-		var light_up_text = candle.get_node_or_null("LightUpText")
-
-		# Skip this candle if it's missing its required nodes
-		if not interaction_area or not light_up_text:
-			continue
-
-		# Check conditions for interaction
-		var is_player_in_area = interaction_area.get_overlapping_bodies().has(player)
-		var is_candle_off = "Off" in candle.animation
-
-		# If the player is in range of an extinguished candle...
-		if is_player_in_area and is_candle_off:
-			light_up_text.show() # Show its specific text
-
-			# Check for the interaction input
-			if Input.is_action_just_pressed("light"):
-				_light_up_candle(candle)
-				# The label will be hidden on the next _process frame automatically
-				# because the 'is_candle_off' condition will become false.
-		else:
-			# Hide the text if the conditions are not met
-			# (player is not in range, or the candle is already lit)
-			light_up_text.hide()

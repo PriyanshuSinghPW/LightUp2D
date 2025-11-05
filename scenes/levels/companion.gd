@@ -27,6 +27,12 @@ extends CharacterBody2D
 #== NODE REFERENCES ==#
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var DialogueBackground: TextureRect = $CanvasLayer/Dialogue/DialogueBackground
+@onready var DialogueLabel: RichTextLabel = $CanvasLayer/Dialogue/DialogueBackground/DialogueLabel
+@onready var CharacterImage: TextureRect = $CanvasLayer/Dialogue/CharacterImage
+
+var is_feedback_playing: bool = false
+
 
 #== PRIVATE VARIABLES ==#
 var last_direction = Vector2(0, 1) # Default to facing down (front)
@@ -52,15 +58,20 @@ func _ready() -> void:
 	# Initialize the starting state.
 	animated_sprite.play("idle front")
 	last_position = global_position
+	DialogueBackground.visible = false
+	CharacterImage.visible = false
+	
+		# NEW: Connect to the global signal from the InputManager.
+	InputManager.toggle_companion_standby.connect(toggle_standby)
 
 
 func _physics_process(delta: float) -> void:
 	if not is_instance_valid(player_to_follow):
 		return # Stop processing if the player is not valid.
 	
-	# Toggle stand by mode on key press
+	# MODIFIED: The input check now calls our new function.
 	if Input.is_action_just_pressed("toggle_standby"):
-		is_in_standby_mode = not is_in_standby_mode
+		toggle_standby()
 
 	var current_position = global_position
 	var player_position = player_to_follow.global_position
@@ -103,6 +114,34 @@ func _physics_process(delta: float) -> void:
 
 	update_animation(velocity.normalized() if velocity.length() > 1.0 else Vector2.ZERO)
 
+# This can be called from anywhere (keyboard input, mobile button, etc.).
+func toggle_standby() -> void:
+	# If feedback is already playing, ignore the new request to prevent spam.
+	if is_feedback_playing:
+		return
+		
+	is_feedback_playing = true
+	is_in_standby_mode = not is_in_standby_mode
+	
+	# Set the correct text based on the new mode.
+	if is_in_standby_mode:
+		DialogueLabel.text = "Roshni, Stand By"
+	else:
+		DialogueLabel.text = "Roshni, Follow Me"
+		
+	# Show the UI elements.
+	DialogueBackground.visible = true
+	CharacterImage.visible = true
+	
+	# Wait for 0.5 seconds. The 'await' keyword pauses the function here.
+	await get_tree().create_timer(0.6).timeout
+	
+	# After the timer finishes, hide the UI elements again.
+	DialogueBackground.visible = false
+	CharacterImage.visible = false
+	
+	# Unlock the function so it can be called again.
+	is_feedback_playing = false
 
 func apply_push(force: Vector2):
 	push_velocity = force

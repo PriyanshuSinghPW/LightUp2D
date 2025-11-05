@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=4 uid="uid://bxylnobn4235a"]
+[gd_scene load_steps=44 format=4 uid="uid://bxylnobn4235a"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_jy1lg"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_h8kw8"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://b5lmqguddvefe" path="res://scenes/ui.tscn" id="24_nik0u"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="24_wlmkh"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_gy8to"]
+[ext_resource type="Script" uid="uid://dhom38wnafe28" path="res://scripts/autoload/CutsceneCameraController.gd" id="26_h8kw8"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="27_0i7gq"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1588,11 +1590,12 @@ animation = &"doorclosed"
 [node name="SpawnGate" parent="." instance=ExtResource("24_wlmkh")]
 position = Vector2(-230, -58)
 
-[node name="LightTarget" type="Area2D" parent="."]
+[node name="LightTarget" type="Area2D" parent="." node_paths=PackedStringArray("player_node")]
 position = Vector2(2135.68, -16.3168)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("22_bolq5")
+player_node = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1654,6 +1657,20 @@ position = Vector2(-577, 1940)
 
 [node name="UI" parent="." instance=ExtResource("24_nik0u")]
 follow_viewport_enabled = false
+
+[node name="CutsceneCameraController" type="Node" parent="."]
+script = ExtResource("26_h8kw8")
+
+[node name="MobileControls" type="CanvasLayer" parent="."]
+
+[node name="Virtual Joystick" parent="MobileControls" instance=ExtResource("27_0i7gq")]
+mouse_filter = 1
+visibility_mode = 1
+player_path = NodePath("../../Player")
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]

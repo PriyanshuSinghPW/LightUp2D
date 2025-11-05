@@ -3,6 +3,8 @@ extends Area2D
 # Emitted when the mirror's rotation changes
 signal rotated
 
+signal is_reflecting_light
+
 # --- Configuration ---
 const ROTATION_FRAMES: float = 30.0
 const FRAME_0_ROTATION_OFFSET: float = PI / 2.0 # 90 degrees for "down"
@@ -33,6 +35,14 @@ var _player: Node2D = null
 var _camera_cached: Camera2D = null
 @export var auto_frame_target: NodePath
 @export var auto_frame_enabled: bool = true
+
+func has_been_hit_by_beam():
+	"""
+	This function is called by the RayCast2D (the light beam)
+	when it collides with this mirror.
+	"""
+	# Emit the signal every time the mirror is hit by the beam.
+	is_reflecting_light.emit()
 
 func _get_camera():
 	if _camera_cached and is_instance_valid(_camera_cached):
