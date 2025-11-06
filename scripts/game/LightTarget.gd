@@ -31,7 +31,7 @@ func unlock_target():
 		cutscene_camera_controller.start_cutscene(main_camera)
 		cutscene_camera_controller.add_focus_on_node(self, 1.5)
 		cutscene_camera_controller.add_wait(1.5)
-		cutscene_camera_controller.add_return_shot(player_node)
+		cutscene_camera_controller.add_return_to_target_and_end(player_node)
 		cutscene_camera_controller.play()
 
 

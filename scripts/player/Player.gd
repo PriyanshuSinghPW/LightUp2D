@@ -30,6 +30,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	var input_direction: Vector2
+	
+	# Prioritize joystick input for mobile, but allow keyboard input as a fallback.
 	if joystick_direction != Vector2.ZERO:
 		input_direction = joystick_direction
 	else:
@@ -38,8 +40,11 @@ func _physics_process(delta: float) -> void:
 	var current_speed = speed
 	var footstep_pitch_scale = base_footstep_pitch
 	
-	# MODIFIED: Check both the keyboard/gamepad "sprint" action and our new variable.
-	if (Input.is_action_pressed("sprint") or mobile_sprint_pressed) and input_direction != Vector2.ZERO:
+	# Determine if the sprint condition is met from either keyboard or mobile input.
+	var is_sprinting = (Input.is_action_pressed("sprint") or mobile_sprint_pressed)
+	
+	# Apply sprint effects only if there is movement.
+	if is_sprinting and input_direction != Vector2.ZERO:
 		current_speed *= sprint_multiplier
 		animated_sprite.speed_scale = sprint_multiplier
 		footstep_pitch_scale *= sprint_footstep_pitch_multiplier

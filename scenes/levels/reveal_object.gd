@@ -7,12 +7,11 @@ extends Area2D
 @export var player: CharacterBody2D
 @export var dialogue_manager: Node
 
-# NEW: State variable to track if the text was visible last frame
 var was_text_visible: bool = false
 
 func _ready() -> void:
 	Text.visible = false
-	# NEW: Connect to the global interaction signal
+	# This connects the MOBILE button signal to our interaction function.
 	InputManager.interaction_button_pressed.connect(_on_interact)
 
 func _process(delta: float) -> void:
@@ -22,11 +21,10 @@ func _process(delta: float) -> void:
 	var is_player_in_area = get_overlapping_bodies().has(player)
 	var is_hiding_spot_active = not HidingCollision.disabled
 
-	# Determine if the text should be visible this frame
 	var should_be_visible = is_player_in_area and is_hiding_spot_active
 	Text.visible = should_be_visible
 
-	# NEW: Check if the visibility state CHANGED to emit signals
+	# Logic to show/hide the mobile button
 	if Text.visible and not was_text_visible:
 		InputManager.emit_signal("show_interaction_button")
 	elif not Text.visible and was_text_visible:
@@ -34,10 +32,17 @@ func _process(delta: float) -> void:
 	
 	was_text_visible = Text.visible
 
-# NEW: This function is called by the global signal from InputManager
+	# --- NEW: Add the keyboard input check back in ---
+	# This checks for the KEYBOARD "Interaction" press.
+	if Input.is_action_just_pressed("Interaction"):
+		# It calls the exact same function as the mobile button.
+		_on_interact()
+
+
+# This function is now the central point for interaction logic,
+# called by BOTH the mobile button signal and the keyboard input check.
 func _on_interact() -> void:
-	# We still check if the player is in the area to make sure we're the
-	# intended target of the interaction.
+	# Check if the text is visible to ensure we can interact.
 	if Text.visible:
 		Cloth.visible = false
 		HidingCollision.disabled = true

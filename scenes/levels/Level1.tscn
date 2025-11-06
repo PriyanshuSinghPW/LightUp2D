@@ -1772,7 +1772,7 @@ layout_mode = 3
 anchors_preset = 0
 scale = Vector2(1.27164, 1.27164)
 pivot_offset = Vector2(943, 573)
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="BlurBg" type="ColorRect" parent="StoryNarative/CanvasLayer/Dialogues"]
 visible = false
@@ -1789,10 +1789,11 @@ color = Color(0.0372946, 3.44135e-06, 0.232527, 1)
 visible = false
 layout_mode = 0
 offset_left = 584.32
-offset_top = 761.419
+offset_top = 782.965
 offset_right = 1509.32
-offset_bottom = 973.419
+offset_bottom = 994.965
 scale = Vector2(0.820064, 0.820064)
+mouse_filter = 2
 texture = ExtResource("30_rw0oh")
 
 [node name="DialogueLabel" type="RichTextLabel" parent="StoryNarative/CanvasLayer/Dialogues/DialogueBackground"]

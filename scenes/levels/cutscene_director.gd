@@ -260,5 +260,5 @@ func run_light_beam_sequence():
 	cutscene_camera_controller.start_cutscene(main_camera)
 	cutscene_camera_controller.add_focus_on_node(light_beam_node, 1.5)
 	cutscene_camera_controller.add_wait(3.0)
-	cutscene_camera_controller.add_return_shot(player_node)
+	cutscene_camera_controller.add_return_to_target_and_end(player_node)
 	cutscene_camera_controller.play()

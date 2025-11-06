@@ -76,7 +76,7 @@ func _process(delta: float) -> void:
 
 	is_player_in_area = area_2d.get_overlapping_bodies().has(player)
 
-	# MODIFIED: Logic to show/hide prompt and emit signals
+	# --- Logic to show/hide prompt and emit signals for the UI button ---
 	var should_be_visible = scroll.visible and is_player_in_area
 	Text.visible = should_be_visible
 
@@ -87,9 +87,16 @@ func _process(delta: float) -> void:
 	
 	was_text_visible = Text.visible
 
-# NEW: This function replaces the direct input check in _process
+	# --- NEW: Add the keyboard input check back in ---
+	# This checks for the KEYBOARD "Interaction" press.
+	if Input.is_action_just_pressed("Interaction"):
+		# It calls the exact same function as the mobile button.
+		_on_interact()
+
+# This function is now the central point for interaction logic,
+# called by BOTH the mobile button signal and the keyboard input check.
 func _on_interact() -> void:
-	# Only interact if the player is in the area
+	# Only interact if the player is in the area and the scroll is visible
 	if is_player_in_area and scroll.visible:
 		if not Canvas.visible:
 			_open_scroll_ui()
