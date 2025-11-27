@@ -23,5 +23,6 @@ const AUDIO = {
 	"halloween_music": "res://assets/audio/halloween-background-music.mp3",
 	"scary_bgm": "res://assets/audio/halloween-horror-classical-bgm-4.mp3",
 	"cloth_drop": "res://assets/audio/clothes-drop.mp3",
-	"scary_music": "res://assets/audio/the-price-of-fear.mp3"
+	"scary_music": "res://assets/audio/the-price-of-fear.mp3",
+	"EDM": "res://assets/audio/intro-music-black-box-edm-sound.mp3"
 }

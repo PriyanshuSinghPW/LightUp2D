@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://b5lmqguddvefe"]
+[gd_scene load_steps=26 format=3 uid="uid://b5lmqguddvefe"]
 
 [ext_resource type="Script" uid="uid://d0aywr24iutc5" path="res://scripts/ui/GameUI.gd" id="1_8k7j3"]
 [ext_resource type="Texture2D" uid="uid://dt7eijihn80nv" path="res://assets/howToPlay/ap formula.png" id="4_ukrhx"]
@@ -15,7 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://c7gq6m07rhj5i" path="res://assets/Buttons/Exit.png" id="12_jkdwc"]
 [ext_resource type="Texture2D" uid="uid://dn7qvm26uyxwj" path="res://assets/room assets/Spooky/spiderweb1.png" id="12_rlppe"]
 [ext_resource type="Texture2D" uid="uid://d278lrhbi6s1h" path="res://assets/Background/game background.png" id="18_gng4c"]
+[ext_resource type="Texture2D" uid="uid://dct1ubeeg5j0d" path="res://assets/Buttons/InteractButton.png" id="21_ycmcx"]
+[ext_resource type="Texture2D" uid="uid://d3ysh677vi5kp" path="res://assets/Buttons/SprintLightUp.png" id="22_kupmu"]
 [ext_resource type="Material" uid="uid://ieb1t76k5o15" path="res://assets/Shaders/simple_blur.tres" id="23_4ixst"]
+[ext_resource type="Texture2D" uid="uid://cpo130c5qoh6" path="res://assets/Buttons/CompanionToggleButton.png" id="23_catpy"]
 [ext_resource type="Texture2D" uid="uid://bpj803u662xcr" path="res://assets/graphics/Snake Stars.png" id="24_mc4m6"]
 [ext_resource type="Texture2D" uid="uid://md5wrdq628jr" path="res://assets/Background/CardInfoComponent-Base.png" id="25_87egt"]
 [ext_resource type="Texture2D" uid="uid://c6yroesgan45s" path="res://assets/graphics/GameOver.png" id="27_2ajps"]
@@ -159,6 +162,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="FadeEffect" type="ColorRect" parent="GameOver"]
+layout_mode = 0
 offset_left = -110.0
 offset_right = -30.0
 offset_bottom = 40.77
@@ -493,4 +497,37 @@ offset_right = 2148.0
 offset_bottom = 376.0
 scale = Vector2(0.325524, 0.325524)
 texture_normal = ExtResource("5_rlppe")
+stretch_mode = 0
+
+[node name="InteractionButton" type="TextureButton" parent="GameUI"]
+self_modulate = Color(1, 1, 1, 0.854902)
+layout_mode = 0
+offset_left = 1664.0
+offset_top = 854.0
+offset_right = 2688.0
+offset_bottom = 1878.0
+scale = Vector2(0.191241, 0.191241)
+texture_normal = ExtResource("21_ycmcx")
+stretch_mode = 0
+
+[node name="SprintButton" type="TextureButton" parent="GameUI"]
+self_modulate = Color(1, 1, 1, 0.854902)
+layout_mode = 0
+offset_left = 1494.0
+offset_top = 885.0
+offset_right = 2518.0
+offset_bottom = 1909.0
+scale = Vector2(0.144148, 0.144148)
+texture_normal = ExtResource("22_kupmu")
+stretch_mode = 0
+
+[node name="CompanionButton" type="TextureButton" parent="GameUI"]
+self_modulate = Color(1, 1, 1, 0.854902)
+layout_mode = 0
+offset_left = 1700.0
+offset_top = 691.0
+offset_right = 2724.0
+offset_bottom = 1715.0
+scale = Vector2(0.144148, 0.144148)
+texture_normal = ExtResource("23_catpy")
 stretch_mode = 0

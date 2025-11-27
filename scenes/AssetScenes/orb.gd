@@ -18,6 +18,9 @@ extends AnimatedSprite2D
 # If you assign a texture here, it will be used as an image scroll instead of a text scroll.
 @export var scroll_image_texture: Texture2D = null
 
+# NEW: State variable to track if the text was visible last frame
+var was_text_visible: bool = false
+
 
 # --- State Variables ---
 var is_unlocked: bool = false
@@ -62,6 +65,8 @@ func _ready() -> void:
 	# Set the close button to be transparent initially for the fade-in effect.
 	closeButton.modulate.a = 0.0
 	
+	InputManager.interaction_button_pressed.connect(_on_interact)
+	
 	closeButton.pressed.connect(_on_close_button_pressed)
 
 
@@ -71,11 +76,28 @@ func _process(delta: float) -> void:
 
 	is_player_in_area = area_2d.get_overlapping_bodies().has(player)
 
-	# --- Logic to show the interaction prompt ---
-	Text.visible = scroll.visible and is_player_in_area
+	# --- Logic to show/hide prompt and emit signals for the UI button ---
+	var should_be_visible = scroll.visible and is_player_in_area
+	Text.visible = should_be_visible
 
-	# --- Handle player interaction input ---
-	if is_player_in_area and Input.is_action_just_pressed("Interaction"):
+	if Text.visible and not was_text_visible:
+		InputManager.emit_signal("show_interaction_button")
+	elif not Text.visible and was_text_visible:
+		InputManager.emit_signal("hide_interaction_button")
+	
+	was_text_visible = Text.visible
+
+	# --- NEW: Add the keyboard input check back in ---
+	# This checks for the KEYBOARD "Interaction" press.
+	if Input.is_action_just_pressed("Interaction"):
+		# It calls the exact same function as the mobile button.
+		_on_interact()
+
+# This function is now the central point for interaction logic,
+# called by BOTH the mobile button signal and the keyboard input check.
+func _on_interact() -> void:
+	# Only interact if the player is in the area and the scroll is visible
+	if is_player_in_area and scroll.visible:
 		if not Canvas.visible:
 			_open_scroll_ui()
 		else:

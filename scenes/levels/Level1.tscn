@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=4 uid="uid://c6ywnx8f1j1x0"]
+[gd_scene load_steps=62 format=4 uid="uid://c6ywnx8f1j1x0"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_6owa4"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="1_fh0io"]
@@ -44,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://beljj1hc2mdw4" path="res://assets/CutSceneAssets/Jay/JayDefault.png" id="32_5p5kc"]
 [ext_resource type="Texture2D" uid="uid://c1y6owfuwckwi" path="res://assets/Buttons/closelightUp.png" id="33_f5x1w"]
 [ext_resource type="PackedScene" uid="uid://canu0xx1fj5jo" path="res://scenes/PushableAssets/pushable_table.tscn" id="38_f5x1w"]
+[ext_resource type="Script" uid="uid://dhom38wnafe28" path="res://scripts/autoload/CutsceneCameraController.gd" id="45_hccrk"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1438,7 +1439,7 @@ shader = ExtResource("29_s7ois")
 shader_parameter/lod = 3.682
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tn2kh"]
-radius = 665.301
+radius = 531.068
 
 [node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
 script = ExtResource("1_6owa4")
@@ -1696,11 +1697,12 @@ position = Vector2(107, -58)
 scale = Vector2(1.31677, 1.31677)
 animation = &"doorclosed"
 
-[node name="LightTarget" type="Area2D" parent="."]
+[node name="LightTarget" type="Area2D" parent="." node_paths=PackedStringArray("player_node")]
 position = Vector2(165, -31)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("13_kypp1")
+player_node = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1727,9 +1729,10 @@ collision_layer = 2
 collision_mask = 2
 friction = 1.0
 
-[node name="RevealObject" parent="." node_paths=PackedStringArray("player") instance=ExtResource("22_tn2kh")]
+[node name="RevealObject" parent="." node_paths=PackedStringArray("player", "dialogue_manager") instance=ExtResource("22_tn2kh")]
 position = Vector2(792, 1297)
 player = NodePath("../Player")
+dialogue_manager = NodePath("../StoryNarative")
 
 [node name="Companion" parent="." node_paths=PackedStringArray("player_to_follow") instance=ExtResource("25_ijoxy")]
 position = Vector2(3994, 280)
@@ -1755,20 +1758,21 @@ color = Color(0.505882, 0.505882, 0.756863, 1)
 camera_attributes = SubResource("CameraAttributesPractical_jsker")
 compositor = SubResource("Compositor_6ex7q")
 
-[node name="StoryNarative" type="Node2D" parent="."]
+[node name="StoryNarative" type="Node2D" parent="." node_paths=PackedStringArray("light_beam_node", "player_node")]
 script = ExtResource("28_86um8")
+light_beam_node = NodePath("../LightSource/LaserBeam2D")
+player_node = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="StoryNarative"]
 process_mode = 1
 layer = 0
 
 [node name="Dialogues" type="Control" parent="StoryNarative/CanvasLayer"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 scale = Vector2(1.27164, 1.27164)
 pivot_offset = Vector2(943, 573)
-mouse_filter = 1
+mouse_filter = 2
 
 [node name="BlurBg" type="ColorRect" parent="StoryNarative/CanvasLayer/Dialogues"]
 visible = false
@@ -1782,12 +1786,14 @@ mouse_filter = 2
 color = Color(0.0372946, 3.44135e-06, 0.232527, 1)
 
 [node name="DialogueBackground" type="TextureRect" parent="StoryNarative/CanvasLayer/Dialogues"]
+visible = false
 layout_mode = 0
-offset_left = 603.14
-offset_top = 789.51
-offset_right = 1528.14
-offset_bottom = 1001.51
-scale = Vector2(0.689195, 0.689195)
+offset_left = 584.32
+offset_top = 782.965
+offset_right = 1509.32
+offset_bottom = 994.965
+scale = Vector2(0.820064, 0.820064)
+mouse_filter = 2
 texture = ExtResource("30_rw0oh")
 
 [node name="DialogueLabel" type="RichTextLabel" parent="StoryNarative/CanvasLayer/Dialogues/DialogueBackground"]
@@ -1823,12 +1829,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Character" type="TextureRect" parent="StoryNarative/CanvasLayer/Dialogues"]
+visible = false
 layout_mode = 0
-offset_left = 80.1936
-offset_top = 298.782
-offset_right = 976.194
-offset_bottom = 1450.78
-scale = Vector2(0.248659, 0.248659)
+offset_left = 61.3731
+offset_top = 270.691
+offset_right = 957.373
+offset_bottom = 1422.69
+scale = Vector2(0.295876, 0.295876)
 pivot_offset = Vector2(550.722, 520.921)
 texture = ExtResource("32_5p5kc")
 
@@ -1845,7 +1852,6 @@ texture_normal = ExtResource("33_f5x1w")
 [node name="DialogueTimer" type="Timer" parent="StoryNarative/CanvasLayer/Dialogues"]
 
 [node name="ObjectiveText" type="RichTextLabel" parent="StoryNarative/CanvasLayer"]
-visible = false
 offset_left = 314.0
 offset_top = 14.0
 offset_right = 1714.0
@@ -1857,7 +1863,6 @@ theme_override_constants/outline_size = 9
 theme_override_fonts/normal_font = ExtResource("31_tn2kh")
 theme_override_font_sizes/normal_font_size = 66
 bbcode_enabled = true
-text = "Gay boy Fuck Nigger"
 fit_content = true
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1872,10 +1877,11 @@ position = Vector2(1579, 1144)
 shape = SubResource("CircleShape2D_tn2kh")
 
 [node name="MobileControls" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Virtual Joystick" parent="MobileControls" instance=ExtResource("27_l40or")]
 mouse_filter = 1
+visibility_mode = 1
+player_path = NodePath("../../Player")
 action_left = "move_left"
 action_right = "move_right"
 action_up = "move_up"
@@ -1885,8 +1891,16 @@ action_down = "move_down"
 position = Vector2(-48, 1355)
 friction = 0.5
 
+[node name="CutsceneCameraController" type="Node" parent="."]
+script = ExtResource("45_hccrk")
+
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]
 [connection signal="unlocked" from="LightTarget" to="TargetDoor" method="_on_light_target_unlocked"]
+[connection signal="unlocked" from="LightTarget" to="StoryNarative" method="_on_light_target_unlocked"]
+[connection signal="is_reflecting_light" from="Mirror" to="StoryNarative" method="_on_mirror_is_reflecting_light"]
 [connection signal="rotated" from="Mirror" to="." method="_on_mirror_rotated"]
+[connection signal="rotated" from="Mirror" to="StoryNarative" method="_on_mirror_rotated"]
+[connection signal="pushed" from="PushableAlmirah" to="StoryNarative" method="_on_pushable_almirah_pushed"]
 [connection signal="body_entered" from="StoryNarative/MammothArea" to="StoryNarative" method="_on_mammoth_area_body_entered"]
+[connection signal="pushed" from="PushableTable" to="StoryNarative" method="_on_pushable_table_pushed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=4 uid="uid://cx35gc6yr5ddu"]
+[gd_scene load_steps=64 format=4 uid="uid://cx35gc6yr5ddu"]
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_pi6sb"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="2_8tmga"]
@@ -28,6 +28,8 @@
 [ext_resource type="PackedScene" uid="uid://b5lmqguddvefe" path="res://scenes/ui.tscn" id="24_pi6sb"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_8tmga"]
 [ext_resource type="PackedScene" uid="uid://dapmikb4ik6qp" path="res://scenes/CollisionAssets/Muesum/horse_statue.tscn" id="26_eim73"]
+[ext_resource type="Script" uid="uid://dhom38wnafe28" path="res://scripts/autoload/CutsceneCameraController.gd" id="29_8n7ay"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="30_o163v"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1787,11 +1789,12 @@ enabled = false
 target_position = Vector2(0, 0)
 is_casting = false
 
-[node name="LightTarget" type="Area2D" parent="."]
+[node name="LightTarget" type="Area2D" parent="." node_paths=PackedStringArray("player_node")]
 position = Vector2(-214, -16)
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("22_tmmrq")
+player_node = NodePath("../Player")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LightTarget"]
 shape = SubResource("RectangleShape2D_abcde")
@@ -1824,6 +1827,20 @@ follow_viewport_enabled = false
 
 [node name="HorseStatue" parent="." instance=ExtResource("26_eim73")]
 position = Vector2(934, 1088)
+
+[node name="CutsceneCameraController" type="Node" parent="."]
+script = ExtResource("29_8n7ay")
+
+[node name="MobileControls" type="CanvasLayer" parent="CutsceneCameraController"]
+
+[node name="Virtual Joystick" parent="CutsceneCameraController/MobileControls" instance=ExtResource("30_o163v")]
+mouse_filter = 1
+visibility_mode = 1
+player_path = NodePath("../../Player")
+action_left = "move_left"
+action_right = "move_right"
+action_up = "move_up"
+action_down = "move_down"
 
 [connection signal="body_entered" from="LightTarget" to="." method="_on_light_target_body_entered"]
 [connection signal="player_entered" from="LightTarget" to="TargetDoor" method="_on_light_target_player_entered"]
