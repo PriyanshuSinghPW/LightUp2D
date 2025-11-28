@@ -19,7 +19,8 @@ func _ready():
 func _physics_process(_delta: float):
 	# By calling update_display every frame, we guarantee the UI always
 	# reflects the exact current state of the game managers.
-	update_display()
+	if debug_mode:
+		update_display()
 
 func update_display():
 	# Add safety checks in case managers are not ready yet

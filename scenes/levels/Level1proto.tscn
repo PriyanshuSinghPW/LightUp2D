@@ -11,13 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://b1qerfw8iby0s" path="res://assets/room assets/door/light up door close sprite-Photoroom.png" id="7_w1e10"]
 [ext_resource type="Texture2D" uid="uid://bdoxbcrxjxhln" path="res://assets/room assets/flower/white-glow-light-with-glitter-ef2_upscayl_2x_upscayl-standard-4x.png" id="8_u4is4"]
 [ext_resource type="Texture2D" uid="uid://hflwnihbfgi5" path="res://assets/room assets/flower/light up flower sprite-Photoroom.png" id="9_rlwep"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="11_1d2ys"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="11_1d2ys"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="14_ryai7"]
 [ext_resource type="PackedScene" uid="uid://bcec7ll1vkprl" path="res://scenes/CollisionAssets/Pillers/piller_1.tscn" id="15_fi023"]
 [ext_resource type="PackedScene" uid="uid://2kmrmciwccpf" path="res://scenes/ui/PauseMenu.tscn" id="15_np0mh"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="16_gpweb"]
 [ext_resource type="PackedScene" uid="uid://3fs0xdi5qb8w" path="res://scenes/CollisionAssets/almirahs/almirah_side.tscn" id="16_wstsq"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="17_r875i"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="17_r875i"]
 [ext_resource type="PackedScene" uid="uid://ctva7twb7d0b0" path="res://scenes/CollisionAssets/cabinets/cabinet.tscn" id="17_ss654"]
 [ext_resource type="PackedScene" uid="uid://b4acwmx7nia0y" path="res://scenes/CollisionAssets/cabinets/cabinet_2.tscn" id="18_k2cjq"]
 [ext_resource type="PackedScene" uid="uid://bvm53gnwaeilc" path="res://scenes/CollisionAssets/cabinets/cabinet_brown.tscn" id="19_ty3cl"]
@@ -1894,7 +1894,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abcde"]
 size = Vector2(40, 40)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
 position = Vector2(0, -2)
 script = ExtResource("1_0obl7")
 light_target = NodePath("LightTarget")

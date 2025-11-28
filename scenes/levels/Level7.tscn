@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="4_kuq1l"]
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="5_tyi47"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="6_ui8ht"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="7_0h58p"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="7_0h58p"]
 [ext_resource type="PackedScene" uid="uid://cdwmi8htkpiwb" path="res://scenes/AssetScenes/Left_side_target_door.tscn" id="7_ui8ht"]
 [ext_resource type="PackedScene" uid="uid://b6hxqw6eqj70u" path="res://scenes/AssetScenes/right_side_target_door.tscn" id="8_45ogs"]
 [ext_resource type="PackedScene" uid="uid://vvsg6nufp4ww" path="res://scenes/ui/GameHUD.tscn" id="10_w3v1g"]
@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="12_vxftt"]
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="13_csmkr"]
 [ext_resource type="PackedScene" uid="uid://ddbx7o34etjnv" path="res://scenes/player/companion.tscn" id="13_yisah"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="14_1rhug"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="14_1rhug"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fh0io"]
 
@@ -1359,7 +1359,7 @@ sources/0 = SubResource("TileSetAtlasSource_kvvky")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_abcde"]
 size = Vector2(40, 40)
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
+[node name="Level2" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
 script = ExtResource("1_ui8ht")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")

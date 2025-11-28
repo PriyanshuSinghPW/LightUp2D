@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://e2aen1smsihn" path="res://scripts/levels/Levellightmanager.gd" id="1_6owa4"]
 [ext_resource type="Texture2D" uid="uid://dvpehmdpwns8q" path="res://assets/Background/Generated Image September 25, 2025 - 2_01AM.png" id="1_fh0io"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="2_x4si1"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="2_x4si1"]
 [ext_resource type="Texture2D" uid="uid://cjvc2465rylsd" path="res://assets/tileset/ChatGPT Image Sep 25, 2025, 01_58_08 PM (Custom).png" id="3_68ib6"]
 [ext_resource type="Texture2D" uid="uid://qo13ey7xmt7v" path="res://assets/tileset/light up walls tile2 - 512.png" id="3_76cw8"]
 [ext_resource type="Texture2D" uid="uid://dnmtycyniy60y" path="res://assets/room assets/lightUp 2D carpet map.png" id="4_m00rq"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="5_68ib6"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="5_68ib6"]
 [ext_resource type="Texture2D" uid="uid://b8u1k26r60jgh" path="res://assets/tileset/lightUp 2D carpet map22.png" id="6_ukjja"]
 [ext_resource type="Script" uid="uid://bjhs0qbxjexwp" path="res://scenes/levels/CandleManager.gd" id="7_6ex7q"]
 [ext_resource type="PackedScene" uid="uid://df4fvsqgxcbih" path="res://scenes/AssetScenes/candle.tscn" id="8_ijfg6"]

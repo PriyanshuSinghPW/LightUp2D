@@ -18,12 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://7wxevvmjuerb" path="res://scenes/PushableAssets/pushable_almirah.tscn" id="15_rjd1d"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="15_x3oy0"]
 [ext_resource type="PackedScene" uid="uid://ddbx7o34etjnv" path="res://scenes/player/companion.tscn" id="16_8tmga"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="16_i8dr5"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="16_i8dr5"]
 [ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="17_yescv"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="18_cbvap"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="21_neums"]
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="22_tmmrq"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="23_lbqyf"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="23_lbqyf"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="24_a2sa2"]
 [ext_resource type="PackedScene" uid="uid://b5lmqguddvefe" path="res://scenes/ui.tscn" id="24_pi6sb"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="25_8tmga"]
@@ -1583,7 +1583,7 @@ glow_intensity = 1.5
 
 [sub_resource type="Compositor" id="Compositor_6ex7q"]
 
-[node name="Level2" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
 script = ExtResource("1_pi6sb")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")

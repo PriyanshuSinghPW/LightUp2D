@@ -80,7 +80,6 @@ position = Vector2(21.1307, -232.434)
 scale = Vector2(9.00911, 9.00911)
 color = Color(1, 1, 0.298039, 1)
 energy = 0.4
-shadow_enabled = true
 texture = ExtResource("6_ekk7w")
 texture_scale = 0.69
 

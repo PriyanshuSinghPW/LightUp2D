@@ -48,7 +48,7 @@ curve = SubResource("6")
 [sub_resource type="ParticleProcessMaterial" id="8"]
 particle_flag_disable_z = true
 emission_shape = 3
-emission_box_extents = Vector3(589.055, 20, 1)
+emission_box_extents = Vector3(634.076, 20, 1)
 direction = Vector3(-1, 0, 0)
 spread = 0.0
 gravity = Vector3(0, 0, 0)

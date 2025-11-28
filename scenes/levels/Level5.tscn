@@ -19,14 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://3fs0xdi5qb8w" path="res://scenes/CollisionAssets/almirahs/almirah_side.tscn" id="17_fljmm"]
 [ext_resource type="PackedScene" uid="uid://cdf38j7um28jw" path="res://scenes/AssetScenes/target_door.tscn" id="18_v0jxs"]
 [ext_resource type="PackedScene" uid="uid://byoqoc1tyqef6" path="res://scenes/AssetScenes/spawn_gate.tscn" id="19_hgkar"]
-[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/player.tscn" id="20_ruoom"]
+[ext_resource type="PackedScene" uid="uid://b5w5g5f5g5g5" path="res://scenes/player/Player.tscn" id="20_ruoom"]
 [ext_resource type="Script" uid="uid://cc05cns3p4qe" path="res://scenes/levels/companion.gd" id="21_oqeha"]
 [ext_resource type="Texture2D" uid="uid://hxmqminpa5y6" path="res://assets/sprites/companion/light up companion.png" id="22_al2i5"]
 [ext_resource type="PackedScene" uid="uid://cb1jy3pa1b4tk" path="res://scenes/game_elements/LightBeam.tscn" id="25_tb7tq"]
 [ext_resource type="Script" uid="uid://dax7gn0gbov8p" path="res://scripts/game/LightTarget.gd" id="26_hq4kv"]
 [ext_resource type="PackedScene" uid="uid://n3lt112jus6h" path="res://scenes/CollisionAssets/Muesum/dinosaur.tscn" id="26_wham7"]
 [ext_resource type="PackedScene" uid="uid://b5lmqguddvefe" path="res://scenes/ui.tscn" id="27_t0m4p"]
-[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/mirror.tscn" id="27_xy3bv"]
+[ext_resource type="PackedScene" uid="uid://1elef37g4twu" path="res://scenes/game_elements/Mirror.tscn" id="27_xy3bv"]
 [ext_resource type="PackedScene" uid="uid://dmejxsrufulmg" path="res://scenes/AssetScenes/glass_window.tscn" id="28_iyyii"]
 [ext_resource type="Script" uid="uid://dhom38wnafe28" path="res://scripts/autoload/CutsceneCameraController.gd" id="29_suq8e"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="30_h5bbj"]
@@ -1590,7 +1590,7 @@ glow_intensity = 1.5
 
 [sub_resource type="Compositor" id="Compositor_6ex7q"]
 
-[node name="Level1" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
+[node name="Level3" type="Node2D" node_paths=PackedStringArray("light_target", "light_source")]
 script = ExtResource("1_wham7")
 light_target = NodePath("LightTarget")
 light_source = NodePath("LightSource")
