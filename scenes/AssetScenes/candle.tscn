@@ -83,6 +83,10 @@ energy = 0.4
 texture = ExtResource("6_ekk7w")
 texture_scale = 0.69
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(10.5652, -227.152)
+scale = Vector2(25.8847, 25.3564)
+
 [node name="Area2D" type="Area2D" parent="."]
 scale = Vector2(1.9197, 1.9197)
 collision_layer = 2

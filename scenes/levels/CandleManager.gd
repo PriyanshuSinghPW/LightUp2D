@@ -23,6 +23,7 @@ func _ready():
             var light = child.get_node_or_null("PointLight2D")
             var area = child.get_node_or_null("Area2D")
             var label = child.get_node_or_null("LightUpText")
+            var notifier = child.get_node_or_null("VisibleOnScreenNotifier2D")
             
             if not area or not label:
                 continue
@@ -34,9 +35,15 @@ func _ready():
             if light:
                 light.enabled = "On" in child.animation
                 # OPTIMIZATION: Disable shadows on low-end devices automatically
-                # You can also just disable them in the scene if they aren't critical
                 if OS.get_name() in ["Android", "iOS", "Web"]:
                     light.shadow_enabled = false
+                
+                # OPTIMIZATION: Culling
+                if notifier:
+                    notifier.screen_entered.connect(func(): light.visible = true)
+                    notifier.screen_exited.connect(func(): light.visible = false)
+                    # Set initial state
+                    light.visible = notifier.is_on_screen()
 
             # Store references in a dictionary
             var candle_data = {
@@ -121,7 +128,8 @@ func _on_flicker_timer_timeout():
     
     for data in candles_data:
         var light = data["light"]
-        if light and light.enabled:
+        # Only flicker if enabled AND visible on screen
+        if light and light.enabled and light.visible:
             # Add a tiny variation so they don't look identical, but cheaper
             light.energy = base_energy
             var new_color = light.color

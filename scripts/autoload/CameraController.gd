@@ -8,9 +8,9 @@ extends Node
 
 @export var max_zoom_out: float = 1.2 # smaller number = further out if base zoom < 1
 @export var min_zoom_in: float = 0.5
-@export var lerp_speed: float = 6.0
-@export var zoom_lerp_speed: float = 4.0 # Separate speed for zoom transitions
-@export var reset_lerp_speed: float = 8.0 # Faster reset when returning to player
+@export var lerp_speed: float = 3.0 # Slower for smoother cinematic feel
+@export var zoom_lerp_speed: float = 2.0 # Slower zoom for less vertigo
+@export var reset_lerp_speed: float = 4.0 # Match reset speed for consistency
 @export var padding: float = 160.0
 @export var keep_player_margin: float = 120.0
 @export var debug_mode: bool = true
@@ -20,10 +20,17 @@ var _active: bool = false
 var _player: Node2D
 var _targets: Array[Node2D] = []
 var _base_zoom: Vector2 = Vector2.ONE
+var _original_smoothing: bool = false
+var _is_snapped: bool = false
 
 func configure(cam: Camera2D):
     _camera = cam
     _base_zoom = cam.zoom
+    if "position_smoothing_enabled" in _camera:
+        _original_smoothing = _camera.position_smoothing_enabled
+    # Force physics interpolation for smooth movement even at low tick rates
+    if "physics_interpolation_mode" in _camera:
+        _camera.physics_interpolation_mode = 1 # Node.PHYSICS_INTERPOLATION_MODE_ON
 
 func _auto_find_camera():
     if _camera and is_instance_valid(_camera):
@@ -54,6 +61,12 @@ func focus_pair(player: Node2D, target: Node2D):
     _player = player
     _targets = [target]
     _active = true
+    
+    # Detach camera to prevent fighting with parent movement
+    # We do NOT disable smoothing anymore to prevent the "snap" effect
+    if _camera.get_parent() == _player:
+        _camera.top_level = true
+            
     if debug_mode:
         print("[CameraController] Focusing (pair) on player:", player.name, " + target:", target.name, " | base_zoom:", _base_zoom)
 
@@ -73,6 +86,12 @@ func focus_points(player: Node2D, extra_points: Array[Node2D]):
         _active = false
         return
     _active = true
+    
+    # Detach camera to prevent fighting with parent movement
+    # We do NOT disable smoothing anymore to prevent the "snap" effect
+    if _camera.get_parent() == _player:
+        _camera.top_level = true
+            
     if debug_mode:
         var names := []
         for t in _targets:
@@ -93,11 +112,28 @@ func _process(delta: float) -> void:
     # If not active, smoothly return camera to player
     if not _active:
         if is_instance_valid(_player):
-            # Smooth return to player position
-            var target_pos = _player.global_position
-            _camera.global_position = _camera.global_position.lerp(target_pos, clamp(delta * reset_lerp_speed, 0.0, 1.0))
             # Smooth return to base zoom
             _camera.zoom = _camera.zoom.lerp(_base_zoom, clamp(delta * zoom_lerp_speed, 0.0, 1.0))
+            
+            # Handle position return
+            if _camera.get_parent() == _player:
+                # If we are detached (top_level), we need to return then re-attach
+                if _camera.top_level:
+                    var target_pos = _player.global_position
+                    _camera.global_position = _camera.global_position.lerp(target_pos, clamp(delta * reset_lerp_speed, 0.0, 1.0))
+                    
+                    # If close enough, re-attach and let Godot handle it
+                    if _camera.global_position.distance_to(target_pos) < 5.0:
+                        _camera.top_level = false
+                        _camera.position = Vector2.ZERO
+                        # Smoothing remains enabled throughout
+                else:
+                    # Already attached, let Godot handle smoothing/following
+                    pass
+            else:
+                # Not a child, must manually follow
+                var target_pos = _player.global_position
+                _camera.global_position = _camera.global_position.lerp(target_pos, clamp(delta * reset_lerp_speed, 0.0, 1.0))
         return
     
     # Active mode - frame player + target
